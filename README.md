@@ -1,18 +1,20 @@
-# Nome do projeto
+# MobiFlux
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+O trabalho aborda os desafios da mobilidade urbana para cadeirantes no Brasil, destacando a falta de infraestrutura acessível, como calçadas adaptadas e transporte público adequado. Analisa o cumprimento da legislação, investiga boas práticas e propõe soluções para melhorar a acessibilidade nas cidades.O objetivo do trabalho é criar um sistema web que possibilite a inclusão de cadeirantes para a locomoção pública, de modo que incentive políticas e ações que garantam o direito de ir e vir, tornando o ambiente urbano mais inclusivo e acessível para todos.
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Giovana Lott
+* Guilherme Nascimento
+* João Vitor Ribeiro Calixto
+* José de Campos Abreu
+* Rafael Henriques Aquino Correa
+* Victor Sverberi Maia
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Diego Augusto de Faria Barros
+* Michelle Hanne Soares de Andrade
 
 
 
