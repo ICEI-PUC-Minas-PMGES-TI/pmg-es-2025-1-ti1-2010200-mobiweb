@@ -6,11 +6,11 @@ Informações básicas do projeto.
 * **Repositório GitHub:** [LINK PARA O REPOSITÓRIO NO GITHUB]
 * **Membros da equipe:**
 
-  * [Giovana lott]
-  * [Guilherme Nascimento] 
-  * [João Victor Calixto]
-  * [Rafael Henriques]
-  * [Victor Maia]
+  * [Giovana lott] https://github.com/GiovanaLott
+  * [Guilherme Nascimento] https://github.com/guilhermeoliveira-gno
+  * [João Victor Calixto] https://github.com/joaocalixto09
+  * [Rafael Henriques] https://github.com/Rafaelhenriques01
+  * [Victor Maia] https://github.com/victorsverberi
 
 A documentação do projeto é estruturada da seguinte forma:
 
