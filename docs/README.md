@@ -99,21 +99,9 @@ Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa
 
 # Product Design
 
-Nesse momento, vamos transformar os insights e validações obtidos em soluções tangíveis e utilizáveis. Essa fase envolve a definição de uma proposta de valor, detalhando a prioridade de cada ideia e a consequente criação de wireframes, mockups e protótipos de alta fidelidade, que detalham a interface e a experiência do usuário.
+![image](https://github.com/user-attachments/assets/21aca39e-cda4-4223-bd31-3f3c32525d39)
 
-## Histórias de Usuários
 
-Com base na análise das personas foram identificadas as seguintes histórias de usuários:
-
-| EU COMO...`PERSONA` | QUERO/PRECISO ...`FUNCIONALIDADE`        | PARA ...`MOTIVO/VALOR`               |
-| --------------------- | ------------------------------------------ | -------------------------------------- |
-| Usuário do sistema   | Registrar minhas tarefas ⚠️ EXEMPLO ⚠️ | Não esquecer de fazê-las             |
-| Administrador         | Alterar permissões ⚠️ EXEMPLO ⚠️      | Permitir que possam administrar contas |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
->
 > **Orientações**:
 >
 > - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
@@ -121,16 +109,15 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 
 ## Proposta de Valor
 
-**✳️✳️✳️ APRESENTE O DIAGRAMA DA PROPOSTA DE VALOR PARA CADA PERSONA ✳️✳️✳️**
+**✳️✳️✳️ ![image](https://github.com/user-attachments/assets/38db57f6-e907-47c2-a6b8-3b3aa99d62ff)
+ ✳️✳️✳️**
 
 ##### Proposta para Persona XPTO ⚠️ EXEMPLO ⚠️
 
 ![image](https://github.com/user-attachments/assets/90bd85a6-cdbf-402e-bba5-fefa48a3d78f)
 
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> O mapa da proposta de valor é uma ferramenta que nos ajuda a definir qual tipo de produto ou serviço melhor atende às personas definidas anteriormente.
+
 
 ## Requisitos
 
@@ -140,15 +127,39 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 | ID     | Descrição do Requisito                                   | Prioridade |
 | ------ | ---------------------------------------------------------- | ---------- |
-| RF-001 | Permitir que o usuário cadastre tarefas ⚠️ EXEMPLO ⚠️ | ALTA       |
-| RF-002 | Emitir um relatório de tarefas no mês ⚠️ EXEMPLO ⚠️ | MÉDIA     |
+| RF-001 | mapa de geolocalização para lugares acessiveis| ALTA       |
+| RF-002 |  espaço de socialização entre os usuários | MÉDIA   |
+| RF-003 | sistema de recompensa por usabilidade| BAIXA       |
+| RF-004 | ala de comentários sobre o app | BAIXA     |
+| RF-005 | plataforma acessivel à demais públicos| ALTA       |
+| RF-006 | utilização sem internet | BAIXA     |
+| RF-007 | sistema de alerta| MÉDIA       |
+| RF-008 | filtragem por categoria de lugar| ALTA     |
+| RF-009 | cadastro e login do usuário| ALTA       |
+| RF-010 | filtragem por localização | BAIXA     |
+
+
+
+
+
+
+
+
 
 ### Requisitos não Funcionais
 
 | ID      | Descrição do Requisito                                                              | Prioridade |
 | ------- | ------------------------------------------------------------------------------------- | ---------- |
-| RNF-001 | O sistema deve ser responsivo para rodar em um dispositivos móvel ⚠️ EXEMPLO ⚠️ | MÉDIA     |
-| RNF-002 | Deve processar requisições do usuário em no máximo 3s ⚠️ EXEMPLO ⚠️          | BAIXA      |
+| RNF-001 | abrir e carregar em 5 segundos| ALTA       |
+| RNF-002 |  facil usabilidade | MÉDIA   |
+| RNF-003 | sistema descritivo| BAIXA       |
+| RNF-004 | css bem feito para melhor visuabilidade | BAIXA     |
+| RNF-005 | código bem dscrito para facil atualização| ALTA       |
+| RNF-006 | describilidade dos itens para sistema de acessibilidade do dispositivo | BAIXA     |
+| RNF-007 | logotipos chamativos| MÉDIA       |
+| RNF-008 | bom uso de cores| ALTA     |
+| RNF-009 | identidade da marca| ALTA       |
+| RNF-010 | portabilidade de dispositivos | BAIXA     |
 
 > ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
 >
