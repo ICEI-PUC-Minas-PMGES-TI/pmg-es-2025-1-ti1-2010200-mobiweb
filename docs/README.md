@@ -175,7 +175,12 @@ Artefatos relacionados com a interface e a interacão do usuário na proposta de
 
 Estes são os protótipos de telas do sistema.
 
-**✳️✳️✳️ COLOQUE AQUI OS PROTÓTIPOS DE TELAS COM TÍTULO E DESCRIÇÃO ✳️✳️✳️**
+**✳️✳️✳️ ![image](https://github.com/user-attachments/assets/f003124e-1ed5-4b99-9a32-bc9b284ae00e)
+![image](https://github.com/user-attachments/assets/d57eddf9-3b3e-400b-b167-56caee6eefe0)
+![image](https://github.com/user-attachments/assets/bb908855-1401-494a-a8be-e9b8360f019b)
+
+
+ ✳️✳️✳️**
 
 ##### TELA XPTO ⚠️ EXEMPLO ⚠️
 
@@ -183,10 +188,7 @@ Descrição para a tela XPTO
 
 ![Exemplo de wireframe](images/exemplo-wireframe.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface.
->
+
 > **Orientações**:
 >
 > - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
@@ -212,7 +214,16 @@ Descrição para a tela XPTO
 
 ### Protótipo Interativo
 
-**✳️✳️✳️ COLOQUE AQUI UM IFRAME COM SEU PROTÓTIPO INTERATIVO ✳️✳️✳️**
+**✳️✳️✳️ ![image](https://github.com/user-attachments/assets/e413aef5-0875-413e-805c-e49e7220dd66)
+![image](https://github.com/user-attachments/assets/1dd7a414-310a-40c6-a1d4-d56259a7d4e7)
+![image](https://github.com/user-attachments/assets/5cadf711-efde-40ab-9f0a-ea6c5729bb88)
+![image](https://github.com/user-attachments/assets/0ee83f8c-9ac2-4f78-8778-81d144e5ef08)
+![image](https://github.com/user-attachments/assets/99d5682d-5c30-4948-ae50-c1b040d9658e)
+
+
+
+
+✳️✳️✳️**
 
 ✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
 
