@@ -2,26 +2,26 @@ cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: 
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
+  - family-names: Lott Riquetti
+    given-names: Giovana 
+  - family-names: Nascimento de Oliveira
+    given-names: Guilherme
+  - family-names: Ribeiro Calixto  
+    given-names: João Vitor
+  - family-names: Henriques Aquino Correa
+    given-names: Rafael
+  - family-names: Sverberi Maia
+    given-names: Victor
   - family-names: 
     given-names:
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Soares      
+    given-names: Michelle 
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Augusto
+    given-names: Diego
 keywords:
   - 
   - 
