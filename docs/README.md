@@ -3,7 +3,7 @@
 Informações básicas do projeto.
 
 * **Projeto:** [Mobiflux]
-* **Repositório GitHub:** [LINK PARA O REPOSITÓRIO NO GITHUB]
+* **Repositório GitHub:** [https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2010200-mobiweb/tree/master]
 * **Membros da equipe:**
 
   * [Giovana lott] https://github.com/GiovanaLott
