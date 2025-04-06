@@ -127,16 +127,16 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 | ID     | Descrição do Requisito                                   | Prioridade |
 | ------ | ---------------------------------------------------------- | ---------- |
-| RF-001 | mapa de geolocalização para lugares acessiveis| ALTA       |
-| RF-002 |  espaço de socialização entre os usuários | MÉDIA   |
-| RF-003 | sistema de recompensa por usabilidade| BAIXA       |
-| RF-004 | ala de comentários sobre o app | BAIXA     |
-| RF-005 | plataforma acessivel à demais públicos| ALTA       |
-| RF-006 | utilização sem internet | BAIXA     |
-| RF-007 | sistema de alerta| MÉDIA       |
-| RF-008 | filtragem por categoria de lugar| ALTA     |
-| RF-009 | cadastro e login do usuário| ALTA       |
-| RF-010 | filtragem por localização | BAIXA     |
+| RF-001 | a aplicação deve conter um mapa de geolocalização para lugares acessiveis| ALTA       |
+| RF-002 |  a aplicação deve conter um espaço de socialização entre os usuários | MÉDIA   |
+| RF-003 | a aplicação deve conter um sistema de recompensa por usabilidade| BAIXA       |
+| RF-004 | a aplicação deve conter uma ala de comentários sobre o app | BAIXA     |
+| RF-005 | a aplicação deve ser uma plataforma acessivel à demais públicos| ALTA       |
+| RF-006 | a aplicação deve poder ser utilizada sem internet | BAIXA     |
+| RF-007 | a aplicação deve conter um sistema de bonificação| MÉDIA       |
+| RF-008 | a aplicação deve conter uma filtragem por categoria de lugar| ALTA     |
+| RF-009 | a aplicação deve conter um cadastro e login do usuário| ALTA       |
+| RF-010 | a aplicação deve conter uma filtragem por localização | BAIXA     |
 
 
 
@@ -198,19 +198,10 @@ Descrição para a tela XPTO
 
 ### User Flow
 
-**✳️✳️✳️ COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS ✳️✳️✳️**
+**✳️✳️✳️ [COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS](https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&t=AX3O9xNKzMv6hDCS-1) ✳️✳️✳️**
 
-![Exemplo de fluxo de telas](images/exemplo-userflow.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
->
-> **Orientações**:
->
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools &amp; Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
+
 
 ### Protótipo Interativo
 
@@ -227,9 +218,7 @@ Descrição para a tela XPTO
 
 ✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Um protótipo interativo apresenta o projeto de interfaces e permite ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. Utilize as mesmas ferramentas de construção de wireframes para montagem do seu protótipo interativo. Inclua o link para o protótipo interativo do projeto.
+
 
 # Metodologia
 
