@@ -1,4 +1,10 @@
-.btn btn-dark
+
+#btnsend
 {
-  margin-top: 200px;
+    margin-top: 30px;
+}
+.cardopn
+{
+    justify-content: center;
+    align-items: center;
 }
