@@ -13,6 +13,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+
     
   }
 
@@ -41,5 +42,5 @@ html, body {
   #ttlpgn{
     text-align: center;
     font-family: comic-sans-ms;
-    background-color: #13a5ca60;
+    background-color: #19b0d683;
   }
