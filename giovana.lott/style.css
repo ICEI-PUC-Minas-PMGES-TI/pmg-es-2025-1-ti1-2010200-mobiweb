@@ -61,3 +61,21 @@ header {
 .card a:hover {
     text-decoration: underline;
 }
+
+.logo {
+    height: 60px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+header {
+    background-color: #ff99cc;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
