@@ -9,7 +9,7 @@ html, body {
   }
   
   .center-wrapper {
-    height: 100vh;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,11 +17,6 @@ html, body {
     
   }
 
-   #logo {
-    width: 80px;
-    height: auto;
-}
-  
   .card img {
     width: 100%;
     height: auto;
@@ -33,14 +28,20 @@ html, body {
     margin-bottom: 1rem;
   }
   
-  .logocontainer {
-    width: 80px;
-    height: 80px;
-    margin-left: 30px;
-    margin-top: 30px;
+  #exampleModalToggle {
+    max-height: 650px;
   }
-  #ttlpgn{
-    text-align: center;
-    font-family: comic-sans-ms;
-    background-color: #19b0d683;
+
+  #btnnewlocal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 290px;
+    margin-left: 520px;
+    
   }
+
+  
+
+
+
