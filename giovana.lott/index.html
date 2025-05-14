@@ -1,33 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajuda de Fisioterapeutas</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ajuda de Fisioterapeutas</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <header>
-        <img src="logo tiaw.jpg" class="logo">
-        <h1>Ajuda de Fisioterapeutas</h1>
-    </header>
+  <header>
+    <img src="logo tiaw.jpg" class="logo" />
+    <h1>Ajuda de Fisioterapeutas</h1>
+  </header>
 
-    <div class="container" id="card-container">
-        <!-- Os cards serão carregados pelo script.js -->
+  <div class="container">
+    <!-- Card 1 -->
+    <div class="card" onclick="abrirModal('Maria Oliveira', 'Ortopedia', '@mariafisio', 'https://instagram.com/mariafisio', 'Especialista em reabilitação ortopédica com mais de 10 anos de experiência.')">
+      <img src="https://via.placeholder.com/120" alt="Foto do profissional" />
+      <h3>Maria Oliveira</h3>
+      <p><strong>Especialidade:</strong> Ortopedia</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/mariafisio" target="_blank">@mariafisio</a></p>
     </div>
 
-    <!-- Modal -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="modal-name"></h2>
-            <p><strong>Especialidade:</strong> <span id="modal-specialty"></span></p>
-            <p><strong>Instagram:</strong> <a id="modal-instagram" href="#" target="_blank"></a></p>
-            <p><strong>Descrição:</strong> <span id="modal-description"></span></p>
-        </div>
+    <!-- Card 2 -->
+    <div class="card" onclick="abrirModal('João Silva', 'Fisioterapia esportiva', '@joaofisio', 'https://instagram.com/joaofisio', 'Fisioterapeuta esportivo especializado em reabilitação de atletas.')">
+      <img src="https://via.placeholder.com/120" alt="Foto do fisioterapeuta" />
+      <h3>João Silva</h3>
+      <p><strong>Especialidade:</strong> Fisioterapia esportiva</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/joaofisio" target="_blank">@joaofisio</a></p>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Card 3 -->
+    <div class="card" onclick="abrirModal('Fernanda Lima', 'Fisioterapia pélvica', '@fernandafisio', 'https://instagram.com/fernandafisio', 'Atende mulheres com foco em disfunções do assoalho pélvico.')">
+      <img src="https://via.placeholder.com/120" alt="Foto da fisioterapeuta" />
+      <h3>Fernanda Lima</h3>
+      <p><strong>Especialidade:</strong> Fisioterapia pélvica</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/fernandafisio" target="_blank">@fernandafisio</a></p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="fecharModal()">&times;</span>
+      <h2 id="modal-nome"></h2>
+      <p><strong>Especialidade:</strong> <span id="modal-especialidade"></span></p>
+      <p><strong>Instagram:</strong> <a id="modal-instagram" href="#" target="_blank"></a></p>
+      <p><strong>Descrição:</strong> <span id="modal-descricao"></span></p>
+    </div>
+  </div>
+
+  <script>
+    function abrirModal(nome, especialidade, instagram, link, descricao) {
+      document.getElementById("modal-nome").textContent = nome;
+      document.getElementById("modal-especialidade").textContent = especialidade;
+      document.getElementById("modal-instagram").textContent = instagram;
+      document.getElementById("modal-instagram").href = link;
+      document.getElementById("modal-descricao").textContent = descricao;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      if (event.target === document.getElementById("modal")) {
+        fecharModal();
+      }
+    };
+  </script>
+
 </body>
 </html>

@@ -1,66 +1,98 @@
-const professionals = [
-    {
-        nome: "Maria Oliveira",
-        especialidade: "Ortopedia",
-        instagram: "@mariafisio",
-        link: "https://instagram.com/mariafisio",
-        descricao: "Especialista em reabilitação ortopédica com 10 anos de experiência.",
-        foto: "https://via.placeholder.com/120"
-    },
-    {
-        nome: "João Silva",
-        especialidade: "Fisioterapia esportiva",
-        instagram: "@joaofisio",
-        link: "https://instagram.com/joaofisio",
-        descricao: "Atua com atletas e lesões esportivas, com foco em performance.",
-        foto: "https://via.placeholder.com/120"
-    },
-    {
-        nome: "Fernanda Lima",
-        especialidade: "Fisioterapia pélvica",
-        instagram: "@fernandafisio",
-        link: "https://instagram.com/fernandafisio",
-        descricao: "Ajuda mulheres com fortalecimento do assoalho pélvico.",
-        foto: "https://via.placeholder.com/120"
-    }
-];
+document.addEventListener('DOMContentLoaded', function() {
+    // Dados dos profissionais
+    const professionals = {
+        maria: {
+            name: "Maria Oliveira",
+            specialty: "Ortopedia",
+            image: "https://via.placeholder.com/120",
+            description: "Fisioterapeuta especializada em ortopedia...",
+            education: "Graduada em Fisioterapia pela UFMG...",
+            experience: "10 anos de experiência...",
+            whatsapp: "(11) 98765-4321",
+            email: "maria@exemplo.com",
+            instagramUrl: "https://instagram.com/mariafisio"
+        },
+        joao: {
+            name: "João Silva",
+            specialty: "Fisioterapia esportiva",
+            image: "https://via.placeholder.com/120",
+            description: "Especialista em fisioterapia esportiva...",
+            education: "Mestre em Fisioterapia...",
+            experience: "8 anos de experiência...",
+            whatsapp: "(11) 91234-5678",
+            email: "joao@exemplo.com",
+            instagramUrl: "https://instagram.com/joaofisio"
+        },
+        fernanda: {
+            name: "Fernanda Lima",
+            specialty: "Fisioterapia pélvica",
+            image: "https://via.placeholder.com/120",
+            description: "Especialista em fisioterapia pélvica...",
+            education: "Doutora em Fisioterapia...",
+            experience: "12 anos de experiência...",
+            whatsapp: "(11) 99876-5432",
+            email: "fernanda@exemplo.com",
+            instagramUrl: "https://instagram.com/fernandafisio"
+        }
+    };
 
-const container = document.getElementById('card-container');
-const modal = document.getElementById('modal');
-const modalName = document.getElementById('modal-name');
-const modalSpecialty = document.getElementById('modal-specialty');
-const modalInstagram = document.getElementById('modal-instagram');
-const modalDescription = document.getElementById('modal-description');
+    // Seleciona elementos
+    const modal = document.getElementById('professionalModal');
+    const modalBody = document.querySelector('.modal-body');
+    const closeBtn = document.querySelector('.close-modal');
 
-professionals.forEach((prof) => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-        <img src="${prof.foto}" alt="Foto de ${prof.nome}">
-        <h3>${prof.nome}</h3>
-        <p><strong>Especialidade:</strong> ${prof.especialidade}</p>
-        <p><strong>Instagram:</strong> <a href="${prof.link}" target="_blank">${prof.instagram}</a></p>
-    `;
-    card.addEventListener('click', () => openModal(prof));
-    container.appendChild(card);
+    // Adiciona evento de clique para cada card
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', function() {
+            const professionalId = this.getAttribute('data-professional');
+            const professional = professionals[professionalId];
+            
+            if (professional) {
+                modalBody.innerHTML = `
+                    <div class="modal-header">
+                        <img src="${professional.image}" alt="${professional.name}">
+                        <div>
+                            <h2>${professional.name}</h2>
+                            <p><strong>Especialidade:</strong> ${professional.specialty}</p>
+                        </div>
+                    </div>
+                    <div class="info-group">
+                        <h3>Sobre</h3>
+                        <p>${professional.description}</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>Formação</h3>
+                        <p>${professional.education}</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>Experiência</h3>
+                        <p>${professional.experience}</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>Contato</h3>
+                        <p><strong>WhatsApp:</strong> ${professional.whatsapp}</p>
+                        <p><strong>Email:</strong> ${professional.email}</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="${professional.instagramUrl}" target="_blank">Instagram</a>
+                        <a href="https://wa.me/55${professional.whatsapp.replace(/\D/g, '')}" target="_blank">WhatsApp</a>
+                    </div>
+                `;
+                
+                modal.style.display = 'block';
+            }
+        });
+    });
+
+    // Fechar modal
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    // Fechar ao clicar fora
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
 });
-
-function openModal(prof) {
-    modalName.textContent = prof.nome;
-    modalSpecialty.textContent = prof.especialidade;
-    modalInstagram.textContent = prof.instagram;
-    modalInstagram.href = prof.link;
-    modalDescription.textContent = prof.descricao;
-    modal.style.display = 'flex';
-}
-
-function closeModal() {
-    modal.style.display = 'none';
-}
-
-// Fechar ao clicar fora
-window.onclick = function(event) {
-    if (event.target == modal) {
-        closeModal();
-    }
-};

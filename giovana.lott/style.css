@@ -1,36 +1,118 @@
-/* Modal */
+/* Corpo da página */
+body {
+    background-color: #ffe6f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #a3d4e3;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Logo */
+.logo {
+    height: 60px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+/* Container de cards */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px;
+}
+
+/* Card individual */
+.card {
+    background-color: white;
+    border: 2px solid #ffb6c1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.5);
+    width: 300px;
+    margin: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #cc0066;
+    margin-bottom: 5px;
+}
+
+.card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.card a {
+    color: #ff3399;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* Modal - janela sobreposta */
 .modal {
     display: none;
     position: fixed;
     top: 0; left: 0;
-    width: 100%; height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 1000;
 }
 
 .modal-content {
     background-color: #fff0f5;
     border: 2px solid #ffb6c1;
-    padding: 30px;
     border-radius: 15px;
+    padding: 25px;
     width: 90%;
     max-width: 350px;
     box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5);
     position: relative;
     text-align: left;
-    animation: fadeIn 0.3s ease-in-out;
 }
 
 .modal-content h2 {
     color: #cc0066;
-    margin-bottom: 10px;
+    margin-top: 0;
 }
 
-.modal-content p {
+.modal-content p,
+.modal-content a {
     color: #555;
-    margin: 8px 0;
+    font-size: 14px;
 }
 
 .modal-content a {
@@ -42,6 +124,7 @@
     text-decoration: underline;
 }
 
+/* Botão de fechar */
 .close-btn {
     position: absolute;
     top: 10px;
@@ -50,16 +133,4 @@
     color: #cc0066;
     cursor: pointer;
     font-weight: bold;
-}
-
-/* Animação opcional */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
