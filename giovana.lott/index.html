@@ -9,35 +9,25 @@
 <body>
 
     <header>
-        <img src="logo tiaw.jpg"  class="logo">
+        <img src="logo tiaw.jpg" class="logo">
         <h1>Ajuda de Fisioterapeutas</h1>
     </header>
 
-    <div class="container">
-        <!-- Card 1 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/120" alt="Foto da fisioterapeuta">
-            <h3>Maria Oliveira</h3>
-            <p><strong>Especialidade:</strong> Ortopedia</p>
-            <p><strong>Instagram:</strong> <a href="https://instagram.com/mariafisio" target="_blank">@mariafisio</a></p>
-        </div>
+    <div class="container" id="card-container">
+        <!-- Os cards serão carregados pelo script.js -->
+    </div>
 
-        <!-- Card 2 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/120" alt="Foto do fisioterapeuta">
-            <h3>João Silva</h3>
-            <p><strong>Especialidade:</strong> Fisioterapia esportiva</p>
-            <p><strong>Instagram:</strong> <a href="https://instagram.com/joaofisio" target="_blank">@joaofisio</a></p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/120" alt="Foto da fisioterapeuta">
-            <h3>Fernanda Lima</h3>
-            <p><strong>Especialidade:</strong> Fisioterapia pélvica</p>
-            <p><strong>Instagram:</strong> <a href="https://instagram.com/fernandafisio" target="_blank">@fernandafisio</a></p>
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-name"></h2>
+            <p><strong>Especialidade:</strong> <span id="modal-specialty"></span></p>
+            <p><strong>Instagram:</strong> <a id="modal-instagram" href="#" target="_blank"></a></p>
+            <p><strong>Descrição:</strong> <span id="modal-description"></span></p>
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
