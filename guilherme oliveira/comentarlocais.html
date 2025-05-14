@@ -19,7 +19,25 @@
       <div class="modal-body">
         <div class="center-wrapper">
     <div class="card">
-      <img src="imgs/puc.png" alt="PUC logo" />
+     
+       <div class="mb-3">
+                    <div id="uploadimg" class="mb-3">
+                        
+                      <label for="formFileSingle" class="form-label">Envio de uma imagem</label>
+                        <input class="form-control" type="file" id="formFileSingle" accept="image/*">
+                        <div id="fileError" class="form-text text-danger mt-2" style="display: none;">
+                          Você só pode enviar uma imagem.
+                        </div>
+                    </div>
+                      
+        </div>
+        <div id="addimg">
+          <img src="imgs/addimg.jpg" alt="">
+        </div>
+
+
+
+
       <div class="card-body" style="width: 400px;">
         
         <div class="form-floating mb-3">
@@ -50,7 +68,7 @@
         <div class="form-floating mb-3">
   <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
   <label for="floatingInput">Comentários sobre o local</label>
-</div>
+        </div>
       </div>
     </div>
   </div>

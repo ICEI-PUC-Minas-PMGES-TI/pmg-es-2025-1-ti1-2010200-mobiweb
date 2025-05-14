@@ -41,6 +41,27 @@ html, body {
     
   }
 
+  #uploadimg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-left: 120px;
+  overflow: hidden;
+}
+#addimg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  margin-left: 120px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+
+
+
   
 
 
