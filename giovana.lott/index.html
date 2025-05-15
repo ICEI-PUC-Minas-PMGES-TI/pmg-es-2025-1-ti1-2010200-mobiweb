@@ -1,43 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajuda de Fisioterapeutas</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ajuda de Profissionais da Saúde</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <header>
-        <img src="logo tiaw.jpg"  class="logo">
-        <h1>Ajuda de Fisioterapeutas</h1>
-    </header>
+  <header>
+    <img src="imgs/logo tiaw.jpg" class="logo" />
+    <h1>Ajuda de Profissionais da Saúde</h1>
+  </header>
 
-    <div class="container">
-        <!-- Card 1 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/120" alt="Foto da fisioterapeuta">
-            <h3>Maria Oliveira</h3>
-            <p><strong>Especialidade:</strong> Ortopedia</p>
-            <p><strong>Instagram:</strong> <a href="https://instagram.com/mariafisio" target="_blank">@mariafisio</a></p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/120" alt="Foto do fisioterapeuta">
-            <h3>João Silva</h3>
-            <p><strong>Especialidade:</strong> Fisioterapia esportiva</p>
-            <p><strong>Instagram:</strong> <a href="https://instagram.com/joaofisio" target="_blank">@joaofisio</a></p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/120" alt="Foto da fisioterapeuta">
-            <h3>Fernanda Lima</h3>
-            <p><strong>Especialidade:</strong> Fisioterapia pélvica</p>
-            <p><strong>Instagram:</strong> <a href="https://instagram.com/fernandafisio" target="_blank">@fernandafisio</a></p>
-        </div>
+  <div class="container">
+    <!-- Card 1 -->
+    <div class="card" onclick="abrirModal(
+      'Maria Oliveira', 
+      'Psicóloga', 
+      '@mariapsicologa', 
+      'https://instagram.com/mariafisio', 
+      'Especialista em reabilitação de experiências traumáticas com mais de 10 anos de experiência.', 
+      'Clínica Bem Viver - Centro, BH')">
+      <img src="imgs/psicologa 2.jpg" alt="Foto do profissional" />
+      <h3>Maria Oliveira</h3>
+      <p><strong>Especialidade:</strong> Psicóloga</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/mariapsicologa" target="_blank">@mariapsicologa</a></p>
     </div>
+
+    <!-- Card 2 -->
+    <div class="card" onclick="abrirModal(
+      'João Silva', 
+      'Fisioterapia esportiva', 
+      '@joaofisio', 
+      'https://instagram.com/joaofisio', 
+      'Fisioterapeuta esportivo especializado em reabilitação de atletas.', 
+      'Clínica Casa Verde - Caiçara, BH')">
+      <img src="imgs/homem.jpg" alt="Foto do fisioterapeuta" />
+      <h3>João Silva</h3>
+      <p><strong>Especialidade:</strong> Fisioterapia esportiva</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/joaofisio" target="_blank">@joaofisio</a></p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" onclick="abrirModal(
+      'Fernanda Lima', 
+      'Fisioterapia pélvica', 
+      '@fernandafisio', 
+      'https://instagram.com/fernandafisio', 
+      'Atende mulheres com foco em disfunções do assoalho pélvico.', 
+      'Espaço Saúde Feminina - Bairro Funcionários, BH')">
+      <img src="imgs/fisio pelvica.jpg" alt="Foto da fisioterapeuta" />
+      <h3>Fernanda Lima</h3>
+      <p><strong>Especialidade:</strong> Fisioterapia pélvica</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/fernandafisio" target="_blank">@fernandafisio</a></p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="fecharModal()">&times;</span>
+      <h2 id="modal-nome"></h2>
+      <p><strong>Especialidade:</strong> <span id="modal-especialidade"></span></p>
+      <p><strong>Instagram:</strong> <a id="modal-instagram" href="#" target="_blank"></a></p>
+      <p><strong>Descrição:</strong> <span id="modal-descricao"></span></p>
+      <p><strong>Local de atendimento:</strong> <span id="modal-local"></span></p>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function abrirModal(nome, especialidade, instagram, link, descricao, local) {
+      document.getElementById("modal-nome").textContent = nome;
+      document.getElementById("modal-especialidade").textContent = especialidade;
+      document.getElementById("modal-instagram").textContent = instagram;
+      document.getElementById("modal-instagram").href = link;
+      document.getElementById("modal-descricao").textContent = descricao;
+      document.getElementById("modal-local").textContent = local;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      if (event.target === document.getElementById("modal")) {
+        fecharModal();
+      }
+    };
+  </script>
 
 </body>
 </html>
