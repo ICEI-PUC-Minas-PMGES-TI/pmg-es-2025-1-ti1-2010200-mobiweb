@@ -21,7 +21,12 @@
       '@mariapsicologa', 
       'https://instagram.com/mariafisio', 
       'Especialista em reabilitação de experiências traumáticas com mais de 10 anos de experiência.', 
-      'Clínica Bem Viver - Centro, BH')">
+      'Clínica Bem Viver - Centro, BH',
+      'maria.oliveira@gmail.com',
+      '(31) 99999-1234',
+      'Seg-Sex, 9h às 17h',
+      '10/03/1985'
+      )">
       <img src="imgs/psicologa 2.jpg" alt="Foto do profissional" />
       <h3>Maria Oliveira</h3>
       <p><strong>Especialidade:</strong> Psicóloga</p>
@@ -35,7 +40,12 @@
       '@joaofisio', 
       'https://instagram.com/joaofisio', 
       'Fisioterapeuta esportivo especializado em reabilitação de atletas.', 
-      'Clínica Casa Verde - Caiçara, BH')">
+      'Clínica Casa Verde - Caiçara, BH',
+      'joao.silva@gmail.com',
+      '(31) 98888-5678',
+      'Seg-Sáb, 8h às 18h',
+      '05/06/1982'
+      )">
       <img src="imgs/homem.jpg" alt="Foto do fisioterapeuta" />
       <h3>João Silva</h3>
       <p><strong>Especialidade:</strong> Fisioterapia esportiva</p>
@@ -49,7 +59,12 @@
       '@fernandafisio', 
       'https://instagram.com/fernandafisio', 
       'Atende mulheres com foco em disfunções do assoalho pélvico.', 
-      'Espaço Saúde Feminina - Bairro Funcionários, BH')">
+      'Espaço Saúde Feminina - Bairro Funcionários, BH',
+      'fernanda.lima@gmail.com',
+      '(31) 97777-3456',
+      'Ter-Qua, Sex, 10h às 16h',
+      '22/08/1990'
+      )">
       <img src="imgs/fisio pelvica.jpg" alt="Foto da fisioterapeuta" />
       <h3>Fernanda Lima</h3>
       <p><strong>Especialidade:</strong> Fisioterapia pélvica</p>
@@ -66,18 +81,26 @@
       <p><strong>Instagram:</strong> <a id="modal-instagram" href="#" target="_blank"></a></p>
       <p><strong>Descrição:</strong> <span id="modal-descricao"></span></p>
       <p><strong>Local de atendimento:</strong> <span id="modal-local"></span></p>
+      <p><strong>Email:</strong> <span id="modal-email"></span></p>
+      <p><strong>Telefone:</strong> <span id="modal-telefone"></span></p>
+      <p><strong>Horário de atendimento:</strong> <span id="modal-horario-atendimento"></span></p>
+      <p><strong>Data de nascimento:</strong> <span id="modal-data-nascimento"></span></p>
     </div>
   </div>
 
   <!-- Script -->
   <script>
-    function abrirModal(nome, especialidade, instagram, link, descricao, local) {
+    function abrirModal(nome, especialidade, instagram, link, descricao, local, email, telefone, horario_atendimento, data_nascimento) {
       document.getElementById("modal-nome").textContent = nome;
       document.getElementById("modal-especialidade").textContent = especialidade;
       document.getElementById("modal-instagram").textContent = instagram;
       document.getElementById("modal-instagram").href = link;
       document.getElementById("modal-descricao").textContent = descricao;
       document.getElementById("modal-local").textContent = local;
+      document.getElementById("modal-email").textContent = email;
+      document.getElementById("modal-telefone").textContent = telefone;
+      document.getElementById("modal-horario-atendimento").textContent = horario_atendimento;
+      document.getElementById("modal-data-nascimento").textContent = data_nascimento;
       document.getElementById("modal").style.display = "flex";
     }
 
