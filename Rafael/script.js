@@ -1,18 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
   const tipoRadios = document.querySelectorAll('input[name="tipo"]');
   const campoEspecialidade = document.getElementById("campoEspecialidade");
+  const camposProfissional = document.getElementById("camposProfissional");
   const formCadastro = document.getElementById("formCadastro");
   const formLogin = document.getElementById("formLogin");
   const mensagemCadastro = document.getElementById("mensagemCadastro");
   const mensagemLogin = document.getElementById("mensagemLogin");
 
-  
   tipoRadios.forEach(radio => {
     radio.addEventListener("change", () => {
-      campoEspecialidade.style.display = radio.value === "profissional" ? "block" : "none";
+      const mostrar = radio.value === "profissional";
+      campoEspecialidade.style.display = mostrar ? "block" : "none";
+      camposProfissional.style.display = mostrar ? "block" : "none";
     });
   });
-
 
   formCadastro.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -22,6 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value.trim();
     const senha = document.getElementById("senha").value;
     const especialidade = document.getElementById("especialidade").value;
+
+    const instagram = document.getElementById("instagram").value.trim();
+    const descricao = document.getElementById("descricao").value.trim();
+    const localAtendimento = document.getElementById("localAtendimento").value.trim();
+    const telefone = document.getElementById("telefone").value.trim();
+    const horarioAtendimento = document.getElementById("horarioAtendimento").value.trim();
+    const dataNascimento = document.getElementById("dataNascimento").value;
 
     if (tipo === "profissional" && especialidade === "") {
       mensagemCadastro.style.color = "red";
@@ -43,7 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
       nome,
       email,
       senha,
-      especialidade: tipo === "profissional" ? especialidade : null
+      especialidade: tipo === "profissional" ? especialidade : null,
+      instagram: tipo === "profissional" ? instagram : null,
+      descricao: tipo === "profissional" ? descricao : null,
+      localAtendimento: tipo === "profissional" ? localAtendimento : null,
+      telefone: tipo === "profissional" ? telefone : null,
+      horarioAtendimento: tipo === "profissional" ? horarioAtendimento : null,
+      dataNascimento: tipo === "profissional" ? dataNascimento : null
     };
 
     usuariosExistentes.push(novoUsuario);
@@ -54,8 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     formCadastro.reset();
     campoEspecialidade.style.display = "none";
+    camposProfissional.style.display = "none";
   });
-
 
   formLogin.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -71,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
       mensagemLogin.style.color = "green";
       mensagemLogin.textContent = "Login bem-sucedido!";
       setTimeout(() => {
-        window.location.href = "pagina-principal.html"; // troque para sua página de destino
+        window.location.href = "pagina-principal.html"; // sua página de destino
       }, 1000);
     } else {
       mensagemLogin.style.color = "red";
@@ -79,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
 
 function mostrarLogin() {
   document.getElementById("boxLogin").style.display = "block";

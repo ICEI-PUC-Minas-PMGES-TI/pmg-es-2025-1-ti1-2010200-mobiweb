@@ -81,7 +81,7 @@ body {
 .form-section {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   background: #fff;
   margin: 40px auto;
   padding: 40px;
@@ -116,6 +116,7 @@ body {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  width: 100%;
 }
 
 .sidebar-menu ul {
@@ -189,9 +190,31 @@ body {
   cursor: pointer;
 }
 
-
 .mensagem {
   margin-top: 15px;
   font-weight: bold;
   color: green;
+}
+
+/* Alinhamento dos campos profissionais */
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.form-group > div {
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .form-group {
+    flex-direction: column;
+  }
+
+  .form-group > div {
+    flex: 1 1 100%;
+  }
 }
