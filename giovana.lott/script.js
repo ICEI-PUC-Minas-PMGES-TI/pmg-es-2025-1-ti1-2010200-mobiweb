@@ -46,3 +46,20 @@ fetch('dados.json')
     });
   })
   .catch(error => console.error('Erro ao carregar os dados:', error));
+
+  function filtrarCards() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const cards = document.getElementsByClassName("card");
+
+  for (let i = 0; i < cards.length; i++) {
+    const nome = cards[i].querySelector("h3").textContent.toLowerCase();
+    const especialidade = cards[i].querySelector("p").textContent.toLowerCase();
+    
+    if (nome.includes(input) || especialidade.includes(input)) {
+      cards[i].style.display = "block";
+    } else {
+      cards[i].style.display = "none";
+    }
+  }
+}
+
