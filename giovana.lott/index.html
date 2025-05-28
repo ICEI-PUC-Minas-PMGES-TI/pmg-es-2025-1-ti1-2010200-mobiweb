@@ -5,23 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ajuda de Profissionais da Saúde</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilo da barra de busca */
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    #searchInput {
+      width: 300px;
+      padding: 10px;
+      border: 2px solid #ffb6c1;
+      border-radius: 20px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
 
-  <header> 
-
-    <div class="search-container">
-  <input 
-    type="text" 
-    id="searchInput" 
-    placeholder="Buscar por nome ou especialidade..." 
-    onkeyup="filtrarCards()" 
-  />
-</div>
-
+  <header>
     <img src="imgs/logo tiaw.jpg" class="logo" />
     <h1>Ajuda de Profissionais da Saúde</h1>
   </header>
+
+  <!-- Barra de busca -->
+  <div class="search-container">
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Buscar por nome ou especialidade..." 
+      onkeyup="filtrarCards()" 
+    />
+  </div>
 
   <div class="container">
     <!-- Card 1 -->
@@ -98,7 +114,7 @@
     </div>
   </div>
 
-  <!-- Script -->
+  <!-- Scripts -->
   <script>
     function abrirModal(nome, especialidade, instagram, link, descricao, local, email, telefone, horario_atendimento, data_nascimento) {
       document.getElementById("modal-nome").textContent = nome;
@@ -114,24 +130,31 @@
       document.getElementById("modal").style.display = "flex";
     }
 
-    <script>
-  function filtrarCards() {
-    const input = document.getElementById("searchInput").value.toLowerCase();
-    const cards = document.getElementsByClassName("card");
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none";
+    }
 
-    for (let i = 0; i < cards.length; i++) {
-      const nome = cards[i].querySelector("h3").textContent.toLowerCase();
-      const especialidade = cards[i].querySelector("p strong")?.nextSibling?.textContent?.toLowerCase() || "";
+    window.onclick = function (event) {
+      if (event.target === document.getElementById("modal")) {
+        fecharModal();
+      }
+    };
 
-      if (nome.includes(input) || especialidade.includes(input)) {
-        cards[i].style.display = "block";
-      } else {
-        cards[i].style.display = "none";
+    function filtrarCards() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const cards = document.getElementsByClassName("card");
+
+      for (let i = 0; i < cards.length; i++) {
+        const nome = cards[i].querySelector("h3").textContent.toLowerCase();
+        const especialidade = cards[i].querySelector("p")?.textContent.toLowerCase() || "";
+
+        if (nome.includes(input) || especialidade.includes(input)) {
+          cards[i].style.display = "block";
+        } else {
+          cards[i].style.display = "none";
+        }
       }
     }
-  }
-</script>
-
   </script>
 
 </body>
