@@ -5,22 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ajuda de Profissionais da Saúde</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Estilo da barra de busca */
-    .search-container {
-      display: flex;
-      justify-content: center;
-      margin: 20px;
-    }
-
-    #searchInput {
-      width: 300px;
-      padding: 10px;
-      border: 2px solid #ffb6c1;
-      border-radius: 20px;
-      font-size: 16px;
-    }
-  </style>
 </head>
 <body>
 
@@ -34,25 +18,27 @@
     <input 
       type="text" 
       id="searchInput" 
-      placeholder="Buscar por nome ou especialidade..." 
+      placeholder="Buscar por nome, especialidade ou endereço..." 
       onkeyup="filtrarCards()" 
     />
   </div>
 
   <div class="container">
     <!-- Card 1 -->
-    <div class="card" onclick="abrirModal(
-      'Maria Oliveira', 
-      'Psicóloga', 
-      '@mariapsicologa', 
-      'https://instagram.com/mariafisio', 
-      'Especialista em reabilitação de experiências traumáticas com mais de 10 anos de experiência.', 
-      'Clínica Bem Viver - Centro, BH',
-      'maria.oliveira@gmail.com',
-      '(31) 99999-1234',
-      'Seg-Sex, 9h às 17h',
-      '10/03/1985'
-      )">
+    <div class="card" 
+         data-local="Clínica Bem Viver - Centro, BH"
+         onclick="abrirModal(
+           'Maria Oliveira', 
+           'Psicóloga', 
+           '@mariapsicologa', 
+           'https://instagram.com/mariapsicologa', 
+           'Especialista em reabilitação de experiências traumáticas com mais de 10 anos de experiência.', 
+           'Clínica Bem Viver - Centro, BH',
+           'maria.oliveira@gmail.com',
+           '(31) 99999-1234',
+           'Seg-Sex, 9h às 17h',
+           '10/03/1985'
+         )">
       <img src="imgs/psicologa 2.jpg" alt="Foto do profissional" />
       <h3>Maria Oliveira</h3>
       <p><strong>Especialidade:</strong> Psicóloga</p>
@@ -60,18 +46,20 @@
     </div>
 
     <!-- Card 2 -->
-    <div class="card" onclick="abrirModal(
-      'João Silva', 
-      'Fisioterapia esportiva', 
-      '@joaofisio', 
-      'https://instagram.com/joaofisio', 
-      'Fisioterapeuta esportivo especializado em reabilitação de atletas.', 
-      'Clínica Casa Verde - Caiçara, BH',
-      'joao.silva@gmail.com',
-      '(31) 98888-5678',
-      'Seg-Sáb, 8h às 18h',
-      '05/06/1982'
-      )">
+    <div class="card" 
+         data-local="Clínica Casa Verde - Caiçara, BH"
+         onclick="abrirModal(
+           'João Silva', 
+           'Fisioterapia esportiva', 
+           '@joaofisio', 
+           'https://instagram.com/joaofisio', 
+           'Fisioterapeuta esportivo especializado em reabilitação de atletas.', 
+           'Clínica Casa Verde - Caiçara, BH',
+           'joao.silva@gmail.com',
+           '(31) 98888-5678',
+           'Seg-Sáb, 8h às 18h',
+           '05/06/1982'
+         )">
       <img src="imgs/homem.jpg" alt="Foto do fisioterapeuta" />
       <h3>João Silva</h3>
       <p><strong>Especialidade:</strong> Fisioterapia esportiva</p>
@@ -79,18 +67,20 @@
     </div>
 
     <!-- Card 3 -->
-    <div class="card" onclick="abrirModal(
-      'Fernanda Lima', 
-      'Fisioterapia pélvica', 
-      '@fernandafisio', 
-      'https://instagram.com/fernandafisio', 
-      'Atende mulheres com foco em disfunções do assoalho pélvico.', 
-      'Espaço Saúde Feminina - Bairro Funcionários, BH',
-      'fernanda.lima@gmail.com',
-      '(31) 97777-3456',
-      'Ter-Qua, Sex, 10h às 16h',
-      '22/08/1990'
-      )">
+    <div class="card" 
+         data-local="Espaço Saúde Feminina - Bairro Funcionários, BH"
+         onclick="abrirModal(
+           'Fernanda Lima', 
+           'Fisioterapia pélvica', 
+           '@fernandafisio', 
+           'https://instagram.com/fernandafisio', 
+           'Atende mulheres com foco em disfunções do assoalho pélvico.', 
+           'Espaço Saúde Feminina - Bairro Funcionários, BH',
+           'fernanda.lima@gmail.com',
+           '(31) 97777-3456',
+           'Ter-Qua, Sex, 10h às 16h',
+           '22/08/1990'
+         )">
       <img src="imgs/fisio pelvica.jpg" alt="Foto da fisioterapeuta" />
       <h3>Fernanda Lima</h3>
       <p><strong>Especialidade:</strong> Fisioterapia pélvica</p>
@@ -114,7 +104,6 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script>
     function abrirModal(nome, especialidade, instagram, link, descricao, local, email, telefone, horario_atendimento, data_nascimento) {
       document.getElementById("modal-nome").textContent = nome;
@@ -147,8 +136,9 @@
       for (let i = 0; i < cards.length; i++) {
         const nome = cards[i].querySelector("h3").textContent.toLowerCase();
         const especialidade = cards[i].querySelector("p")?.textContent.toLowerCase() || "";
+        const endereco = cards[i].getAttribute("data-local")?.toLowerCase() || "";
 
-        if (nome.includes(input) || especialidade.includes(input)) {
+        if (nome.includes(input) || especialidade.includes(input) || endereco.includes(input)) {
           cards[i].style.display = "block";
         } else {
           cards[i].style.display = "none";
