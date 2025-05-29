@@ -158,3 +158,41 @@ body {
   width: 15px;
 }
 /* End Sidebar */
+
+#card-not{
+  height: 600px;
+  margin-left: 230px;
+  margin-top: 40px;
+}
+
+#card-map{
+  height: 275px;
+  margin-left: 100px;
+  margin-top: 40px;
+}
+
+#card-fisio{
+  height: 275px;
+  margin-left: 730px;
+  margin-top: -270px;
+
+}
+#imgfisio{
+  margin-top: -16px;
+  height: 275px;
+  border-radius: 10px;
+  width: 29rem;
+  margin-left: -17px;
+
+}
+
+#itensmenu{
+  display: flex;
+}
+#imgmap{
+  margin-top: -16px;
+  height: 275px;
+  border-radius: 10px;
+  width: 29rem;
+  margin-left: -17px;
+}
