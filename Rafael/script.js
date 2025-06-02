@@ -6,6 +6,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const formLogin = document.getElementById("formLogin");
   const mensagemCadastro = document.getElementById("mensagemCadastro");
   const mensagemLogin = document.getElementById("mensagemLogin");
+  const telefoneInput = document.getElementById("telefone");
+
+  // Aplica máscara no telefone e bloqueia caracteres não numéricos
+  telefoneInput.addEventListener("input", () => {
+    let numeros = telefoneInput.value.replace(/\D/g, "").slice(0, 11); // Limita a 11 dígitos
+    let formatado = "";
+
+    if (numeros.length <= 2) {
+      formatado = `(${numeros}`;
+    } else if (numeros.length <= 6) {
+      formatado = `(${numeros.slice(0, 2)}) ${numeros.slice(2)}`;
+    } else if (numeros.length <= 10) {
+      formatado = `(${numeros.slice(0, 2)}) ${numeros.slice(2, 6)}-${numeros.slice(6)}`;
+    } else {
+      formatado = `(${numeros.slice(0, 2)}) ${numeros.slice(2, 7)}-${numeros.slice(7)}`;
+    }
+
+    telefoneInput.value = formatado;
+  });
 
   tipoRadios.forEach(radio => {
     radio.addEventListener("change", () => {
@@ -27,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const instagram = document.getElementById("instagram").value.trim();
     const descricao = document.getElementById("descricao").value.trim();
     const localAtendimento = document.getElementById("localAtendimento").value.trim();
-    const telefone = document.getElementById("telefone").value.trim();
+    const telefone = telefoneInput.value.trim();
     const horarioAtendimento = document.getElementById("horarioAtendimento").value.trim();
     const dataNascimento = document.getElementById("dataNascimento").value;
 
