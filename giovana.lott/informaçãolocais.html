@@ -1,0 +1,196 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Locais Acessíveis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #00796b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      width: 250px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .card h3 {
+      margin: 10px;
+      font-size: 18px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      color: #888;
+      cursor: pointer;
+    }
+
+    .modal-content img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Locais Acessíveis</h1>
+  </header>
+
+  <div class="container">
+    <!-- Card 1 -->
+    <div class="card" onclick="abrirModalLocal(
+      'Mercado Central',
+      'imgs/mercado.jpg',
+      'Av Augusto de Lima, 744 - Centro, BH',
+      'Animado mercado indoor com alimentos, artesanato e souvenirs, além de bares e restaurantes informais.',
+      '4.7',
+      'Recomendado por 85% das pessoas'
+    )">
+      <img src="imgs/mercado.jpg" alt="Mercado Central">
+      <h3>Mercado Central</h3>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" onclick="abrirModalLocal(
+      'Biblioteca Pública',
+      'imgs/biblioteca.jpg',
+      'Biblioteca Publica - BH',
+      'Entrada com rampa, elevador e sinalização em braille.',
+      '8.5',
+      'Recomendado por 72% das pessoas'
+    )">
+      <img src="imgs/biblioteca.jpg" alt="Biblioteca Pública">
+      <h3>Biblioteca Pública</h3>
+    </div>
+  </div>
+
+
+
+  <!-- Card 3 -->
+    <div class="card" onclick="abrirModalLocal(
+      'Parque Guanabara',
+      'imgs/parque.jpg',
+      'Parque Guanabara - BH',
+      ' parque de diversões localizado em Belo Horizonte, Minas Gerais, estabelecido em sua localização atual, na orla da Lagoa da Pampulha, em 1970. Fundado originalmente como um parque itinerante em 1951, é o mais antigo parque de diversões em operação contínua na capital mineira.',
+      '3.4',
+      'Recomendado por 75% das pessoas'
+    )">
+      <img src="imgs/parque guanabara.jpg.jpg" alt="Parque Guanabara">
+      <h3>Parque Guanabara</h3>
+    </div>
+  </div>
+
+
+  <!-- Card 4 -->
+    <div class="card" onclick="abrirModalLocal(
+      'Praça da Liberdade',
+      'imgs/praça.jpg',
+      'Praça da Liberdade - BH',
+      'Espaço público com acessibilidade, ideal para eventos e lazer.',
+      '4.6',
+      'Recomendado por 65% das pessoas'
+    )">
+      <img src="imgs/Praca-da-Liberdade.jpg" alt="Praça da Liberdade">
+      <h3>Praça da Liberdade</h3>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modalLocal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="fecharModalLocal()">&times;</span>
+      <h2 id="modalLocal-nome"></h2>
+      <img id="modalLocal-foto" src="" alt="Imagem do local" />
+      <p><strong>Endereço:</strong> <span id="modalLocal-endereco"></span></p>
+      <p><strong>Descrição:</strong> <span id="modalLocal-descricao"></span></p>
+      <p><strong>Nota de acessibilidade:</strong> <span id="modalLocal-nota"></span></p>
+      <p><strong>Recomendação:</strong> <span id="modalLocal-recomendacao"></span></p>
+    </div>
+  </div>
+
+  <script>
+    function abrirModalLocal(nome, imagem, endereco, descricao, nota, recomendacao) {
+      document.getElementById("modalLocal-nome").textContent = nome;
+      document.getElementById("modalLocal-foto").src = imagem;
+      document.getElementById("modalLocal-endereco").textContent = endereco;
+      document.getElementById("modalLocal-descricao").textContent = descricao;
+      document.getElementById("modalLocal-nota").textContent = nota;
+      document.getElementById("modalLocal-recomendacao").textContent = recomendacao;
+      document.getElementById("modalLocal").style.display = "flex";
+    }
+
+    function fecharModalLocal() {
+      document.getElementById("modalLocal").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      if (event.target === document.getElementById("modalLocal")) {
+        fecharModalLocal();
+      }
+    };
+  </script>
+
+</body>
+</html>
