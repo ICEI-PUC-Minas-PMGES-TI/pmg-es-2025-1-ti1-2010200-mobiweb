@@ -1,196 +1,234 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Locais Acessíveis</title>
   <style>
     body {
+      background-color: #ffe6f0;
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #f5f5f5;
+      padding: 0;
     }
 
     header {
-      background-color: #00796b;
+      background-color: #a3d4e3;
       color: white;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 60px;
+      margin-right: 15px;
+      vertical-align: middle;
     }
 
     .container {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px;
       justify-content: center;
+      margin: 30px;
     }
 
     .card {
       background-color: white;
+      border: 2px solid #ffb6c1;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      width: 250px;
+      box-shadow: 0 4px 8px rgba(255, 182, 193, 0.5);
+      width: 300px;
+      margin: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
       cursor: pointer;
-      transition: transform 0.2s;
     }
 
     .card:hover {
-      transform: scale(1.02);
+      transform: scale(1.05);
     }
 
     .card img {
-      width: 100%;
-      height: 160px;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+      margin-bottom: 15px;
     }
 
     .card h3 {
-      margin: 10px;
-      font-size: 18px;
+      color: #cc0066;
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .card a {
+      color: #ff3399;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
     }
 
     .modal {
       display: none;
       position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
       justify-content: center;
       align-items: center;
+      z-index: 1000;
     }
 
     .modal-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
+      background-color: #fff0f5;
+      border: 2px solid #ffb6c1;
+      border-radius: 15px;
+      padding: 25px;
       width: 90%;
-      max-width: 500px;
+      max-width: 350px;
+      box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5);
       position: relative;
+      text-align: left;
+    }
+
+    .modal-content h2 {
+      color: #cc0066;
+      margin-top: 0;
+    }
+
+    .modal-content p,
+    .modal-content a {
+      color: #555;
+      font-size: 14px;
+    }
+
+    .modal-content a {
+      color: #ff3399;
+      text-decoration: none;
+    }
+
+    .modal-content a:hover {
+      text-decoration: underline;
     }
 
     .close-btn {
       position: absolute;
       top: 10px;
-      right: 20px;
-      font-size: 28px;
-      color: #888;
+      right: 15px;
+      font-size: 24px;
+      color: #cc0066;
       cursor: pointer;
-    }
-
-    .modal-content img {
-      width: 100%;
-      max-height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 10px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Locais Acessíveis</h1>
-  </header>
+<header>
+  <h1>Locais Acessíveis</h1>
+</header>
 
-  <div class="container">
-    <!-- Card 1 -->
-    <div class="card" onclick="abrirModalLocal(
-      'Mercado Central',
-      'imgs/mercado.jpg',
-      'Av Augusto de Lima, 744 - Centro, BH',
-      'Animado mercado indoor com alimentos, artesanato e souvenirs, além de bares e restaurantes informais.',
-      '4.7',
-      'Recomendado por 85% das pessoas'
-    )">
-      <img src="imgs/mercado.jpg" alt="Mercado Central">
-      <h3>Mercado Central</h3>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card" onclick="abrirModalLocal(
-      'Biblioteca Pública',
-      'imgs/biblioteca.jpg',
-      'Biblioteca Publica - BH',
-      'Entrada com rampa, elevador e sinalização em braille.',
-      '8.5',
-      'Recomendado por 72% das pessoas'
-    )">
-      <img src="imgs/biblioteca.jpg" alt="Biblioteca Pública">
-      <h3>Biblioteca Pública</h3>
-    </div>
-  
-
-
-
-  <!-- Card 3 -->
-    <div class="card" onclick="abrirModalLocal(
-      'Parque Guanabara',
-      'imgs/parque.jpg',
-      'Parque Guanabara - BH',
-      ' parque de diversões localizado em Belo Horizonte, Minas Gerais, estabelecido em sua localização atual, na orla da Lagoa da Pampulha, em 1970. Fundado originalmente como um parque itinerante em 1951, é o mais antigo parque de diversões em operação contínua na capital mineira.',
-      '3.4',
-      'Recomendado por 75% das pessoas'
-    )">
-      <img src="imgs/parque guanabara.jpg" alt="Parque Guanabara">
-      <h3>Parque Guanabara</h3>
-    </div>
-  
-
-
-  <!-- Card 4 -->
-    <div class="card" onclick="abrirModalLocal(
-      'Praça da Liberdade',
-      'imgs/praça.jpg',
-      'Praça da Liberdade - BH',
-      'Espaço público com acessibilidade, ideal para eventos e lazer.',
-      '4.6',
-      'Recomendado por 65% das pessoas'
-    )">
-      <img src="imgs/Praca-da-Liberdade.jpg" alt="Praça da Liberdade">
-      <h3>Praça da Liberdade</h3>
-    </div>
+<div class="container">
+  <div class="card" onclick="abrirModal(
+    'Mercado Central',
+    'imgs/mercado.jpg',
+    'Av Augusto de Lima, 744 - Centro, BH',
+    'Animado mercado indoor com alimentos, artesanato e souvenirs, além de bares e restaurantes informais.',
+    '4.7',
+    'Recomendado por 85% das pessoas'
+  )">
+    <img src="imgs/mercado.jpg" alt="Mercado Central" />
+    <h3>Mercado Central</h3>
+    <p>Nota: 4.7</p>
   </div>
 
-  <!-- Modal -->
-  <div class="modal" id="modalLocal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="fecharModalLocal()">&times;</span>
-      <h2 id="modalLocal-nome"></h2>
-      <img id="modalLocal-foto" src="" alt="Imagem do local" />
-      <p><strong>Endereço:</strong> <span id="modalLocal-endereco"></span></p>
-      <p><strong>Descrição:</strong> <span id="modalLocal-descricao"></span></p>
-      <p><strong>Nota de acessibilidade:</strong> <span id="modalLocal-nota"></span></p>
-      <p><strong>Recomendação:</strong> <span id="modalLocal-recomendacao"></span></p>
-    </div>
+  <div class="card" onclick="abrirModal(
+    'Biblioteca Pública',
+    'imgs/biblioteca.jpg',
+    'Biblioteca Pública - BH',
+    'Entrada com rampa, elevador e sinalização em braille.',
+    '8.5',
+    'Recomendado por 72% das pessoas'
+  )">
+    <img src="imgs/biblioteca.jpg" alt="Biblioteca Pública" />
+    <h3>Biblioteca Pública</h3>
+    <p>Nota: 8.5</p>
   </div>
 
-  <script>
-    function abrirModalLocal(nome, imagem, endereco, descricao, nota, recomendacao) {
-      document.getElementById("modalLocal-nome").textContent = nome;
-      document.getElementById("modalLocal-foto").src = imagem;
-      document.getElementById("modalLocal-endereco").textContent = endereco;
-      document.getElementById("modalLocal-descricao").textContent = descricao;
-      document.getElementById("modalLocal-nota").textContent = nota;
-      document.getElementById("modalLocal-recomendacao").textContent = recomendacao;
-      document.getElementById("modalLocal").style.display = "flex";
-    }
+  <div class="card" onclick="abrirModal(
+    'Parque Guanabara',
+    'imgs/parque-guanabara.jpg',
+    'Parque Guanabara - BH',
+    'Parque de diversões localizado em Belo Horizonte, Minas Gerais, estabelecido em sua localização atual, na orla da Lagoa da Pampulha, em 1970.',
+    '3.4',
+    'Recomendado por 75% das pessoas'
+  )">
+    <img src="imgs/diversao.jpg" alt="Parque Guanabara" />
+    <h3>Parque Guanabara</h3>
+    <p>Nota: 3.4</p>
+  </div>
 
-    function fecharModalLocal() {
-      document.getElementById("modalLocal").style.display = "none";
-    }
+  <div class="card" onclick="abrirModal(
+    'Praça da Liberdade',
+    'imgs/praca-da-liberdade.jpg',
+    'Praça da Liberdade - BH',
+    'Espaço público com acessibilidade, ideal para eventos e lazer.',
+    '4.6',
+    'Recomendado por 65% das pessoas'
+  )">
+    <img src="imgs/praca-da-liberdade.jpg" alt="Praça da Liberdade" />
+    <h3>Praça da Liberdade</h3>
+    <p>Nota: 4.6</p>
+  </div>
+</div>
 
-    window.onclick = function (event) {
-      if (event.target === document.getElementById("modalLocal")) {
-        fecharModalLocal();
-      }
-    };
-  </script>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="fecharModal()">&times;</span>
+    <h2 id="modal-nome"></h2>
+    <img id="modal-foto" src="" alt="Imagem do local" style="width:100%; border-radius: 10px; margin-bottom: 15px;" />
+    <p><strong>Endereço:</strong> <span id="modal-endereco"></span></p>
+    <p><strong>Descrição:</strong> <span id="modal-descricao"></span></p>
+    <p><strong>Nota de acessibilidade:</strong> <span id="modal-nota"></span></p>
+    <p><strong>Recomendação:</strong> <span id="modal-recomendacao"></span></p>
+  </div>
+</div>
+
+<script>
+  function abrirModal(nome, foto, endereco, descricao, nota, recomendacao) {
+    document.getElementById('modal-nome').textContent = nome;
+    document.getElementById('modal-foto').src = foto;
+    document.getElementById('modal-endereco').textContent = endereco;
+    document.getElementById('modal-descricao').textContent = descricao;
+    document.getElementById('modal-nota').textContent = nota;
+    document.getElementById('modal-recomendacao').textContent = recomendacao;
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function fecharModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    if (event.target === document.getElementById('modal')) {
+      fecharModal();
+    }
+  }
+</script>
 
 </body>
 </html>
