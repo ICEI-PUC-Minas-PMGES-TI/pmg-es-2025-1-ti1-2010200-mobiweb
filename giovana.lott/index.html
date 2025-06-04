@@ -1,210 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sidebar</title>
-    <link rel="stylesheet" href="aside.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="sidebar">
-      <div class="dots">
-        <img src="imgs/logo tiaw.jpg" alt="" />
-      </div>
-      <div class="profile">
-        <ion-icon name="person-outline"></ion-icon>
-      </div>
-      <ul>
-        <span>Funções</span>
-        <li>
-          <a href="#"
-            ><ion-icon name="home-outline"></ion-icon>
-            <p>Tela inicial</p></a
-          >
-        </li>
-        <li>
-          <a href="#"
-            ><ion-icon name="map-outline"></ion-icon>
-            <p>Mapa</p></a
-          >
-        </li>
-      </ul>
-      <ul>
-        <span>Conteúdos</span>
-        <li class="noti">
-          <a href="#"
-            ><ion-icon name="share-social-outline"></ion-icon>
-            <p>Nossas mídias</p></a
-          >
-        </li>
-        <li>
-          <a href="#"
-            ><ion-icon name="moon-outline"></ion-icon>
-            <p>Tema escuro</p></a
-          >
-        </li>
-        <li class="likes">
-          <a href="#"
-            ><ion-icon name="heart-outline"></ion-icon>
-            <p>Favoritos</p></a
-          >
-        </li>
-      </ul>
-      <ul>
-        
-    </div>
-
-<!-- final da sidebar -->
- <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ajuda de Profissionais da Saúde</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profissionais da Saúde</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #a3d4e3;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 30px;
+    }
+
+    .card {
+      background-color: white;
+      border: 2px solid #ffb6c1;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(255, 182, 193, 0.5);
+      width: 300px;
+      margin: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #cc0066;
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .card a {
+      color: #ff3399;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: #fff0f5;
+      border: 2px solid #ffb6c1;
+      border-radius: 15px;
+      padding: 25px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5);
+      position: relative;
+      text-align: left;
+    }
+
+    .modal-content h2 {
+      color: #cc0066;
+      margin-top: 0;
+    }
+
+    .modal-content p,
+    .modal-content a {
+      color: #555;
+      font-size: 14px;
+    }
+
+    .modal-content a {
+      color: #ff3399;
+      text-decoration: none;
+    }
+
+    .modal-content a:hover {
+      text-decoration: underline;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      color: #cc0066;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <img src="imgs/logo tiaw.jpg" class="logo" />
-    <h1>Ajuda de Profissionais da Saúde</h1>
-  </header>
+<header>
+  <h1>Profissionais da Saúde</h1>
+</header>
 
-  <!-- Barra de busca -->
-  <div class="search-container">
-    <input 
-      type="text" 
-      id="searchInput" 
-      placeholder="Buscar por nome, especialidade ou endereço..." 
-      onkeyup="filtrarCards()" 
-    />
+<div class="container">
+  <div class="card" onclick="abrirModal(
+    'Dra. Ana Souza',
+    'imgs/mulher.jpg',
+    'Psicóloga',
+    '@anapsi',
+    'Especialista em terapia cognitivo-comportamental.',
+    'Clínica Bem Estar - BH',
+    'ana.souza@gmail.com',
+    '(31) 99999-1234',
+    'Seg a Sex - 9h às 17h',
+    '15/04/1985'
+  )">
+    <img src="imgs/mulher.jpg" alt="Dra. Ana Souza" />
+    <h3>Dra. Ana Souza</h3>
+    <p>Psicóloga</p>
+    <p><a href="https://instagram.com/anapsi" target="_blank">@anapsi</a></p>
   </div>
 
-  <div class="container">
-    <!-- Card 1 -->
-    <div class="card" 
-         data-local="Clínica Bem Viver - Centro, BH"
-         onclick="abrirModal(
-           'Maria Oliveira', 
-           'Psicóloga', 
-           '@mariapsicologa', 
-           'https://instagram.com/mariapsicologa', 
-           'Especialista em reabilitação de experiências traumáticas com mais de 10 anos de experiência.', 
-           'Clínica Bem Viver - Centro, BH',
-           'maria.oliveira@gmail.com',
-           '(31) 99999-1234',
-           'Seg-Sex, 9h às 17h',
-           '10/03/1985'
-         )">
-      <img src="imgs/psicologa 2.jpg" alt="Foto do profissional" />
-      <h3>Maria Oliveira</h3>
-      <p><strong>Especialidade:</strong> Psicóloga</p>
-      <p><strong>Instagram:</strong> <a href="https://instagram.com/mariapsicologa" target="_blank">@mariapsicologa</a></p>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card" 
-         data-local="Clínica Casa Verde - Caiçara, BH"
-         onclick="abrirModal(
-           'João Silva', 
-           'Fisioterapia esportiva', 
-           '@joaofisio', 
-           'https://instagram.com/joaofisio', 
-           'Fisioterapeuta esportivo especializado em reabilitação de atletas.', 
-           'Clínica Casa Verde - Caiçara, BH',
-           'joao.silva@gmail.com',
-           '(31) 98888-5678',
-           'Seg-Sáb, 8h às 18h',
-           '05/06/1982'
-         )">
-      <img src="imgs/homem.jpg" alt="Foto do fisioterapeuta" />
-      <h3>João Silva</h3>
-      <p><strong>Especialidade:</strong> Fisioterapia esportiva</p>
-      <p><strong>Instagram:</strong> <a href="https://instagram.com/joaofisio" target="_blank">@joaofisio</a></p>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card" 
-         data-local="Espaço Saúde Feminina - Bairro Funcionários, BH"
-         onclick="abrirModal(
-           'Fernanda Lima', 
-           'Fisioterapia pélvica', 
-           '@fernandafisio', 
-           'https://instagram.com/fernandafisio', 
-           'Atende mulheres com foco em disfunções do assoalho pélvico.', 
-           'Espaço Saúde Feminina - Bairro Funcionários, BH',
-           'fernanda.lima@gmail.com',
-           '(31) 97777-3456',
-           'Ter-Qua, Sex, 10h às 16h',
-           '22/08/1990'
-         )">
-      <img src="imgs/fisio pelvica.jpg" alt="Foto da fisioterapeuta" />
-      <h3>Fernanda Lima</h3>
-      <p><strong>Especialidade:</strong> Fisioterapia pélvica</p>
-      <p><strong>Instagram:</strong> <a href="https://instagram.com/fernandafisio" target="_blank">@fernandafisio</a></p>
-    </div>
+  <div class="card" onclick="abrirModal(
+    'Dr. João Lima',
+    'imgs/homem.jpg',
+    'Fisioterapeuta',
+    '@fisiojoao',
+    'Atendimento especializado em reabilitação motora.',
+    'Centro Saúde Ativa - Contagem',
+    'joao.lima@fisio.com',
+    '(31) 98888-5678',
+    'Seg a Sáb - 8h às 16h',
+    '23/08/1990'
+  )">
+    <img src="imgs/homem.jpg" alt="Dr. João Lima" />
+    <h3>Dr. João Lima</h3>
+    <p>Fisioterapeuta</p>
+    <p><a href="https://instagram.com/fisiojoao" target="_blank">@fisiojoao</a></p>
   </div>
 
-  <!-- Modal -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="fecharModal()">&times;</span>
-      <h2 id="modal-nome"></h2>
-      <p><strong>Especialidade:</strong> <span id="modal-especialidade"></span></p>
-      <p><strong>Instagram:</strong> <a id="modal-instagram" href="#" target="_blank"></a></p>
-      <p><strong>Descrição:</strong> <span id="modal-descricao"></span></p>
-      <p><strong>Local de atendimento:</strong> <span id="modal-local"></span></p>
-      <p><strong>Email:</strong> <span id="modal-email"></span></p>
-      <p><strong>Telefone:</strong> <span id="modal-telefone"></span></p>
-      <p><strong>Horário de atendimento:</strong> <span id="modal-horario-atendimento"></span></p>
-      <p><strong>Data de nascimento:</strong> <span id="modal-data-nascimento"></span></p>
-    </div>
+  <div class="card" onclick="abrirModal(
+    'Dra. Carla Mendes',
+    'imgs/psicologa 2.jpg',
+    'Terapeuta Ocupacional',
+    '@carla.to',
+    'Foco em inclusão e desenvolvimento infantil.',
+    'Espaço Acolher - BH',
+    'carla.mendes@to.com',
+    '(31) 97777-4321',
+    'Ter a Sáb - 10h às 18h',
+    '05/12/1982'
+  )">
+    <img src="imgs/psicologa 2.jpg" alt="Dra. Carla Mendes" />
+    <h3>Dra. Carla Mendes</h3>
+    <p>Terapeuta Ocupacional</p>
+    <p><a href="https://instagram.com/carla.to" target="_blank">@carla.to</a></p>
   </div>
+</div>
 
-  <script>
-    function abrirModal(nome, especialidade, instagram, link, descricao, local, email, telefone, horario_atendimento, data_nascimento) {
-      document.getElementById("modal-nome").textContent = nome;
-      document.getElementById("modal-especialidade").textContent = especialidade;
-      document.getElementById("modal-instagram").textContent = instagram;
-      document.getElementById("modal-instagram").href = link;
-      document.getElementById("modal-descricao").textContent = descricao;
-      document.getElementById("modal-local").textContent = local;
-      document.getElementById("modal-email").textContent = email;
-      document.getElementById("modal-telefone").textContent = telefone;
-      document.getElementById("modal-horario-atendimento").textContent = horario_atendimento;
-      document.getElementById("modal-data-nascimento").textContent = data_nascimento;
-      document.getElementById("modal").style.display = "flex";
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="fecharModal()">&times;</span>
+    <h2 id="modal-nome"></h2>
+    <img id="modal-foto" src="" alt="Foto do profissional" style="width:100%; border-radius: 10px; margin-bottom: 15px;" />
+    <p><strong>Especialidade:</strong> <span id="modal-especialidade"></span></p>
+    <p><strong>Instagram:</strong> <a id="modal-instagram" href="#" target="_blank"></a></p>
+    <p><strong>Descrição:</strong> <span id="modal-descricao"></span></p>
+    <p><strong>Local de atendimento:</strong> <span id="modal-local"></span></p>
+    <p><strong>Email:</strong> <span id="modal-email"></span></p>
+    <p><strong>Telefone:</strong> <span id="modal-telefone"></span></p>
+    <p><strong>Horário de atendimento:</strong> <span id="modal-horario"></span></p>
+    <p><strong>Data de nascimento:</strong> <span id="modal-nascimento"></span></p>
+  </div>
+</div>
+
+<script>
+  function abrirModal(nome, foto, especialidade, instagram, descricao, local, email, telefone, horario, nascimento) {
+    document.getElementById('modal-nome').textContent = nome;
+    document.getElementById('modal-foto').src = foto;
+    document.getElementById('modal-especialidade').textContent = especialidade;
+    document.getElementById('modal-instagram').textContent = instagram;
+    document.getElementById('modal-instagram').href = "https://instagram.com/" + instagram.replace('@', '');
+    document.getElementById('modal-descricao').textContent = descricao;
+    document.getElementById('modal-local').textContent = local;
+    document.getElementById('modal-email').textContent = email;
+    document.getElementById('modal-telefone').textContent = telefone;
+    document.getElementById('modal-horario').textContent = horario;
+    document.getElementById('modal-nascimento').textContent = nascimento;
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function fecharModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    if (event.target === document.getElementById('modal')) {
+      fecharModal();
     }
-
-    function fecharModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-
-    window.onclick = function (event) {
-      if (event.target === document.getElementById("modal")) {
-        fecharModal();
-      }
-    };
-
-    function filtrarCards() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
-      const cards = document.getElementsByClassName("card");
-
-      for (let i = 0; i < cards.length; i++) {
-        const nome = cards[i].querySelector("h3").textContent.toLowerCase();
-        const especialidade = cards[i].querySelector("p")?.textContent.toLowerCase() || "";
-        const endereco = cards[i].getAttribute("data-local")?.toLowerCase() || "";
-
-        if (nome.includes(input) || especialidade.includes(input) || endereco.includes(input)) {
-          cards[i].style.display = "block";
-        } else {
-          cards[i].style.display = "none";
-        }
-      }
-    }
-  </script>
+  }
+</script>
 
 </body>
 </html>
