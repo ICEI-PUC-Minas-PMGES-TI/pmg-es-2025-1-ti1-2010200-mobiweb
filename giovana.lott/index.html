@@ -1,10 +1,15 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Profissionais da Saúde</title>
   <style>
+    /* Adicionado para melhor controle das caixas */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       background-color: #ffe6f0;
       font-family: Arial, sans-serif;
@@ -37,6 +42,9 @@
       text-align: center;
       transition: transform 0.3s;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .card:hover {
@@ -49,6 +57,7 @@
       height: 120px;
       object-fit: cover;
       margin-bottom: 15px;
+      flex-shrink: 0;
     }
 
     .card h3 {
@@ -59,11 +68,13 @@
     .card p {
       margin: 5px 0;
       color: #555;
+      word-wrap: break-word;
     }
 
     .card a {
       color: #ff3399;
       text-decoration: none;
+      word-break: break-word;
     }
 
     .card a:hover {
@@ -92,6 +103,8 @@
       box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5);
       position: relative;
       text-align: left;
+      overflow-y: auto;
+      max-height: 90vh;
     }
 
     .modal-content h2 {
@@ -170,7 +183,7 @@
 
   <div class="card" onclick="abrirModal(
     'Dra. Carla Mendes',
-    'imgs/psicologa 2.jpg',
+    'imgs/ciça.jpg',
     'Terapeuta Ocupacional',
     '@carla.to',
     'Foco em inclusão e desenvolvimento infantil.',
@@ -180,7 +193,7 @@
     'Ter a Sáb - 10h às 18h',
     '05/12/1982'
   )">
-    <img src="imgs/psicologa 2.jpg" alt="Dra. Carla Mendes" />
+    <img src="imgs/ciça.jpg" alt="Dra. Carla Mendes" />
     <h3>Dra. Carla Mendes</h3>
     <p>Terapeuta Ocupacional</p>
     <p><a href="https://instagram.com/carla.to" target="_blank">@carla.to</a></p>
