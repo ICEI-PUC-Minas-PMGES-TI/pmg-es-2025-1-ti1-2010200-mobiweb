@@ -41,14 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const ponto = { 
-                nomeLocal, 
-                bairro, 
-                rua, 
-                numero, 
-                referencia: document.getElementById('referencia').value.trim(), 
-                tipoAcessibilidade: document.getElementById('tipoAcessibilidade').value.trim(), 
-                descricaoAdicional: document.getElementById('descricaoAdicional').value.trim() 
+            const ponto = {
+                nomeLocal,
+                bairro,
+                rua,
+                numero,
+                referencia: document.getElementById('referencia').value.trim(),
+                tipoAcessibilidade: document.getElementById('tipoAcessibilidade').value.trim(),
+                descricaoAdicional: document.getElementById('descricaoAdicional').value.trim()
                 // Futuramente, você pode adicionar latitude e longitude aqui
                 // latitude: null,
                 // longitude: null
@@ -138,7 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     document.querySelectorAll('.btn-favoritar').forEach(botao => {
                         botao.addEventListener('click', function() {
-                            const id = parseInt(this.dataset.id); // Garante que o ID é um número
+                            // CORREÇÃO AQUI: Não converta para número se o ID for string
+                            const id = this.dataset.id;
                             toggleFavorito(id, this);
                         });
                     });
@@ -179,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch('http://localhost:3000/pontosAcessiveis')
                 .then(res => res.json())
                 .then(pontos => {
+                    // Garanta que os IDs nos favoritos sejam strings para a comparação correta
                     const pontosFavoritos = pontos.filter(ponto => favoritosIds.includes(ponto.id));
 
                     if (pontosFavoritos.length === 0) {
@@ -210,7 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Adicionar event listeners para remover favorito
                     document.querySelectorAll('.btn-remover-favorito').forEach(botao => {
                         botao.addEventListener('click', function() {
-                            const id = parseInt(this.dataset.id); // Garante que o ID é um número
+                            // CORREÇÃO AQUI: Não converta para número se o ID for string
+                            const id = this.dataset.id;
                             removerFavorito(id);
                         });
                     });
@@ -256,7 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para alternar o estado de favorito de um ponto
     function toggleFavorito(id, buttonElement) {
         let favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
-        const index = favoritos.indexOf(id);
+        // O indexOf funciona para strings e números, mas a comparação `includes` é mais robusta para arrays
+        const index = favoritos.indexOf(id); // O ID agora é tratado como string
 
         const iconElement = buttonElement.querySelector('i');
 
@@ -272,13 +276,17 @@ document.addEventListener('DOMContentLoaded', () => {
             iconElement.classList.add('bi-heart-fill', 'text-danger');
         }
         localStorage.setItem('favoritos', JSON.stringify(favoritos));
+        // Se estiver na página de favoritos, atualize a lista para mostrar a remoção imediatamente
+        if (listaFavoritos) {
+            carregarFavoritos();
+        }
     }
 
     // Função para remover favorito da lista de favoritos (usada na página favoritos.html)
     function removerFavorito(id) {
         if (confirm('Tem certeza que deseja remover este local dos favoritos?')) {
             let favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
-            const index = favoritos.indexOf(id);
+            const index = favoritos.indexOf(id); // O ID agora é tratado como string
             if (index > -1) {
                 favoritos.splice(index, 1);
                 localStorage.setItem('favoritos', JSON.stringify(favoritos));

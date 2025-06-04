@@ -1,3 +1,14 @@
 {
-  "pontosAcessiveis": []
+  "pontosAcessiveis": [
+    {
+      "id": "b9f0",
+      "nomeLocal": "Padaria",
+      "bairro": "pão de queijo",
+      "rua": "café",
+      "numero": "155",
+      "referencia": "placa pare",
+      "tipoAcessibilidade": "rampa de acessibilidade",
+      "descricaoAdicional": "um lugar que tem o cuidado de receber seus clientes, se preocupa com o atendimento e acolhimento"
+    }
+  ]
 }
