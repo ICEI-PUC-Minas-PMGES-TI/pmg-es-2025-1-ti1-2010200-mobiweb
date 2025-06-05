@@ -2,14 +2,9 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mapa com Sidebar</title>
-
-  
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mapa</title>
   <style>
-
     * {
       margin: 0;
       padding: 0;
@@ -71,7 +66,37 @@
 
     .topbar {
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    #search-box {
+      padding: 8px;
+      width: 300px;
+    }
+
+    #suggestions {
+      background-color: white;
+      border: 1px solid #ccc;
+      max-height: 200px;
+      overflow-y: auto;
+      width: 300px;
+      position: absolute;
+      z-index: 10;
+    }
+
+    #suggestions div {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    #suggestions div:hover {
+      background-color: #eee;
+    }
+
+    #map {
+      flex: 1;
     }
 
     .sidebar-menu ul {
@@ -122,13 +147,6 @@
     .redes a:hover {
       text-decoration: underline;
     }
-
-    /* Estilo para o mapa */
-    #map {
-      flex-grow: 1;
-      height: 100%;
-      border-radius: 10px;
-    }
   </style>
 </head>
 <body>
@@ -139,54 +157,95 @@
       </div>
       <nav class="sidebar-menu">
         <ul>
-          <li><a href="#">Início</a></li>
-          <li><a href="#">Cadastrar Ponto</a></li>
-          <li><a href="#">Relatórios</a></li>
+          <li><a href="#">Mapa de Pontos</a></li>
         </ul>
       </nav>
       <div class="redes">
-        <h3>Redes</h3>
+        <h3>Nossas Redes</h3>
         <a href="#" class="link"></a>
       </div>
     </aside>
 
     <main class="main-content">
       <div class="topbar">
-        <!-- Espaço para botão ou usuário futuramente -->
+        <input type="text" id="search-box" placeholder="Buscar lugar..." />
       </div>
-      <div id="map"></div>
+      <div id="suggestions"></div>
+      <div id="map" style="width: 100%; height: 100%;"></div>
     </main>
   </div>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <!-- Script para carregar pontos no mapa -->
+  <script src="https://maps.googleapis.com/maps/api/js?AIzaSyBXcTKP_Qx_tu4iIfvG-sJrwMN2TLnjYF8&callback=initMap" async defer></script>
   <script>
-    const map = L.map('map').setView([-23.5505, -46.6333], 12); // Posição inicial (São Paulo)
+    let map;
+    const mockPlaces = [
+      { nome: "Praça da Liberdade", lat: -19.9321, lng: -43.9378 },
+      { nome: "Parque Municipal Américo Renné Giannetti", lat: -19.9227, lng: -43.9375 },
+      { nome: "Mercado Central", lat: -19.9217, lng: -43.9385 },
+      { nome: "Museu das Minas e do Metal", lat: -19.9324, lng: -43.9372 },
+      { nome: "Estádio Mineirão", lat: -19.8655, lng: -43.9706 },
+      { nome: "Lagoa da Pampulha", lat: -19.8517, lng: -43.9770 },
+      { nome: "Palácio das Artes", lat: -19.9262, lng: -43.9381 },
+      { nome: "Mirante do Mangabeiras", lat: -19.9519, lng: -43.9155 }
+    ];
 
-    
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -19.9129, lng: -43.9409 }, 
+        zoom: 13
+      });
 
-
-    async function carregarPontos() {
-      try {
-        const resposta = await fetch('/api/pontos'); 
-        const pontos = await resposta.json();
-
-        pontos.forEach(p => {
-          L.marker([p.lat, p.lng])
-            .addTo(map)
-            .bindPopup(`<strong>${p.nome}</strong><br>${p.descricao}`);
-        });
-      } catch (erro) {
-        console.error('Erro ao buscar pontos:', erro);
-      }
+      carregarPontosSalvos();
     }
 
-    carregarPontos();
+    function salvarPonto(ponto) {
+      const pontos = JSON.parse(localStorage.getItem("pontos")) || [];
+      pontos.push(ponto);
+      localStorage.setItem("pontos", JSON.stringify(pontos));
+    }
+
+    function carregarPontosSalvos() {
+      const pontos = JSON.parse(localStorage.getItem("pontos")) || [];
+      pontos.forEach(p => {
+        new google.maps.Marker({
+          position: { lat: p.lat, lng: p.lng },
+          map,
+          title: p.nome
+        });
+      });
+    }
+
+    // Busca e sugestões
+    const searchBox = document.getElementById("search-box");
+    const suggestions = document.getElementById("suggestions");
+
+    searchBox.addEventListener("input", () => {
+      const value = searchBox.value.toLowerCase();
+      suggestions.innerHTML = "";
+      if (value.length === 0) return;
+
+      const resultados = mockPlaces.filter(p =>
+        p.nome.toLowerCase().includes(value)
+      );
+
+      resultados.forEach(p => {
+        const div = document.createElement("div");
+        div.textContent = p.nome;
+        div.addEventListener("click", () => {
+          map.setCenter({ lat: p.lat, lng: p.lng });
+          map.setZoom(15);
+          new google.maps.Marker({
+            position: { lat: p.lat, lng: p.lng },
+            map,
+            title: p.nome
+          });
+          salvarPonto(p);
+          suggestions.innerHTML = "";
+          searchBox.value = "";
+        });
+        suggestions.appendChild(div);
+      });
+    });
   </script>
 </body>
 </html>
