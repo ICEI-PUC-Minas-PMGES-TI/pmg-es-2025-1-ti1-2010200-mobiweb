@@ -152,3 +152,11 @@ jQuery(document).ready(function($){
 		$newWord.removeClass('is-hidden').addClass('is-visible');
 	}
 });
+    document.getElementById('ver-mais').addEventListener('click', function() {
+      document.getElementById('conteudo-oculto').style.display = 'block';
+      document.getElementById('ver-mais').style.display = 'none'; // Ocultar o botão após clicar
+    });
+	document.getElementById('ver-mais2').addEventListener('click', function() {
+      document.getElementById('conteudo-oculto2').style.display = 'block';
+      document.getElementById('ver-mais2').style.display = 'none'; // Ocultar o botão após clicar
+    });
