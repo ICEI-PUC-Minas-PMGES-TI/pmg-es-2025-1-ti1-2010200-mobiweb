@@ -1,60 +1,64 @@
 
-    const API_KEY = 'AIzaSyC3XLRTTYVeZcoR5PKv2gx_t3xqVQSyme8'; 
-    const SEARCH_QUERY = 'cadeirantes';
-    const videoContainer = document.getElementById('video-container');
+    const API_KEY = 'AIzaSyC3XLRTTYVeZcoR5PKv2gx_t3xqVQSyme8';
+const videoContainer = document.getElementById('video-container');
+  const videoTitle = document.getElementById('video-title');
 
-    async function fetchVideo() {
-      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(SEARCH_QUERY)}&type=video&order=date&key=${API_KEY}`;
+  function getLastVideoData() {
+    const saved = localStorage.getItem('daily_video');
+    return saved ? JSON.parse(saved) : null;
+  }
 
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
+  function saveVideoData(videoId, title) {
+    const data = {
+      videoId,
+      title,
+      timestamp: Date.now()
+    };
+    localStorage.setItem('daily_video', JSON.stringify(data));
+  }
 
-        if (data.items && data.items.length > 0) {
-          const video = data.items[0];
-          const videoId = video.id.videoId;
-          const thumbnailUrl = video.snippet.thumbnails.high.url;
-          const title = video.snippet.title;
+  function has24HoursPassed(timestamp) {
+    const now = Date.now();
+    return now - timestamp > 24 * 60 * 60 * 1000;
+  }
 
-          videoContainer.innerHTML = `
-            <h2>${title}</h2>
-            <img src="${thumbnailUrl}" alt="Thumbnail do vídeo" />
-            <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-          `;
+  async function fetchNewVideo() {
+    try {
+      const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=cadeirantes&type=video&order=date&key=${API_KEY}`);
+      const data = await response.json();
 
-          // Salva o vídeo no localStorage com timestamp
-          const now = Date.now();
-          localStorage.setItem('videoCache', JSON.stringify({ videoId, thumbnailUrl, title, timestamp: now }));
-        } else {
-          videoContainer.innerHTML = '<p>Nenhum vídeo encontrado.</p>';
-        }
-      } catch (error) {
-        console.error('Erro ao buscar vídeo:', error);
-        videoContainer.innerHTML = '<p>Erro ao carregar vídeo.</p>';
-      }
-    }
-
-    function loadCachedOrFetch() {
-      const cache = localStorage.getItem('videoCache');
-
-      if (cache) {
-        const { videoId, thumbnailUrl, title, timestamp } = JSON.parse(cache);
-        const oneDay = 24 * 60 * 60 * 1000;
-        const now = Date.now();
-
-        if (now - timestamp < oneDay) {
-          videoContainer.innerHTML = `
-            <h2>${title}</h2>
-            <img src="${thumbnailUrl}" alt="Thumbnail do vídeo" />
-            <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-          `;
-          return;
-        }
+      if (!data.items || data.items.length === 0) {
+        videoContainer.innerHTML = 'Nenhum vídeo encontrado.';
+        return;
       }
 
-      // Se não há cache ou ele expirou, busca novo vídeo
-      fetchVideo();
+      const video = data.items[0];
+      const videoId = video.id.videoId;
+      const title = video.snippet.title;
+
+      saveVideoData(videoId, title);
+      displayVideo(videoId, title);
+    } catch (error) {
+      console.error('Erro ao buscar vídeo:', error);
+      videoContainer.innerHTML = 'Erro ao carregar o vídeo.';
     }
+  }
 
-    loadCachedOrFetch();
+  function displayVideo(videoId, title) {
+    videoTitle.textContent = title;
+    videoContainer.innerHTML = `
+      <iframe class="w-100 h-100" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+    `;
+  }
 
+  function loadDailyVideo() {
+    const videoData = getLastVideoData();
+
+    if (videoData && !has24HoursPassed(videoData.timestamp)) {
+      displayVideo(videoData.videoId, videoData.title);
+    } else {
+      fetchNewVideo();
+    }
+  }
+
+  loadDailyVideo();
