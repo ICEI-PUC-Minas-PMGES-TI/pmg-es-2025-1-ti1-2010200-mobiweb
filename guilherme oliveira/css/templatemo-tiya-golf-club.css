@@ -643,7 +643,7 @@ strong {
   HERO        
 -----------------------------------------*/
 .hero-section {
-  background-image: url('../images/anna-rosar-ZxFyVBHMK-c-unsplash.jpg');
+  background-image: url('../images/rua.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -695,7 +695,7 @@ strong {
   BACKGROUND IMAGE SECTION        
 -----------------------------------------*/
 .section-bg-image {
-  background-image: url('../images/frederik-rosar-NDSZcCfnsbY-unsplash.jpg');
+  background-image: url('../images/profissionais.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1045,6 +1045,10 @@ strong {
 .site-footer {
   position: relative;
   padding-bottom: 200px;
+  margin-top: -200px;
+  background-color: #f2cc8f5e;
+  
+  
 }
 
 .site-footer .container {
