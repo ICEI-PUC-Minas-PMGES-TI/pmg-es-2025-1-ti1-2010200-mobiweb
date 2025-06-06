@@ -1,247 +1,108 @@
-<!DOCTYPE html> 
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Profissionais da Saúde</title>
-  <style>
-    /* Adicionado para melhor controle das caixas */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>teste fisio</title>
+  <link rel="stylesheet" href="../guilherme oliveira/css/home.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    body {
-      background-color: #ffe6f0;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    header {
-      background-color: #a3d4e3;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 30px;
-    }
+        <link href="../guilherme oliveira/css/bootstrap.min.css" rel="stylesheet">
 
-    .card {
-      background-color: white;
-      border: 2px solid #ffb6c1;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(255, 182, 193, 0.5);
-      width: 300px;
-      margin: 15px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        <link href="../guilherme oliveira/css/bootstrap-icons.css" rel="stylesheet">
 
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .card img {
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      margin-bottom: 15px;
-      flex-shrink: 0;
-    }
-
-    .card h3 {
-      color: #cc0066;
-      margin-bottom: 5px;
-    }
-
-    .card p {
-      margin: 5px 0;
-      color: #555;
-      word-wrap: break-word;
-    }
-
-    .card a {
-      color: #ff3399;
-      text-decoration: none;
-      word-break: break-word;
-    }
-
-    .card a:hover {
-      text-decoration: underline;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .modal-content {
-      background-color: #fff0f5;
-      border: 2px solid #ffb6c1;
-      border-radius: 15px;
-      padding: 25px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5);
-      position: relative;
-      text-align: left;
-      overflow-y: auto;
-      max-height: 90vh;
-    }
-
-    .modal-content h2 {
-      color: #cc0066;
-      margin-top: 0;
-    }
-
-    .modal-content p,
-    .modal-content a {
-      color: #555;
-      font-size: 14px;
-    }
-
-    .modal-content a {
-      color: #ff3399;
-      text-decoration: none;
-    }
-
-    .modal-content a:hover {
-      text-decoration: underline;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 24px;
-      color: #cc0066;
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
+        <link href="../guilherme oliveira/css/home.css" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <h1>Profissionais da Saúde</h1>
-</header>
+  <section class="about-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
 
-<div class="container">
-  <div class="card" onclick="abrirModal(
-    'Dra. Ana Souza',
-    'imgs/mulher.jpg',
-    'Psicóloga',
-    '@anapsi',
-    'Especialista em terapia cognitivo-comportamental.',
-    'Clínica Bem Estar - BH',
-    'ana.souza@gmail.com',
-    '(31) 99999-1234',
-    'Seg a Sex - 9h às 17h',
-    '15/04/1985'
-  )">
-    <img src="imgs/mulher.jpg" alt="Dra. Ana Souza" />
-    <h3>Dra. Ana Souza</h3>
-    <p>Psicóloga</p>
-    <p><a href="https://instagram.com/anapsi" target="_blank">@anapsi</a></p>
-  </div>
+                        <div class="col-lg-12 col-12 text-center">
+                            <h2 class="mb-lg-5 mb-4">Profissionais Cadastrados</h2>
+                        </div>
 
-  <div class="card" onclick="abrirModal(
-    'Dr. João Lima',
-    'imgs/homem.jpg',
-    'Fisioterapeuta',
-    '@fisiojoao',
-    'Atendimento especializado em reabilitação motora.',
-    'Centro Saúde Ativa - Contagem',
-    'joao.lima@fisio.com',
-    '(31) 98888-5678',
-    'Seg a Sáb - 8h às 16h',
-    '23/08/1990'
-  )">
-    <img src="imgs/homem.jpg" alt="Dr. João Lima" />
-    <h3>Dr. João Lima</h3>
-    <p>Fisioterapeuta</p>
-    <p><a href="https://instagram.com/fisiojoao" target="_blank">@fisiojoao</a></p>
-  </div>
 
-  <div class="card" onclick="abrirModal(
-    'Dra. Carla Mendes',
-    'imgs/ciça.jpg',
-    'Terapeuta Ocupacional',
-    '@carla.to',
-    'Foco em inclusão e desenvolvimento infantil.',
-    'Espaço Acolher - BH',
-    'carla.mendes@to.com',
-    '(31) 97777-4321',
-    'Ter a Sáb - 10h às 18h',
-    '05/12/1982'
-  )">
-    <img src="imgs/ciça.jpg" alt="Dra. Carla Mendes" />
-    <h3>Dra. Carla Mendes</h3>
-    <p>Terapeuta Ocupacional</p>
-    <p><a href="https://instagram.com/carla.to" target="_blank">@carla.to</a></p>
-  </div>
+                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
+                            <div class="member-block">
+                                <div class="member-block-image-wrap">
+                                    <img src="../guilherme oliveira/images/members/portrait-young-handsome-businessman-wearing-suit-standing-with-crossed-arms-with-isolated-studio-white-background.jpg" class="member-block-image img-fluid" alt="">
+
+                                    <ul class="social-icon">
+                                        <li>
+                                            Telefone
+                                        </li>
+                                        <li>
+                                            Horário
+                                        </li>
+
+                                        <li>
+                                        Localização
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="member-block-info d-flex align-items-center">
+                                    <h4>Nome</h4>
+
+                                    <p class="ms-auto">Especialidade</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="member-block">
+                                <div class="member-block-image-wrap">
+                                    <img src="../guilherme oliveira/images/members/successful-asian-lady-boss-red-blazer-holding-clipboard-with-documens-pen-working-looking-happy-white-background.jpg" class="member-block-image img-fluid" alt="">
+
+                                    <ul class="social-icon">
+                                        <li>
+                                            Telefone
+                                        </li>
+                                        <li>
+                                            Horário
+                                        </li>
+
+                                        <li>
+                                        Localização
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="member-block-info d-flex align-items-center">
+                                    <h4>Nome</h4>
+
+                                    <p class="ms-auto">Especialidade</p>
+                                </div>
+                            </div>
+
+                
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+<div class="row" id="containerProfissionais">
+  <!-- Os cards dos profissionais serão inseridos aqui via JS -->
 </div>
 
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="fecharModal()">&times;</span>
-    <h2 id="modal-nome"></h2>
-    <img id="modal-foto" src="" alt="Foto do profissional" style="width:100%; border-radius: 10px; margin-bottom: 15px;" />
-    <p><strong>Especialidade:</strong> <span id="modal-especialidade"></span></p>
-    <p><strong>Instagram:</strong> <a id="modal-instagram" href="#" target="_blank"></a></p>
-    <p><strong>Descrição:</strong> <span id="modal-descricao"></span></p>
-    <p><strong>Local de atendimento:</strong> <span id="modal-local"></span></p>
-    <p><strong>Email:</strong> <span id="modal-email"></span></p>
-    <p><strong>Telefone:</strong> <span id="modal-telefone"></span></p>
-    <p><strong>Horário de atendimento:</strong> <span id="modal-horario"></span></p>
-    <p><strong>Data de nascimento:</strong> <span id="modal-nascimento"></span></p>
-  </div>
-</div>
 
-<script>
-  function abrirModal(nome, foto, especialidade, instagram, descricao, local, email, telefone, horario, nascimento) {
-    document.getElementById('modal-nome').textContent = nome;
-    document.getElementById('modal-foto').src = foto;
-    document.getElementById('modal-especialidade').textContent = especialidade;
-    document.getElementById('modal-instagram').textContent = instagram;
-    document.getElementById('modal-instagram').href = "https://instagram.com/" + instagram.replace('@', '');
-    document.getElementById('modal-descricao').textContent = descricao;
-    document.getElementById('modal-local').textContent = local;
-    document.getElementById('modal-email').textContent = email;
-    document.getElementById('modal-telefone').textContent = telefone;
-    document.getElementById('modal-horario').textContent = horario;
-    document.getElementById('modal-nascimento').textContent = nascimento;
-    document.getElementById('modal').style.display = 'flex';
-  }
-
-  function fecharModal() {
-    document.getElementById('modal').style.display = 'none';
-  }
-
-  window.onclick = function(event) {
-    if (event.target === document.getElementById('modal')) {
-      fecharModal();
-    }
-  }
-</script>
-
+       <script src="profissionais.js"></script>
+            <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <script src="../guilherme oliveira/js/jquery.min.js"></script>
+        <script src="../guilherme oliveira/js/bootstrap.bundle.min.js"></script>
+        <script src="../guilherme oliveira/js/jquery.sticky.js"></script>
+        <script src="../guilherme oliveira/js/click-scroll.js"></script>
+        <script src="../guilherme oliveira/js/animated-headline.js"></script>
+        <script src="../guilherme oliveira/js/modernizr.js"></script>
+        <script src="../guilherme oliveira/js/custom.js"></script>
+        <script src="../guilherme oliveira/js/apidepoimentos.js"></script>
 </body>
 </html>
