@@ -1,108 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>teste fisio</title>
-  <link rel="stylesheet" href="../guilherme oliveira/css/home.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-
-        <link href="../guilherme oliveira/css/bootstrap.min.css" rel="stylesheet">
-
-        <link href="../guilherme oliveira/css/bootstrap-icons.css" rel="stylesheet">
-
-        <link href="../guilherme oliveira/css/home.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="../guilherme oliveira/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../guilherme oliveira/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="../guilherme oliveira/css/home.css" rel="stylesheet">
 </head>
 <body>
 
-  <section class="about-section section-padding" id="section_2">
-                <div class="container">
-                    <div class="row">
+<section class="about-section section-padding" id="section_2">
+  <div class="container">
+    <div class="row">
 
-                        <div class="col-lg-12 col-12 text-center">
-                            <h2 class="mb-lg-5 mb-4">Profissionais Cadastrados</h2>
-                        </div>
+      <div class="col-lg-12 col-12 text-center">
+        <h2 class="mb-lg-4 mb-3">Profissionais Cadastrados</h2>
 
+        <!-- 🔍 Barra de pesquisa -->
+        <input type="text" id="searchInput" class="form-control w-50 mx-auto mb-5" placeholder="Buscar por nome ou especialidade..." onkeyup="filtrarProfissionais()" />
+      </div>
 
-                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
-                            <div class="member-block">
-                                <div class="member-block-image-wrap">
-                                    <img src="../guilherme oliveira/images/members/portrait-young-handsome-businessman-wearing-suit-standing-with-crossed-arms-with-isolated-studio-white-background.jpg" class="member-block-image img-fluid" alt="">
+      <!-- 👤 Profissional 1 -->
+      <div class="col-lg-3 col-md-6 col-12 mb-4 profissional" data-nome="João Silva" data-especialidade="Fisioterapeuta">
+        <div class="member-block">
+          <div class="member-block-image-wrap">
+            <img src="../guilherme oliveira/images/members/portrait-young-handsome-businessman-wearing-suit-standing-with-crossed-arms-with-isolated-studio-white-background.jpg" class="member-block-image img-fluid" alt="">
+            <ul class="social-icon">
+              <li>Telefone</li>
+              <li>Horário</li>
+              <li>Localização</li>
+            </ul>
+          </div>
+          <div class="member-block-info d-flex align-items-center">
+            <h4>João Silva</h4>
+            <p class="ms-auto">Fisioterapeuta</p>
+          </div>
+        </div>
+      </div>
 
-                                    <ul class="social-icon">
-                                        <li>
-                                            Telefone
-                                        </li>
-                                        <li>
-                                            Horário
-                                        </li>
+      <!-- 👤 Profissional 2 -->
+      <div class="col-lg-3 col-md-6 col-12 mb-4 profissional" data-nome="Ana Paula" data-especialidade="Psicóloga">
+        <div class="member-block">
+          <div class="member-block-image-wrap">
+            <img src="../guilherme oliveira/images/members/successful-asian-lady-boss-red-blazer-holding-clipboard-with-documens-pen-working-looking-happy-white-background.jpg" class="member-block-image img-fluid" alt="">
+            <ul class="social-icon">
+              <li>Telefone</li>
+              <li>Horário</li>
+              <li>Localização</li>
+            </ul>
+          </div>
+          <div class="member-block-info d-flex align-items-center">
+            <h4>Ana Paula</h4>
+            <p class="ms-auto">Psicóloga</p>
+          </div>
+        </div>
+      </div>
 
-                                        <li>
-                                        Localização
-                                        </li>
-                                    </ul>
-                                </div>
+    </div>
+  </div>
+</section>
 
-                                <div class="member-block-info d-flex align-items-center">
-                                    <h4>Nome</h4>
+<!-- Container extra, se você usa JavaScript para carregar mais profissionais -->
+<div class="row" id="containerProfissionais"></div>
 
-                                    <p class="ms-auto">Especialidade</p>
-                                </div>
-                            </div>
-                        </div>
+<!-- Scripts -->
+<script>
+  function filtrarProfissionais() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const profissionais = document.querySelectorAll('.profissional');
 
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="member-block">
-                                <div class="member-block-image-wrap">
-                                    <img src="../guilherme oliveira/images/members/successful-asian-lady-boss-red-blazer-holding-clipboard-with-documens-pen-working-looking-happy-white-background.jpg" class="member-block-image img-fluid" alt="">
+    profissionais.forEach(p => {
+      const nome = p.getAttribute('data-nome').toLowerCase();
+      const especialidade = p.getAttribute('data-especialidade').toLowerCase();
+      if (nome.includes(input) || especialidade.includes(input)) {
+        p.style.display = 'block';
+      } else {
+        p.style.display = 'none';
+      }
+    });
+  }
+</script>
 
-                                    <ul class="social-icon">
-                                        <li>
-                                            Telefone
-                                        </li>
-                                        <li>
-                                            Horário
-                                        </li>
+<script src="profissionais.js"></script>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script src="../guilherme oliveira/js/jquery.min.js"></script>
+<script src="../guilherme oliveira/js/bootstrap.bundle.min.js"></script>
+<script src="../guilherme oliveira/js/jquery.sticky.js"></script>
+<script src="../guilherme oliveira/js/click-scroll.js"></script>
+<script src="../guilherme oliveira/js/animated-headline.js"></script>
+<script src="../guilherme oliveira/js/modernizr.js"></script>
+<script src="../guilherme oliveira/js/custom.js"></script>
+<script src="../guilherme oliveira/js/apidepoimentos.js"></script>
 
-                                        <li>
-                                        Localização
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="member-block-info d-flex align-items-center">
-                                    <h4>Nome</h4>
-
-                                    <p class="ms-auto">Especialidade</p>
-                                </div>
-                            </div>
-
-                
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-
-<div class="row" id="containerProfissionais">
-  <!-- Os cards dos profissionais serão inseridos aqui via JS -->
-</div>
-
-
-       <script src="profissionais.js"></script>
-            <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-        <script src="../guilherme oliveira/js/jquery.min.js"></script>
-        <script src="../guilherme oliveira/js/bootstrap.bundle.min.js"></script>
-        <script src="../guilherme oliveira/js/jquery.sticky.js"></script>
-        <script src="../guilherme oliveira/js/click-scroll.js"></script>
-        <script src="../guilherme oliveira/js/animated-headline.js"></script>
-        <script src="../guilherme oliveira/js/modernizr.js"></script>
-        <script src="../guilherme oliveira/js/custom.js"></script>
-        <script src="../guilherme oliveira/js/apidepoimentos.js"></script>
 </body>
 </html>
