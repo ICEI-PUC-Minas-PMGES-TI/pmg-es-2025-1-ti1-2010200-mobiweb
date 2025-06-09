@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    // Preencher os campos com os dados
+    
     document.getElementById('username').textContent = user.username;
     document.getElementById('email').textContent = user.email;
     document.getElementById('especialidade').textContent = user.especialidade;
@@ -17,18 +17,18 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('telefone').textContent = user.telefone;
 });
 
-// Botão de logout
+
 document.getElementById('logoutBtn').addEventListener('click', () => {
     localStorage.removeItem('usuarioLogado');
     window.location.href = 'profissionais.html';
 });
 
-// Botão de editar
+
 document.getElementById('editarBtn').addEventListener('click', () => {
     alert('Funcionalidade de edição ainda será implementada.');
 });
 
-// Botão de excluir conta
+
 document.getElementById('excluirBtn').addEventListener('click', async () => {
     const user = JSON.parse(localStorage.getItem('usuarioLogado'));
     if (!user) return;

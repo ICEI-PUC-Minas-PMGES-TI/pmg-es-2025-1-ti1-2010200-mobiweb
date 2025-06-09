@@ -10,9 +10,17 @@ loginBtn?.addEventListener('click', () => {
     container.classList.remove('active');
 });
 
-const apiUrl = 'http://localhost:3000/profissionais';
+function getProfissionais() {
+    return JSON.parse(localStorage.getItem('profissionais')) || [];
+}
 
-document.querySelector('.register form')?.addEventListener('submit', async (e) => {
+function salvarProfissional(profissional) {
+    const profissionais = getProfissionais();
+    profissionais.push(profissional);
+    localStorage.setItem('profissionais', JSON.stringify(profissionais));
+}
+
+document.querySelector('.register form')?.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const username = document.querySelector('.register input[placeholder="nome de usuário"]')?.value.trim();
@@ -29,10 +37,10 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
         return;
     }
 
-    const res = await fetch(`${apiUrl}?username=${encodeURIComponent(username)}`);
-    const existingUsers = await res.json();
+    const profissionais = getProfissionais();
+    const userExiste = profissionais.some(p => p.username === username);
 
-    if (existingUsers.length > 0) {
+    if (userExiste) {
         alert('Nome de usuário já está em uso.');
         return;
     }
@@ -47,19 +55,16 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
         telefone
     };
 
-    await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(novoProfissional)
-    });
+    salvarProfissional(novoProfissional);
+
+    // Salva o profissional como logado após cadastro
+    localStorage.setItem('usuarioLogado', JSON.stringify(novoProfissional));
 
     alert('Cadastro realizado com sucesso!');
-    window.location.href = 'perfil.html'; // Redirecionamento após cadastro
+    window.location.href = 'perfil.html';
 });
 
-document.querySelector('.login form')?.addEventListener('submit', async (e) => {
+document.querySelector('.login form')?.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const username = document.querySelector('.login input[placeholder="Nome de usuário"]')?.value.trim();
@@ -70,45 +75,46 @@ document.querySelector('.login form')?.addEventListener('submit', async (e) => {
         return;
     }
 
-    const res = await fetch(`${apiUrl}?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
-    const users = await res.json();
+    const profissionais = getProfissionais();
+    const usuario = profissionais.find(p => p.username === username && p.password === password);
 
-    if (users.length > 0) {
-        alert(`Login bem-sucedido. Bem-vindo, ${users[0].username}!`);
-        window.location.href = 'perfil.html'; // Redirecionamento após login
+    if (usuario) {
+        // Salva o usuário logado no localStorage
+        localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+
+        alert(`Login bem-sucedido. Bem-vindo, ${usuario.username}!`);
+        window.location.href = 'perfil.html';
     } else {
         alert('Nome de usuário ou senha incorretos.');
     }
 });
 
-const localizacaoInput = document.getElementById('localizacao');
-localizacaoInput?.addEventListener('input', () => {
-    if (localizacaoInput.value.length > 100) {
-        localizacaoInput.value = localizacaoInput.value.slice(0, 100);
+// Limita localização
+document.getElementById('localizacao')?.addEventListener('input', (e) => {
+    if (e.target.value.length > 100) {
+        e.target.value = e.target.value.slice(0, 100);
     }
 });
 
-const telefoneInput = document.getElementById('telefone');
+// Máscara telefone
+document.getElementById('telefone')?.addEventListener('input', function (e) {
+    let x = e.target.value.replace(/\D/g, '').slice(0, 11);
 
-telefoneInput?.addEventListener('input', function (e) {
-    let x = e.target.value.replace(/\D/g, '').slice(0, 11); 
-
-    if (x.length > 10) { 
+    if (x.length > 10) {
         x = x.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
-    } else if (x.length > 5) { 
+    } else if (x.length > 5) {
         x = x.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
-    } else if (x.length > 2) { 
+    } else if (x.length > 2) {
         x = x.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
-    } else if (x.length > 0) { 
+    } else {
         x = x.replace(/^(\d{0,2})/, '($1');
     }
 
     e.target.value = x;
 });
 
-const emailInput = document.querySelector('input[type="email"]');
-
-emailInput?.addEventListener('input', (e) => {
+// Formatação básica de email
+document.querySelector('input[type="email"]')?.addEventListener('input', (e) => {
     let val = e.target.value;
 
     if (val.includes('@')) {

@@ -41,6 +41,30 @@
         </div>
     </div>
 
-    <script src="perfil.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+            if (!usuario) {
+                alert('Você precisa estar logado para acessar esta página.');
+                window.location.href = 'profissionais.html';
+                return;
+            }
+
+            // Preenche os dados do usuário na tela
+            document.getElementById('username').textContent = usuario.username;
+            document.getElementById('email').textContent = usuario.email;
+            document.getElementById('especialidade').textContent = usuario.especialidade;
+            document.getElementById('localizacao').textContent = usuario.localizacao;
+            document.getElementById('horario').textContent = usuario.horario;
+            document.getElementById('telefone').textContent = usuario.telefone;
+
+            // Logout
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                localStorage.removeItem('usuarioLogado');
+                window.location.href = 'profissionais.html';
+            });
+        });
+    </script>
 </body>
 </html>
