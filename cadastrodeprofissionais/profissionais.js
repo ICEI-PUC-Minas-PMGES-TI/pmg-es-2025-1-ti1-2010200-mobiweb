@@ -12,7 +12,6 @@ loginBtn?.addEventListener('click', () => {
 
 const apiUrl = 'http://localhost:3000/profissionais';
 
-
 document.querySelector('.register form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -20,7 +19,6 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
     const email = document.querySelector('.register input[placeholder="Email"]')?.value.trim();
     const password = document.querySelector('.register input[placeholder="senha"]')?.value;
 
-    
     const especialidade = document.querySelector('#modalprofissionais input[placeholder="Especialidade"]')?.value.trim();
     const localizacao = document.querySelector('#modalprofissionais input[placeholder="Localização de atendimento"]')?.value.trim();
     const horario = document.querySelector('#modalprofissionais input[placeholder="Horário de atendimento"]')?.value.trim();
@@ -31,7 +29,6 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
         return;
     }
 
-    
     const res = await fetch(`${apiUrl}?username=${encodeURIComponent(username)}`);
     const existingUsers = await res.json();
 
@@ -40,7 +37,6 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
         return;
     }
 
-    // Criação do novo usuário
     const novoProfissional = {
         username,
         email,
@@ -60,9 +56,9 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
     });
 
     alert('Cadastro realizado com sucesso!');
+    window.location.href = 'perfil.html'; // Redirecionamento após cadastro
 });
 
-// Login
 document.querySelector('.login form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -79,12 +75,11 @@ document.querySelector('.login form')?.addEventListener('submit', async (e) => {
 
     if (users.length > 0) {
         alert(`Login bem-sucedido. Bem-vindo, ${users[0].username}!`);
-        
+        window.location.href = 'perfil.html'; // Redirecionamento após login
     } else {
         alert('Nome de usuário ou senha incorretos.');
     }
 });
-
 
 const localizacaoInput = document.getElementById('localizacao');
 localizacaoInput?.addEventListener('input', () => {
@@ -93,12 +88,11 @@ localizacaoInput?.addEventListener('input', () => {
     }
 });
 
-
 const telefoneInput = document.getElementById('telefone');
 
 telefoneInput?.addEventListener('input', function (e) {
     let x = e.target.value.replace(/\D/g, '').slice(0, 11); 
-    
+
     if (x.length > 10) { 
         x = x.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
     } else if (x.length > 5) { 
@@ -112,21 +106,16 @@ telefoneInput?.addEventListener('input', function (e) {
     e.target.value = x;
 });
 
-
 const emailInput = document.querySelector('input[type="email"]');
 
 emailInput?.addEventListener('input', (e) => {
     let val = e.target.value;
 
-    
     if (val.includes('@')) {
         const parts = val.split('@');
-        
         let userPart = parts[0].replace(/[^a-zA-Z0-9._]/g, '').slice(0, 30);
-        
         val = userPart + '@gmail.com';
     } else {
-      
         val = val.replace(/[^a-zA-Z0-9._]/g, '').slice(0, 30);
     }
 
