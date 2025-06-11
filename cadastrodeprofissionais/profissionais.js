@@ -27,10 +27,11 @@ document.querySelector('.register form')?.addEventListener('submit', (e) => {
     const email = document.querySelector('.register input[placeholder="Email"]')?.value.trim();
     const password = document.querySelector('.register input[placeholder="senha"]')?.value;
 
-    const especialidade = document.querySelector('#modalprofissionais input[placeholder="Especialidade"]')?.value.trim();
-    const localizacao = document.querySelector('#modalprofissionais input[placeholder="Localização de atendimento"]')?.value.trim();
-    const horario = document.querySelector('#modalprofissionais input[placeholder="Horário de atendimento"]')?.value.trim();
-    const telefone = document.querySelector('#modalprofissionais input[placeholder="Telefone para contato"]')?.value.trim();
+    // Corrigido: pega o select com id #especialidade, e os inputs pelos seus ids
+    const especialidade = document.querySelector('#especialidade')?.value.trim();
+    const localizacao = document.querySelector('#localizacao')?.value.trim();
+    const horario = document.querySelector('#horario')?.value.trim();
+    const telefone = document.querySelector('#telefone')?.value.trim();
 
     if (!username || !email || !password || !especialidade || !localizacao || !horario || !telefone) {
         alert('Por favor, preencha todos os campos.');
