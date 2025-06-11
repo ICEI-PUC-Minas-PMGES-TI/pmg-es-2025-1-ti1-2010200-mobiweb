@@ -1,70 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Profissional</title>
-    <link rel="stylesheet" href="perfil.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Profissional</title>
+  <link rel="stylesheet" href="perfil.css" />
 </head>
 <body>
-    <div class="profile-container">
-        <h1>Perfil do Profissional</h1>
-        <div class="info-group">
-            <label>Nome de usuário:</label>
-            <p id="username"></p>
-        </div>
-        <div class="info-group">
-            <label>Email:</label>
-            <p id="email"></p>
-        </div>
-        <div class="info-group">
-            <label>Especialidade:</label>
-            <p id="especialidade"></p>
-        </div>
-        <div class="info-group">
-            <label>Localização:</label>
-            <p id="localizacao"></p>
-        </div>
-        <div class="info-group">
-            <label>Horário de Atendimento:</label>
-            <p id="horario"></p>
-        </div>
-        <div class="info-group">
-            <label>Telefone:</label>
-            <p id="telefone"></p>
-        </div>
+  <main class="profile-container" role="main" aria-label="Perfil do profissional">
+    <h1>Perfil do Profissional</h1>
 
-        <div class="button-group">
-            <button id="editarBtn">Editar</button>
-            <button id="excluirBtn">Excluir Conta</button>
-            <button id="logoutBtn">Sair</button>
-        </div>
+    <section class="info-group">
+      <label for="username">Nome de usuário:</label>
+      <p id="username"></p>
+    </section>
+
+    <section class="info-group">
+      <label for="email">Email:</label>
+      <p id="email"></p>
+    </section>
+
+    <section class="info-group">
+      <label for="especialidade">Especialidade:</label>
+      <p id="especialidade"></p>
+    </section>
+
+    <section class="info-group">
+      <label for="localizacao">Localização:</label>
+      <p id="localizacao"></p>
+    </section>
+
+    <section class="info-group">
+      <label for="horario">Horário de Atendimento:</label>
+      <p id="horario"></p>
+    </section>
+
+    <section class="info-group">
+      <label for="telefone">Telefone:</label>
+      <p id="telefone"></p>
+    </section>
+
+    <div class="button-group">
+      <button id="editarBtn" type="button">Editar</button>
+      <button id="excluirBtn" type="button"><span class="text">Excluir Conta</span><span class="icon"></span></button>
+      <button id="logoutBtn" type="button">
+        <span class="sign">
+          <svg viewBox="0 0 512 512"><path d="..."/></svg>
+        </span>
+        <span class="text">Sair</span>
+      </button>
     </div>
+  </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
-
-            if (!usuario) {
-                alert('Você precisa estar logado para acessar esta página.');
-                window.location.href = 'profissionais.html';
-                return;
-            }
-
-            // Preenche os dados do usuário na tela
-            document.getElementById('username').textContent = usuario.username;
-            document.getElementById('email').textContent = usuario.email;
-            document.getElementById('especialidade').textContent = usuario.especialidade;
-            document.getElementById('localizacao').textContent = usuario.localizacao;
-            document.getElementById('horario').textContent = usuario.horario;
-            document.getElementById('telefone').textContent = usuario.telefone;
-
-            // Logout
-            document.getElementById('logoutBtn').addEventListener('click', () => {
-                localStorage.removeItem('usuarioLogado');
-                window.location.href = 'profissionais.html';
-            });
-        });
-    </script>
+  <script src="perfil.js"></script>
 </body>
 </html>
