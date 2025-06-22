@@ -1,0 +1,22 @@
+{
+  "profissionais": [
+    {
+      "id": "eeaa",
+      "username": "teste",
+      "email": "teste@gmail.com",
+      "password": "123456",
+      "especialidade": "fisioterapeuta",
+      "localizacao": "savassi",
+      "horario": "10:50",
+      "telefone": "(78) 17138-3882"
+    }
+  ],
+  "comum": [
+    {
+      "id": "636d",
+      "username": "gi",
+      "email": "gi@gmail.com",
+      "password": "123456"
+    }
+  ]
+}
