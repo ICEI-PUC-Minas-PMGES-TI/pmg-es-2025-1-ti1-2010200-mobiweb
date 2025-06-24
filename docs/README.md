@@ -20,7 +20,9 @@ A documentação do projeto é estruturada da seguinte forma:
 4. Product Design
 5. Metodologia
 6. Solução
-7. Referências Bibliográficas
+7. Metodologia usadas 
+
+8. Referências Bibliográficas
 
 ✅ [Documentação de Design Thinking (MIRO)](files/processo-dt.pdf)
 
