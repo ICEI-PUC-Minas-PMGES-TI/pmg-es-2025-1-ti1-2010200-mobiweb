@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     
     if (!loggedInUserId) {
         alert('Você precisa estar logado para acessar esta página.');
-        window.location.href = 'profissionais.html'; 
+        window.location.href = '../cadastrouser/profissionais.html'; 
         return;
     }
 

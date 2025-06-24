@@ -347,3 +347,19 @@
     margin-top: 15px;
     justify-content: center;
 }
+
+#addimg{
+    
+    margin-bottom: -40px;
+    font-size: 70px;
+    color: #4265c5;
+    cursor: pointer; 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%;
+    overflow: hidden; 
+    margin-left: 120px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}

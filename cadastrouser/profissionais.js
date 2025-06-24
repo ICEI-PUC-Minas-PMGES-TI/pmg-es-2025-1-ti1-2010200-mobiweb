@@ -156,3 +156,31 @@ document.querySelector('input[type="email"]')?.addEventListener('input', (e) => 
 
     e.target.value = val;
 });
+
+// adicionar uma imagem no perfil
+
+  // consts
+  const fileInput = document.getElementById('fileInput');
+const addImg = document.getElementById('addimg');
+const imgIcon = document.getElementById('imgIcon');
+let imagemBase64 = '';
+
+// Clique no ícone abre o seletor
+addImg.addEventListener('click', () => {
+    fileInput.click();
+});
+
+// Quando o usuário escolhe a imagem
+fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            imagemBase64 = e.target.result;
+
+            // Substituir o ícone pela imagem
+            addImg.innerHTML = `<img src="${imagemBase64}" alt="Foto de perfil" style="width: 100%; height: 100%; object-fit: cover;">`;
+        };
+        reader.readAsDataURL(file);
+    }
+});
