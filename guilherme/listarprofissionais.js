@@ -1,24 +1,37 @@
 let profissionais = [];
 let exibidos = 0;
 const LIMITE_INICIAL = 6;
+let filtroAtual = "";
 
 async function carregarProfissionais() {
     try {
         const response = await fetch('http://localhost:3000/profissionais');
         profissionais = await response.json();
-
-        exibidos = 0; // Zera contador
-        document.getElementById('lista-profissionais').innerHTML = ''; // Limpa
-
+        exibidos = 0;
         exibirProximosProfissionais(LIMITE_INICIAL);
     } catch (error) {
         console.error('Erro ao carregar profissionais:', error);
     }
 }
 
+function filtrarProfissionais() {
+    return profissionais.filter(prof => {
+        const termo = filtroAtual.toLowerCase();
+        return (
+            prof.username.toLowerCase().includes(termo) ||
+            prof.especialidade.toLowerCase().includes(termo) ||
+            prof.telefone.toLowerCase().includes(termo) ||
+            prof.localizacao.toLowerCase().includes(termo)
+        );
+    });
+}
+
 function exibirProximosProfissionais(qtd) {
     const container = document.getElementById('lista-profissionais');
-    const slice = profissionais.slice(exibidos, exibidos + qtd);
+    if (exibidos === 0) container.innerHTML = '';
+
+    const listaFiltrada = filtrarProfissionais();
+    const slice = listaFiltrada.slice(exibidos, exibidos + qtd);
 
     slice.forEach(prof => {
         const bloco = document.createElement('div');
@@ -44,9 +57,8 @@ function exibirProximosProfissionais(qtd) {
 
     exibidos += slice.length;
 
-    // Oculta botão se tudo já estiver exibido
     const verMaisBtn = document.getElementById('ver-mais-btn');
-    if (exibidos >= profissionais.length) {
+    if (exibidos >= listaFiltrada.length) {
         verMaisBtn.style.display = 'none';
     } else {
         verMaisBtn.style.display = 'inline-block';
@@ -56,5 +68,11 @@ function exibirProximosProfissionais(qtd) {
 document.addEventListener('DOMContentLoaded', carregarProfissionais);
 
 document.getElementById('ver-mais-btn')?.addEventListener('click', () => {
-    exibirProximosProfissionais(6); // mostra mais 6
+    exibirProximosProfissionais(6);
+});
+
+document.getElementById('pesquisa')?.addEventListener('input', e => {
+    filtroAtual = e.target.value.trim();
+    exibidos = 0;
+    exibirProximosProfissionais(LIMITE_INICIAL);
 });

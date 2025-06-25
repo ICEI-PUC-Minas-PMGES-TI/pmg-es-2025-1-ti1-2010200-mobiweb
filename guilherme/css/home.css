@@ -746,6 +746,11 @@ strong {
 .about-section {
   padding-bottom: 70px;
 }
+#pesquisa {
+  width: 300px; /* ou qualquer valor que desejar */
+  margin-left: 400px;
+}
+
 
 .member-block-image-wrap {
   border-radius: var(--border-radius-medium);
