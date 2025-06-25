@@ -1,10 +1,8 @@
-// Arquivo: seu_script_profissionais.js (ou o nome do seu arquivo atual para profissionais)
-
 const container = document.querySelector('.container');
 const registerBtn = document.querySelector('.register-btn');
 const loginBtn = document.querySelector('.login-btn');
 
-// Defina a URL da API para a coleção 'profissionais'
+// URL da API json-server
 const apiUrl = 'http://localhost:3000/profissionais';
 
 registerBtn?.addEventListener('click', () => {
@@ -15,6 +13,67 @@ loginBtn?.addEventListener('click', () => {
     container.classList.remove('active');
 });
 
+// ---------- Upload da imagem de perfil com redimensionamento e compressão ----------
+const fileInput = document.getElementById('fileInput');
+const addImg = document.getElementById('addimg');
+let imagemBase64 = '';
+
+addImg?.addEventListener('click', () => {
+    fileInput.click();
+});
+
+fileInput?.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const img = new Image();
+            img.onload = function () {
+                const canvas = document.createElement('canvas');
+                const maxSize = 200; // Tamanho máximo para largura/altura
+
+                let width = img.width;
+                let height = img.height;
+
+                // Mantém proporção da imagem
+                if (width > height) {
+                    if (width > maxSize) {
+                        height = Math.round((height * maxSize) / width);
+                        width = maxSize;
+                    }
+                } else {
+                    if (height > maxSize) {
+                        width = Math.round((width * maxSize) / height);
+                        height = maxSize;
+                    }
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, width, height);
+                ctx.drawImage(img, 0, 0, width, height);
+
+                // Converte para base64 com compressão jpeg qualidade 0.7 (70%)
+                imagemBase64 = canvas.toDataURL('image/jpeg', 0.7);
+
+                // Substitui ícone pela imagem redimensionada e arredondada
+                addImg.innerHTML = `
+                    <img src="${imagemBase64}" alt="Foto de perfil"
+                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                `;
+            };
+
+            img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+
+// ---------- Cadastro de profissional ----------
 document.querySelector('.register form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -32,7 +91,6 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
         return;
     }
 
-    // --- VERIFICAR SE O USUÁRIO (PROFISSIONAL) JÁ EXISTE NO DB.JSON ---
     try {
         const response = await fetch(`${apiUrl}?username=${encodeURIComponent(username)}`);
         const existingUsers = await response.json();
@@ -42,26 +100,24 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
             return;
         }
     } catch (error) {
-        console.error('Erro ao verificar usuário existente (profissional):', error);
-        alert('Erro ao verificar nome de usuário. Tente novamente.');
+        console.error('Erro ao verificar usuário existente:', error);
+        alert('Erro ao verificar nome de usuário.');
         return;
     }
 
     const novoProfissional = {
         username,
         email,
-        // É uma boa prática não salvar a senha em texto puro em um ambiente real.
-        // json-server é para prototipagem, então está ok por enquanto.
         password,
         especialidade,
         localizacao,
         horario,
-        telefone
+        telefone,
+        imagem: imagemBase64 // Adiciona imagem no cadastro
     };
 
-    // --- ENVIAR DADOS PARA O DB.JSON (coleção 'profissionais') ---
     try {
-        const response = await fetch(apiUrl, { // POST para a URL de profissionais
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -74,20 +130,19 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
         }
 
         const data = await response.json();
-        console.log('Profissional salvo no db.json:', data);
+        console.log('Profissional salvo:', data);
 
-        // Salva o profissional como logado (temporariamente no localStorage do navegador)
         localStorage.setItem('usuarioLogado', JSON.stringify(novoProfissional));
 
-        alert('Cadastro de profissional realizado com sucesso!');
-        window.location.href = 'cadastropadrao.html'; // Redirecionamento após cadastro
+        alert('Cadastro realizado com sucesso!');
+        window.location.href = 'cadastropadrao.html';
     } catch (error) {
         console.error('Erro ao cadastrar profissional:', error);
-        alert('Erro ao realizar o cadastro de profissional. Tente novamente.');
+        alert('Erro ao cadastrar. Tente novamente.');
     }
 });
 
-
+// ---------- Login de profissional ----------
 document.querySelector('.login form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -100,32 +155,30 @@ document.querySelector('.login form')?.addEventListener('submit', async (e) => {
     }
 
     try {
-        // --- BUSCAR PROFISSIONAL NO DB.JSON PARA LOGIN ---
-        // A busca é feita na URL de profissionais
         const response = await fetch(`${apiUrl}?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
         const users = await response.json();
 
         if (users.length > 0) {
             localStorage.setItem('usuarioLogado', JSON.stringify(users[0]));
-            alert(`Login de profissional bem-sucedido. Bem-vindo, ${users[0].username}!`);
+            alert(`Login bem-sucedido. Bem-vindo, ${users[0].username}!`);
             window.location.href = '../guilherme/home.html';
         } else {
-            alert('Nome de usuário ou senha de profissional incorretos.');
+            alert('Usuário ou senha incorretos.');
         }
     } catch (error) {
-        console.error('Erro durante o login de profissional:', error);
-        alert('Ocorreu um erro ao tentar fazer login de profissional. Tente novamente mais tarde.');
+        console.error('Erro no login:', error);
+        alert('Erro ao fazer login.');
     }
 });
 
-// Limita localização
+// ---------- Limita localização ----------
 document.getElementById('localizacao')?.addEventListener('input', (e) => {
     if (e.target.value.length > 100) {
         e.target.value = e.target.value.slice(0, 100);
     }
 });
 
-// Máscara telefone
+// ---------- Máscara de telefone ----------
 document.getElementById('telefone')?.addEventListener('input', function (e) {
     let x = e.target.value.replace(/\D/g, '').slice(0, 11);
 
@@ -142,45 +195,17 @@ document.getElementById('telefone')?.addEventListener('input', function (e) {
     e.target.value = x;
 });
 
-// Formatação básica de email
+// ---------- Validação básica de email ----------
 document.querySelector('input[type="email"]')?.addEventListener('input', (e) => {
     let val = e.target.value;
 
     if (val.includes('@')) {
         const parts = val.split('@');
         let userPart = parts[0].replace(/[^a-zA-Z0-9._]/g, '').slice(0, 30);
-        val = userPart + '@gmail.com'; // Ou permita que o usuário digite o domínio completo
+        val = userPart + '@gmail.com';
     } else {
         val = val.replace(/[^a-zA-Z0-9._]/g, '').slice(0, 30);
     }
 
     e.target.value = val;
-});
-
-// adicionar uma imagem no perfil
-
-  // consts
-  const fileInput = document.getElementById('fileInput');
-const addImg = document.getElementById('addimg');
-const imgIcon = document.getElementById('imgIcon');
-let imagemBase64 = '';
-
-// Clique no ícone abre o seletor
-addImg.addEventListener('click', () => {
-    fileInput.click();
-});
-
-// Quando o usuário escolhe a imagem
-fileInput.addEventListener('change', () => {
-    const file = fileInput.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            imagemBase64 = e.target.result;
-
-            // Substituir o ícone pela imagem
-            addImg.innerHTML = `<img src="${imagemBase64}" alt="Foto de perfil" style="width: 100%; height: 100%; object-fit: cover;">`;
-        };
-        reader.readAsDataURL(file);
-    }
 });
