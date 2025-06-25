@@ -751,6 +751,8 @@ strong {
   border-radius: var(--border-radius-medium);
   position: relative;
   overflow: hidden;
+  width: 350px;
+  height: 250px;
 }
 
 .member-block-image-wrap:hover .member-block-image {
@@ -781,7 +783,15 @@ strong {
 
 .member-block-image {
   transition: all 0.3s;
+  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Garante que a imagem preencha o espaço sem distorcer */
+  object-position: center; /* Foco sempre no centro da imagem */
+  transition: all 0.3s;
 }
+
+
 
 .member-block-info {
   padding: 10px;
