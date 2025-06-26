@@ -104,10 +104,7 @@ inclusivas e acessíveis para todos.
 ![image](https://github.com/user-attachments/assets/21aca39e-cda4-4223-bd31-3f3c32525d39)
 
 
-> **Orientações**:
->
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
+> 
 
 ## Proposta de Valor
 
@@ -164,10 +161,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RNF-010 | portabilidade de dispositivos | BAIXA     |
 
 
-> **Orientações**:
->
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+> 
 
 ## Projeto de Interface
 
@@ -191,12 +185,7 @@ Descrição para a tela XPTO
 ![Exemplo de wireframe](images/exemplo-wireframe.png)
 
 
-> **Orientações**:
 >
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
 
 ### User Flow
 
