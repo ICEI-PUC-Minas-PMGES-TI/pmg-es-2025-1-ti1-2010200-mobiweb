@@ -28,8 +28,19 @@ A documentação do projeto é estruturada da seguinte forma:
 
 # Contexto
 
-Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa e público-alvo.
-
+Este trabalho aborda os desafios da
+mobilidade urbana enfrentados por
+cadeirantes no Brasil.
+Como solução, propõe-se o
+desenvolvimento de um sistema web que
+mapeie e divulgue locais acessíveis — como
+shoppings, praças e estabelecimentos
+comerciais — facilitando a locomoção e
+promovendo a inclusão. A iniciativa visa
+incentivar políticas públicas e ações que
+garantam o direito de ir e vir, contribuindo
+para a construção de cidades mais justas,
+inclusivas e acessíveis para todos. 
 ## Problema
 
 **✳️✳️✳️ A aplicação web do nosso grupo foi pensada para auxiliar o dia a dia dos cadeirantes, uma vez em que a acessibilidade no país é precária. Dessa forma, irá ajudar em problemas de locomoção. ✳️✳️✳️**
@@ -233,14 +244,14 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 | Ambiente                    | Plataforma | Link de acesso                                     |
 | --------------------------- | ---------- | -------------------------------------------------- |
 | Processo de Design Thinking | Miro       | (https://miro.com/app/board/uXjVIZ5HacY=/)        |
-| Repositório de código     | GitHub     | https://github.com/XXXXXXX ⚠️ EXEMPLO ⚠️      |
+| Repositório de código     | GitHub     | https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2010200-mobiweb    |
 | Hospedagem do site          | Render     | https://site.render.com/XXXXXXX ⚠️ EXEMPLO ⚠️ |
-| Protótipo Interativo       | MarvelApp  | https://marvelapp.com/XXXXXXX ⚠️ EXEMPLO ⚠️   |
-|                             |            |                                                    |
+| Protótipo Interativo       | Figma | https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&p=f&t=oKfqDouFFRyXjaAT-0    |
+| Ferramenta de comunicação  | Discord |     https://discord.com/                                               |
+| Ferramenta de diagramação | Bootstrap |  https://getbootstrap.com/                                               |
+| Editor de código  | Visual Studio Code |     https://code.visualstudio.com/                                               |
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Liste as ferramentas empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) Editor de código, (2) )ferramentas de comunicação, (3) )ferramentas de diagramação, (4) )plataformas de hospedagem, entre outras.
+
 
 ## Gerenciamento do Projeto
 
