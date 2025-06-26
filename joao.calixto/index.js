@@ -295,3 +295,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+document.querySelector('#exampleModalToggle .btn-dark').addEventListener('click', () => {
+  const nota = document.getElementById('notaSelect').value;
+  const recomendacao = document.getElementById('recomendacaoSelect').value;
+  const comentario = document.getElementById('floatingInput').value;
+  const imagem = document.getElementById('formFileSingle').files[0]?.name || '';
+
+  const avaliacao = {
+    nota,
+    recomendacao,
+    comentario,
+    imagem
+  };
+
+  fetch('http://localhost:3000/avaliacoes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(avaliacao)
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert('Avaliação salva com sucesso!');
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Erro ao salvar avaliação:', error);
+  });
+});
