@@ -48,20 +48,14 @@ inclusivas e acessíveis para todos.
 >
 >
 >
-> **Orientações**:
->
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+> 
 
 ## Objetivos
 
 **✳️✳️✳️O objetivo do trabalho é incluir as pessoas, com a mobilidade reduzida, com o fito de melhorar o dia a dia e auxiliar na locomoção, de modo que os inclua melhor na sociedade✳️✳️✳️**
 
 >
-> **Orientações**:
 >
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
 ## Justificativa
 
@@ -69,19 +63,14 @@ inclusivas e acessíveis para todos.
 
 
 >
-> **Orientações**:
->
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+> 
 
 ## Público-Alvo
 
 **✳️✳️✳️ PCD'S (pessoas com dificuldade de locomoção, exclusivamente pessoas com dificuldade de locomoção física) , profissionais de saúde (que trabalhem diretamente com o público PCD supracitado), familiares (familiares do público central), cuidadores (pessoas de cuidado dos PCD'S) e outros ✳️✳️✳️**
 
 >
-> **Orientações**:
->
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+> 
 
 # Product Discovery
 
