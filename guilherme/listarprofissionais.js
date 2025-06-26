@@ -1,57 +1,78 @@
-async function carregarFavoritos() {
-  const container = document.getElementById('favoritosContainer');
-  container.innerHTML = '';
+let profissionais = [];
+let exibidos = 0;
+const LIMITE_INICIAL = 6;
+let filtroAtual = "";
 
-  try {
-    const res = await fetch('http://localhost:3000/locais');
-    const dados = await res.json();
-
-    const favoritos = dados.filter(local => local.favorito === true);
-
-    if (favoritos.length === 0) {
-      container.innerHTML = '<p>Nenhum local favoritado encontrado.</p>';
-      return;
+async function carregarProfissionais() {
+    try {
+        const response = await fetch('http://localhost:3000/profissionais');
+        profissionais = await response.json();
+        exibidos = 0;
+        exibirProximosProfissionais(LIMITE_INICIAL);
+    } catch (error) {
+        console.error('Erro ao carregar profissionais:', error);
     }
+}
 
-    favoritos.forEach(local => {
-      const col = document.createElement('div');
-      col.className = 'col-md-4 mb-4';
-
-      col.innerHTML = `
-        <div class="member-block">
-          <div class="member-block-image-wrap">
-            <img src="${local.imagem || 'https://via.placeholder.com/300'}" class="member-block-image img-fluid" alt="Imagem">
-            <ul class="social-icon">
-              <li>Rua: ${local.rua}, ${local.numero}</li>
-              <li>Bairro: ${local.bairro}</li>
-              <li>Referência: ${local.referencia}</li>
-            </ul>
-          </div>
-          <div class="member-block-info d-flex align-items-center justify-content-between">
-            <div>
-              <h4>${local.nomeLocal}</h4>
-              <p>${'⭐'.repeat(Number(local.nota))} - ${getRecomendacao(local.recomendacao)}</p>
-            </div>
-          </div>
-        </div>
-      `;
-
-      container.appendChild(col);
+function filtrarProfissionais() {
+    return profissionais.filter(prof => {
+        const termo = filtroAtual.toLowerCase();
+        return (
+            prof.username.toLowerCase().includes(termo) ||
+            prof.especialidade.toLowerCase().includes(termo) ||
+            prof.telefone.toLowerCase().includes(termo) ||
+            prof.localizacao.toLowerCase().includes(termo)
+        );
     });
-  } catch (err) {
-    container.innerHTML = '<p>Erro ao carregar dados.</p>';
-    console.error(err);
-  }
 }
 
-function getRecomendacao(valor) {
-  switch (valor) {
-    case '1': return 'Recomendo muito';
-    case '2': return 'Recomendo';
-    case '3': return 'Recomendo pouco';
-    case '4': return 'Não recomendo';
-    default: return '';
-  }
+function exibirProximosProfissionais(qtd) {
+    const container = document.getElementById('lista-profissionais');
+    if (exibidos === 0) container.innerHTML = '';
+
+    const listaFiltrada = filtrarProfissionais();
+    const slice = listaFiltrada.slice(exibidos, exibidos + qtd);
+
+    slice.forEach(prof => {
+        const bloco = document.createElement('div');
+        bloco.className = 'col-lg-4 col-md-6 col-12 mb-4 profissional';
+        bloco.innerHTML = `
+            <div class="member-block">
+                <div class="member-block-image-wrap">
+                    <img src="${prof.imagem || '../guilherme/images/default-user.png'}" class="member-block-image img-fluid" alt="${prof.username}">
+                    <ul class="social-icon">
+                        <li>${prof.telefone}</li>
+                        <li>${prof.horario}</li>
+                        <li>${prof.localizacao}</li>
+                    </ul>
+                </div>
+                <div class="member-block-info d-flex align-items-center">
+                    <h4>${prof.username}</h4>
+                    <p class="ms-auto">${prof.especialidade}</p>
+                </div>
+            </div>
+        `;
+        container.appendChild(bloco);
+    });
+
+    exibidos += slice.length;
+
+    const verMaisBtn = document.getElementById('ver-mais-btn');
+    if (exibidos >= listaFiltrada.length) {
+        verMaisBtn.style.display = 'none';
+    } else {
+        verMaisBtn.style.display = 'inline-block';
+    }
 }
 
-document.addEventListener('DOMContentLoaded', carregarFavoritos);
+document.addEventListener('DOMContentLoaded', carregarProfissionais);
+
+document.getElementById('ver-mais-btn')?.addEventListener('click', () => {
+    exibirProximosProfissionais(6);
+});
+
+document.getElementById('pesquisa')?.addEventListener('input', e => {
+    filtroAtual = e.target.value.trim();
+    exibidos = 0;
+    exibirProximosProfissionais(LIMITE_INICIAL);
+});

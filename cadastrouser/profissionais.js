@@ -13,7 +13,7 @@ loginBtn?.addEventListener('click', () => {
     container.classList.remove('active');
 });
 
-// ---------- Upload da imagem de perfil com redimensionamento e compressão ----------
+// ---------- Upload da imagem de perfil SEM redimensionamento (qualidade total) ----------
 const fileInput = document.getElementById('fileInput');
 const addImg = document.getElementById('addimg');
 let imagemBase64 = '';
@@ -28,45 +28,12 @@ fileInput?.addEventListener('change', () => {
         const reader = new FileReader();
 
         reader.onload = function (e) {
-            const img = new Image();
-            img.onload = function () {
-                const canvas = document.createElement('canvas');
-                const maxSize = 200; // Tamanho máximo para largura/altura
+            imagemBase64 = e.target.result;
 
-                let width = img.width;
-                let height = img.height;
-
-                // Mantém proporção da imagem
-                if (width > height) {
-                    if (width > maxSize) {
-                        height = Math.round((height * maxSize) / width);
-                        width = maxSize;
-                    }
-                } else {
-                    if (height > maxSize) {
-                        width = Math.round((width * maxSize) / height);
-                        height = maxSize;
-                    }
-                }
-
-                canvas.width = width;
-                canvas.height = height;
-
-                const ctx = canvas.getContext('2d');
-                ctx.clearRect(0, 0, width, height);
-                ctx.drawImage(img, 0, 0, width, height);
-
-                // Converte para base64 com compressão jpeg qualidade 0.7 (70%)
-                imagemBase64 = canvas.toDataURL('image/jpeg', 0.7);
-
-                // Substitui ícone pela imagem redimensionada e arredondada
-                addImg.innerHTML = `
-                    <img src="${imagemBase64}" alt="Foto de perfil"
-                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                `;
-            };
-
-            img.src = e.target.result;
+            addImg.innerHTML = `
+                <img src="${imagemBase64}" alt="Foto de perfil"
+                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            `;
         };
 
         reader.readAsDataURL(file);
@@ -113,7 +80,7 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
         localizacao,
         horario,
         telefone,
-        imagem: imagemBase64 // Adiciona imagem no cadastro
+        imagem: imagemBase64 // Imagem sem perda de qualidade
     };
 
     try {
