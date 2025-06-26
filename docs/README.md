@@ -92,12 +92,7 @@ inclusivas e acessíveis para todos.
 >
 
 >
-> **Orientações**:
->
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Criar personas (Hotmart)](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
+> 
 
 # Product Design
 
@@ -111,8 +106,7 @@ inclusivas e acessíveis para todos.
 **✳️✳️✳️ ![image](https://github.com/user-attachments/assets/38db57f6-e907-47c2-a6b8-3b3aa99d62ff)
  ✳️✳️✳️**
 
-##### Proposta para Persona XPTO ⚠️ EXEMPLO ⚠️
-
+##### Proposta para Persona XPTO 
 ![image](https://github.com/user-attachments/assets/90bd85a6-cdbf-402e-bba5-fefa48a3d78f)
 
 
@@ -189,7 +183,7 @@ Descrição para a tela XPTO
 
 ### User Flow
 
-**✳️✳️✳️ [COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS](https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&t=AX3O9xNKzMv6hDCS-1) ✳️✳️✳️**
+**✳️✳️✳️ (https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&t=AX3O9xNKzMv6hDCS-1) ✳️✳️✳️**
 
 
 
