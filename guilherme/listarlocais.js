@@ -1,6 +1,6 @@
 async function carregarFavoritos() {
-  const container = document.getElementById('favoritosContainer');
-  container.innerHTML = '';
+  const favoritosContainer = document.getElementById('favoritosContainer');
+  favoritosContainer.innerHTML = ''; // limpa antes
 
   try {
     const res = await fetch('http://localhost:3000/locais');
@@ -9,7 +9,7 @@ async function carregarFavoritos() {
     const favoritos = dados.filter(local => local.favorito === true);
 
     if (favoritos.length === 0) {
-      container.innerHTML = '<p>Nenhum local favoritado encontrado.</p>';
+      favoritosContainer.innerHTML = '<p>Nenhum local favoritado encontrado.</p>';
       return;
     }
 
@@ -20,25 +20,37 @@ async function carregarFavoritos() {
       col.innerHTML = `
         <div class="member-block">
           <div class="member-block-image-wrap">
-            <img src="${local.imagem || '../guilherme/images/default-user.png'}" class="member-block-image img-fluid" alt="${local.nomeLocal}">
+            <img src="${local.imagem || 'https://via.placeholder.com/300'}" class="member-block-image img-fluid" alt="Imagem">
             <ul class="social-icon">
-              <li>${local.rua}, ${local.numero}</li>
-              <li>${local.bairro}</li>
-              <li>${local.referencia}</li>
+              <li>Rua: ${local.rua}, ${local.numero}</li>
+              <li>Bairro: ${local.bairro}</li>
+              <li>Referência: ${local.referencia}</li>
             </ul>
           </div>
-          <div class="member-block-info d-flex align-items-center">
-            <h4>${local.nomeLocal}</h4>
-            <p class="ms-auto">${'⭐'.repeat(Number(local.nota))}</p>
+          <div class="member-block-info d-flex align-items-center justify-content-between">
+            <div>
+              <h4>${local.nomeLocal}</h4>
+              <p>${'⭐'.repeat(Number(local.nota))} - ${getRecomendacao(local.recomendacao)}</p>
+            </div>
           </div>
         </div>
       `;
 
-      container.appendChild(col);
+      favoritosContainer.appendChild(col);
     });
   } catch (err) {
-    container.innerHTML = '<p>Erro ao carregar dados.</p>';
+    favoritosContainer.innerHTML = '<p>Erro ao carregar dados.</p>';
     console.error(err);
+  }
+}
+
+function getRecomendacao(valor) {
+  switch (valor) {
+    case '1': return 'Recomendo muito';
+    case '2': return 'Recomendo';
+    case '3': return 'Recomendo pouco';
+    case '4': return 'Não recomendo';
+    default: return '';
   }
 }
 
