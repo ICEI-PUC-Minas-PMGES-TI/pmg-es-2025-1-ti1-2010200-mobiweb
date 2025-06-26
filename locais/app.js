@@ -35,46 +35,81 @@ document.getElementById('btnSalvar').addEventListener('click', async () => {
   });
 
   bootstrap.Modal.getInstance(document.getElementById('modalForm')).hide();
+  limparFormulario();
   carregarAvaliacoes();
 });
 
+function limparFormulario() {
+  document.getElementById('nomeLocal').value = '';
+  document.getElementById('bairro').value = '';
+  document.getElementById('rua').value = '';
+  document.getElementById('numero').value = '';
+  document.getElementById('referencia').value = '';
+  document.getElementById('notaSelect').value = '';
+  document.getElementById('recomendacaoSelect').value = '';
+  document.getElementById('comentario').value = '';
+  imagemBase64 = "";
+  preview.src = "";
+}
+
 async function carregarAvaliacoes() {
-  const container = document.getElementById('avaliacoesContainer');
-  container.innerHTML = '';
+  const todosContainer = document.getElementById('todosContainer');
+  const favoritosContainer = document.getElementById('favoritosContainer');
+
+  todosContainer.innerHTML = '';
+  favoritosContainer.innerHTML = '';
 
   const res = await fetch('http://localhost:3000/locais');
   const dados = await res.json();
 
-  dados.forEach((local) => {
-    const col = document.createElement('div');
-    col.className = 'col-md-4 mb-4';
+  dados.forEach(local => {
+    const cardTodos = criarCard(local);
+    todosContainer.appendChild(cardTodos);
 
-    col.innerHTML = `
-      <div class="member-block">
-        <div class="member-block-image-wrap">
-          <img src="${local.imagem || 'https://via.placeholder.com/300'}" class="member-block-image img-fluid" alt="Imagem">
-          <ul class="social-icon">
-            <li>Rua: ${local.rua}, ${local.numero}</li>
-            <li>Bairro: ${local.bairro}</li>
-            <li>Referência: ${local.referencia}</li>
-          </ul>
-        </div>
-        <div class="member-block-info d-flex align-items-center justify-content-between">
-          <div>
-            <h4>${local.nomeLocal}</h4>
-            <p>${'⭐'.repeat(Number(local.nota))} - ${getRecomendacao(local.recomendacao)}</p>
-          </div>
-          <button class="btn btn-sm ${local.favorito ? 'btn-warning' : 'btn-outline-warning'}"
-                  onclick="toggleFavorito(${local.id}, this)">
-            <ion-icon name="${local.favorito ? 'star' : 'star-outline'}"></ion-icon> 
-            ${local.favorito ? 'Favoritado' : 'Favorito'}
-          </button>
-        </div>
-      </div>
-    `;
-
-    container.appendChild(col);
+    if(local.favorito) {
+      const cardFav = criarCard(local);
+      favoritosContainer.appendChild(cardFav);
+    }
   });
+}
+
+function criarCard(local) {
+  const col = document.createElement('div');
+  col.className = 'col-md-4 mb-4';
+
+  const card = document.createElement('div');
+  card.className = 'member-block';
+
+  // Conteúdo da imagem e infos do local
+  card.innerHTML = `
+    <div class="member-block-image-wrap">
+      <img src="${local.imagem || 'https://via.placeholder.com/300'}" class="member-block-image img-fluid" alt="Imagem">
+      <ul class="social-icon">
+        <li>Rua: ${local.rua}, ${local.numero}</li>
+        <li>Bairro: ${local.bairro}</li>
+        <li>Referência: ${local.referencia}</li>
+      </ul>
+    </div>
+    <div class="member-block-info d-flex align-items-center justify-content-between">
+      <div>
+        <h4>${local.nomeLocal}</h4>
+        <p>${'⭐'.repeat(Number(local.nota))} - ${getRecomendacao(local.recomendacao)}</p>
+      </div>
+    </div>
+  `;
+
+  // Botão favoritar
+  const btnFavorito = document.createElement('button');
+  btnFavorito.className = 'btn btn-sm ' + (local.favorito ? 'btn-warning' : 'btn-outline-warning');
+  btnFavorito.innerHTML = `<ion-icon name="${local.favorito ? 'star' : 'star-outline'}"></ion-icon> ${local.favorito ? 'Favoritado' : 'Favorito'}`;
+
+  btnFavorito.addEventListener('click', () => toggleFavorito(local.id));
+
+  // Adiciona o botão no container .member-block-info
+  card.querySelector('.member-block-info').appendChild(btnFavorito);
+
+  col.appendChild(card);
+  return col;
 }
 
 function getRecomendacao(valor) {
@@ -87,27 +122,29 @@ function getRecomendacao(valor) {
   }
 }
 
-async function toggleFavorito(id, botao) {
+async function toggleFavorito(id) {
+  // Busca o local atual
   const res = await fetch(`http://localhost:3000/locais/${id}`);
   const local = await res.json();
   const novoValor = !local.favorito;
 
+  // Atualiza favorito no backend
   await fetch(`http://localhost:3000/locais/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ favorito: novoValor })
   });
 
-  // Atualização visual imediata
-  if (novoValor) {
-    botao.innerHTML = `<ion-icon name="star"></ion-icon> Favoritado`;
-    botao.classList.remove('btn-outline-warning');
-    botao.classList.add('btn-warning');
-  } else {
-    botao.innerHTML = `<ion-icon name="star-outline"></ion-icon> Favorito`;
-    botao.classList.remove('btn-warning');
-    botao.classList.add('btn-outline-warning');
-  }
+  // Recarrega cards para atualizar visual
+  carregarAvaliacoes();
+}
+
+function exibirAba(aba) {
+  document.getElementById('todosContainer').classList.toggle('d-none', aba !== 'todos');
+  document.getElementById('favoritosContainer').classList.toggle('d-none', aba !== 'favoritos');
+
+  document.getElementById('tabTodos').classList.toggle('active', aba === 'todos');
+  document.getElementById('tabFav').classList.toggle('active', aba === 'favoritos');
 }
 
 document.addEventListener('DOMContentLoaded', carregarAvaliacoes);

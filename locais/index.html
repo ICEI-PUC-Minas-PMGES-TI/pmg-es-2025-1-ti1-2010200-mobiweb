@@ -11,14 +11,25 @@
   <link rel="stylesheet" href="../guilherme/css/bootstrap-icons.css">
   <link rel="stylesheet" href="../guilherme/css/bootstrap.min.css">
   <link rel="stylesheet" href="../guilherme/css/home.css">
-  
 </head>
 <body class="bg-light">
 
 <div class="container mt-5">
   <button class="btn btn-dark mb-4" data-bs-toggle="modal" data-bs-target="#modalForm">Cadastrar novo local</button>
-  <h4>Avaliações Cadastradas</h4>
-  <div class="row" id="avaliacoesContainer"></div>
+  
+  <!-- Abas para filtrar -->
+  <ul class="nav nav-tabs mb-3" id="tabFavoritos">
+    <li class="nav-item">
+      <button class="nav-link active" id="tabTodos" onclick="exibirAba('todos')">Todos</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" id="tabFav" onclick="exibirAba('favoritos')">Favoritos</button>
+    </li>
+  </ul>
+
+  <!-- Containers separados para os cards -->
+  <div id="todosContainer" class="row"></div>
+  <div id="favoritosContainer" class="row d-none"></div>
 </div>
 
 <!-- Modal de Cadastro -->

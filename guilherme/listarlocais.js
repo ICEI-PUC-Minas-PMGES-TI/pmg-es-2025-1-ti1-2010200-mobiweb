@@ -20,18 +20,16 @@ async function carregarFavoritos() {
       col.innerHTML = `
         <div class="member-block">
           <div class="member-block-image-wrap">
-            <img src="${local.imagem || 'https://via.placeholder.com/300'}" class="member-block-image img-fluid" alt="Imagem">
+            <img src="${local.imagem || '../guilherme/images/default-user.png'}" class="member-block-image img-fluid" alt="${local.nomeLocal}">
             <ul class="social-icon">
-              <li>Rua: ${local.rua}, ${local.numero}</li>
-              <li>Bairro: ${local.bairro}</li>
-              <li>Referência: ${local.referencia}</li>
+              <li>${local.rua}, ${local.numero}</li>
+              <li>${local.bairro}</li>
+              <li>${local.referencia}</li>
             </ul>
           </div>
-          <div class="member-block-info d-flex align-items-center justify-content-between">
-            <div>
-              <h4>${local.nomeLocal}</h4>
-              <p>${'⭐'.repeat(Number(local.nota))} - ${getRecomendacao(local.recomendacao)}</p>
-            </div>
+          <div class="member-block-info d-flex align-items-center">
+            <h4>${local.nomeLocal}</h4>
+            <p class="ms-auto">${'⭐'.repeat(Number(local.nota))}</p>
           </div>
         </div>
       `;
@@ -41,16 +39,6 @@ async function carregarFavoritos() {
   } catch (err) {
     container.innerHTML = '<p>Erro ao carregar dados.</p>';
     console.error(err);
-  }
-}
-
-function getRecomendacao(valor) {
-  switch (valor) {
-    case '1': return 'Recomendo muito';
-    case '2': return 'Recomendo';
-    case '3': return 'Recomendo pouco';
-    case '4': return 'Não recomendo';
-    default: return '';
   }
 }
 
