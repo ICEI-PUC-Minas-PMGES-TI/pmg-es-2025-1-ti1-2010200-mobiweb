@@ -1,0 +1,34 @@
+{
+  "locais": [
+    {
+      "id": 1,
+      "nomeLocal": "Praça da Liberdade",
+      "bairro": "Savassi",
+      "rua": "Av. Brasil",
+      "numero": "123",
+      "referencia": "Próximo ao café",
+      "nota": "5",
+      "recomendacao": "1",
+      "comentario": "Muito agradável",
+      "imagem": "",
+      "favorito": false,
+      "latitude": -19.9321,
+      "longitude": -43.9378
+    },
+    {
+      "id": 2,
+      "nomeLocal": "Rua Escura",
+      "bairro": "Centro",
+      "rua": "Rua Medo",
+      "numero": "666",
+      "referencia": "Esquina com a solidão",
+      "nota": "1",
+      "recomendacao": "4",
+      "comentario": "Perigoso à noite",
+      "imagem": "",
+      "favorito": false,
+      "latitude": -19.9191,
+      "longitude": -43.9385
+    }
+  ]
+}
