@@ -28,8 +28,19 @@ A documentação do projeto é estruturada da seguinte forma:
 
 # Contexto
 
-Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa e público-alvo.
-
+Este trabalho aborda os desafios da
+mobilidade urbana enfrentados por
+cadeirantes no Brasil.
+Como solução, propõe-se o
+desenvolvimento de um sistema web que
+mapeie e divulgue locais acessíveis — como
+shoppings, praças e estabelecimentos
+comerciais — facilitando a locomoção e
+promovendo a inclusão. A iniciativa visa
+incentivar políticas públicas e ações que
+garantam o direito de ir e vir, contribuindo
+para a construção de cidades mais justas,
+inclusivas e acessíveis para todos. 
 ## Problema
 
 **✳️✳️✳️ A aplicação web do nosso grupo foi pensada para auxiliar o dia a dia dos cadeirantes, uma vez em que a acessibilidade no país é precária. Dessa forma, irá ajudar em problemas de locomoção. ✳️✳️✳️**
@@ -37,20 +48,14 @@ Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa
 >
 >
 >
-> **Orientações**:
->
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+> 
 
 ## Objetivos
 
 **✳️✳️✳️O objetivo do trabalho é incluir as pessoas, com a mobilidade reduzida, com o fito de melhorar o dia a dia e auxiliar na locomoção, de modo que os inclua melhor na sociedade✳️✳️✳️**
 
 >
-> **Orientações**:
 >
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
 ## Justificativa
 
@@ -58,19 +63,14 @@ Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa
 
 
 >
-> **Orientações**:
->
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+> 
 
 ## Público-Alvo
 
 **✳️✳️✳️ PCD'S (pessoas com dificuldade de locomoção, exclusivamente pessoas com dificuldade de locomoção física) , profissionais de saúde (que trabalhem diretamente com o público PCD supracitado), familiares (familiares do público central), cuidadores (pessoas de cuidado dos PCD'S) e outros ✳️✳️✳️**
 
 >
-> **Orientações**:
->
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+> 
 
 # Product Discovery
 
@@ -92,30 +92,21 @@ Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa
 >
 
 >
-> **Orientações**:
->
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Criar personas (Hotmart)](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
+> 
 
 # Product Design
 
 ![image](https://github.com/user-attachments/assets/21aca39e-cda4-4223-bd31-3f3c32525d39)
 
 
-> **Orientações**:
->
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
+> 
 
 ## Proposta de Valor
 
 **✳️✳️✳️ ![image](https://github.com/user-attachments/assets/38db57f6-e907-47c2-a6b8-3b3aa99d62ff)
  ✳️✳️✳️**
 
-##### Proposta para Persona XPTO ⚠️ EXEMPLO ⚠️
-
+##### Proposta para Persona XPTO 
 ![image](https://github.com/user-attachments/assets/90bd85a6-cdbf-402e-bba5-fefa48a3d78f)
 
 
@@ -164,10 +155,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RNF-010 | portabilidade de dispositivos | BAIXA     |
 
 
-> **Orientações**:
->
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+> 
 
 ## Projeto de Interface
 
@@ -191,16 +179,11 @@ Descrição para a tela XPTO
 ![Exemplo de wireframe](images/exemplo-wireframe.png)
 
 
-> **Orientações**:
 >
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
 
 ### User Flow
 
-**✳️✳️✳️ [COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS](https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&t=AX3O9xNKzMv6hDCS-1) ✳️✳️✳️**
+**✳️✳️✳️ (https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&t=AX3O9xNKzMv6hDCS-1) ✳️✳️✳️**
 
 
 
@@ -233,14 +216,14 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 | Ambiente                    | Plataforma | Link de acesso                                     |
 | --------------------------- | ---------- | -------------------------------------------------- |
 | Processo de Design Thinking | Miro       | (https://miro.com/app/board/uXjVIZ5HacY=/)        |
-| Repositório de código     | GitHub     | https://github.com/XXXXXXX ⚠️ EXEMPLO ⚠️      |
+| Repositório de código     | GitHub     | https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2010200-mobiweb    |
 | Hospedagem do site          | Render     | https://site.render.com/XXXXXXX ⚠️ EXEMPLO ⚠️ |
-| Protótipo Interativo       | MarvelApp  | https://marvelapp.com/XXXXXXX ⚠️ EXEMPLO ⚠️   |
-|                             |            |                                                    |
+| Protótipo Interativo       | Figma | https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&p=f&t=oKfqDouFFRyXjaAT-0    |
+| Ferramenta de comunicação  | Discord |     https://discord.com/                                               |
+| Ferramenta de diagramação | Bootstrap |  https://getbootstrap.com/                                               |
+| Editor de código  | Visual Studio Code |     https://code.visualstudio.com/                                               |
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Liste as ferramentas empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) Editor de código, (2) )ferramentas de comunicação, (3) )ferramentas de diagramação, (4) )plataformas de hospedagem, entre outras.
+
 
 ## Gerenciamento do Projeto
 
