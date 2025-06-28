@@ -76,18 +76,18 @@ inclusivas e acessíveis para todos.
 
 ## Etapa de Entendimento
 
-**✳️✳️✳️ ![image](https://github.com/user-attachments/assets/e8afe3d3-18ec-44bd-b9d4-85d1f630b847)
+![image](https://github.com/user-attachments/assets/e8afe3d3-18ec-44bd-b9d4-85d1f630b847)
 ![image](https://github.com/user-attachments/assets/e0fc9135-248e-4b2d-8fe6-00f9a0d9f11a)
 ![image](https://github.com/user-attachments/assets/76c16fc3-5dd5-44c9-9f96-609d4309d6fe)
 ![image](https://github.com/user-attachments/assets/cc9a9be6-a1e1-49dc-b626-025d33c4d053)
-  ✳️✳️✳️**
+  
 
 ## Etapa de Definição
 
 ### Personas
 
 **✳️✳️✳️ ![image](https://github.com/user-attachments/assets/9bbff06d-43bf-4ac1-b925-3eff5176ba25)
- ✳️✳️✳️**
+ 
 
 >
 
@@ -104,7 +104,7 @@ inclusivas e acessíveis para todos.
 ## Proposta de Valor
 
 **✳️✳️✳️ ![image](https://github.com/user-attachments/assets/38db57f6-e907-47c2-a6b8-3b3aa99d62ff)
- ✳️✳️✳️**
+ 
 
 ##### Proposta para Persona XPTO 
 ![image](https://github.com/user-attachments/assets/90bd85a6-cdbf-402e-bba5-fefa48a3d78f)
@@ -170,11 +170,10 @@ Estes são os protótipos de telas do sistema.
 ![image](https://github.com/user-attachments/assets/bb908855-1401-494a-a8be-e9b8360f019b)
 
 
- ✳️✳️✳️**
 
-##### TELA XPTO ⚠️ EXEMPLO ⚠️
+##### TELA XPTO 
 
-Descrição para a tela XPTO
+
 
 ![Exemplo de wireframe](images/exemplo-wireframe.png)
 
@@ -183,7 +182,7 @@ Descrição para a tela XPTO
 
 ### User Flow
 
-**✳️✳️✳️ (https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&t=AX3O9xNKzMv6hDCS-1) ✳️✳️✳️**
+**✳️✳️✳️ (https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&t=AX3O9xNKzMv6hDCS-1) 
 
 
 
@@ -199,15 +198,29 @@ Descrição para a tela XPTO
 
 
 
-✳️✳️✳️**
 
-✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
+✅ Protótipo Interativo 
+ https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&p=f&t=oKfqDouFFRyXjaAT-0
 
 
 
 # Metodologia
 
-Detalhes sobre a organização do grupo e o ferramental empregado.
+Miro - Design Thinking
+Inicialmente utilizamos o Miro durante o processo de Design Thinking - Matriz CSD, Mapa de Stakeholders, Entrevistas, Criação de personas, Historias de usuários, Brainstorming, Mapa de Valor, Mapa de Priorização e Mapa conceitual. 
+
+Figma - Product Design
+Utilizamos o figma para a criação de wireframes e protótipos da interface das páginas e da
+experiência do usuário.
+
+Scrum -
+Para o gerenciamento do projeto utilizamos a metodologia scrum, onde divididimos as tarefas em sprints com duração de duas semanas e encontros semanais online para revisão do processo.
+
+![image](https://github.com/user-attachments/assets/4ee9c263-d9f1-40dd-a8f1-38ad5a54d360)
+
+
+
+
 
 ## Ferramentas
 
