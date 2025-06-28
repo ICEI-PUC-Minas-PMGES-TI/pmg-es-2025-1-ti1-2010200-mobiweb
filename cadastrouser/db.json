@@ -1,5 +1,40 @@
 {
-  "comum": [],
-  "profissionais": [],
-  "locais": []
+  "profissionais": [
+    {
+      "id": 1,
+      "username": "dra.juliana",
+      "email": "juliana@gmail.com",
+      "password": "senha123",
+      "especialidade": "Fisioterapia",
+      "localizacao": "Centro, Belo Horizonte",
+      "horario": "08h às 17h",
+      "telefone": "(31) 98765-4321",
+      "imagem": "https://via.placeholder.com/150"
+    }
+  ],
+  "comum": [
+    {
+      "id": 1,
+      "username": "maria123",
+      "email": "maria@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "locais": [
+    {
+      "id": 1,
+      "nomeLocal": "Clínica Acessível",
+      "bairro": "Funcionários",
+      "rua": "Rua dos Andradas",
+      "numero": "125",
+      "referencia": "Próximo ao hospital",
+      "latitude": -19.9321,
+      "longitude": -43.9372,
+      "nota": "5",
+      "recomendacao": "1",
+      "comentario": "Excelente acessibilidade!",
+      "imagem": "https://via.placeholder.com/250",
+      "favorito": true
+    }
+  ]
 }
