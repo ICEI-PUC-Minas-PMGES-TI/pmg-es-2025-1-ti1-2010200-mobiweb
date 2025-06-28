@@ -50,7 +50,7 @@ async function initMap() {
   });
 
   configurarAutocompleteCadastro();
-  carregarLocaisNoMapa();
+  await carregarLocaisNoMapa();
 }
 
 // Autocomplete no cadastro
@@ -100,19 +100,17 @@ async function carregarLocaisNoMapa() {
       const lng = parseFloat(local.longitude);
       if (isNaN(lat) || isNaN(lng)) return;
 
-      const cor = local.recomendacao === "4"
-        ? "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
-        : "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
-
       const marcador = new google.maps.Marker({
-  position: { lat, lng },
-  map,
-  title: local.nomeLocal,
-  icon: {
-    url: "pin.png", // ✅ Substitua aqui
-    scaledSize: new google.maps.Size(15, 15) // ✅ Ajuste o tamanho se necessário
-  }
-});
+        position: { lat, lng },
+        map,
+        title: local.nomeLocal,
+        icon: {
+          url: "pin.png",
+          scaledSize: new google.maps.Size(20, 20)
+        }
+      });
+
+      const favoritoIcone = local.favorito ? '❤️' : '🤍';
 
       const info = new google.maps.InfoWindow({
         content: `
@@ -124,12 +122,28 @@ async function carregarLocaisNoMapa() {
               <span style="color: #FFD700;">${'⭐'.repeat(Number(local.nota))}</span><br>
               <em>${getRecomendacao(local.recomendacao)}</em>
             </p>
+            <button class="btn btn-sm mt-2 btn-favoritar" data-id="${local.id}" data-favorito="${local.favorito}">${favoritoIcone} Favoritar</button>
           </div>
         `
       });
 
       marcador.addListener("click", () => {
         info.open(map, marcador);
+        setTimeout(() => {
+          const btn = document.querySelector(`.btn-favoritar[data-id='${local.id}']`);
+          if (btn) {
+            btn.addEventListener("click", async () => {
+              const novoFavorito = !(local.favorito);
+              local.favorito = novoFavorito;
+              await fetch(`http://localhost:3000/locais/${local.id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ favorito: novoFavorito })
+              });
+              carregarLocaisNoMapa(); // atualiza sem sumir
+            });
+          }
+        }, 200);
       });
     });
   } catch (erro) {
@@ -137,7 +151,6 @@ async function carregarLocaisNoMapa() {
   }
 }
 
-// Traduz o número da recomendação
 function getRecomendacao(valor) {
   switch (valor) {
     case '1': return 'Recomendo muito';
@@ -148,7 +161,6 @@ function getRecomendacao(valor) {
   }
 }
 
-// Manipula a imagem base64
 document.getElementById('formFileSingle').addEventListener('change', function () {
   const file = this.files[0];
   if (file) {
@@ -161,7 +173,6 @@ document.getElementById('formFileSingle').addEventListener('change', function ()
   }
 });
 
-// Salva um novo local
 document.getElementById('btnSalvar').addEventListener('click', async () => {
   const local = {
     nomeLocal: document.getElementById('nomeLocal').value,
