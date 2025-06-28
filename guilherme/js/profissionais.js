@@ -3,10 +3,7 @@
     const container = document.getElementById("containerProfissionais");
     const profissionais = JSON.parse(localStorage.getItem("usuarios"))?.filter(p => p.tipo === "profissional") || [];
 
-    if (profissionais.length === 0) {
-      container.innerHTML = "<p class='text-center'>Nenhum profissional cadastrado ainda.</p>";
-      return;
-    }
+    
 
     profissionais.forEach((prof, index) => {
       const card = document.createElement("div");
