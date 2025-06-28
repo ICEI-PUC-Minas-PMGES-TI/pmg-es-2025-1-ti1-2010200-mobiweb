@@ -362,12 +362,13 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 
 As referências utilizadas no trabalho foram:
 
-* SOBRENOME, Nome do autor. Título da obra. 8. ed. Cidade: Editora, 2000. 287 p ⚠️ EXEMPLO ⚠️
+https://youtu.be/7hZMGSamsYA?si=wKQ9plGbsp9eJ9gv
+https://www.folhape.com.br/colunistas/tecnologia-e-games/o-scrum-e-o-github-projects-para-gerenciamento-de-projetos/41913/
+https://templatemo.com/
+https://www.pcd.com.br/sites-para-deficientes_pcdsc_469.html
+https://bhcadeirante.com.br/
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
->
+
 > **Orientações**:
 >
 > - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
