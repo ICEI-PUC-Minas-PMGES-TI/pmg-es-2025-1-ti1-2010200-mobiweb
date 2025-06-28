@@ -43,7 +43,7 @@ para a construção de cidades mais justas,
 inclusivas e acessíveis para todos. 
 ## Problema
 
-**✳️✳️✳️ A aplicação web do nosso grupo foi pensada para auxiliar o dia a dia dos cadeirantes, uma vez em que a acessibilidade no país é precária. Dessa forma, irá ajudar em problemas de locomoção. ✳️✳️✳️**
+**✳️✳️✳️ A aplicação web do nosso grupo foi pensada para auxiliar o dia a dia dos cadeirantes, uma vez em que a acessibilidade no país é precária. Dessa forma, irá ajudar em problemas de locomoção. 
 
 >
 >
@@ -52,14 +52,14 @@ inclusivas e acessíveis para todos.
 
 ## Objetivos
 
-**✳️✳️✳️O objetivo do trabalho é incluir as pessoas, com a mobilidade reduzida, com o fito de melhorar o dia a dia e auxiliar na locomoção, de modo que os inclua melhor na sociedade✳️✳️✳️**
+**✳️✳️✳️O objetivo do trabalho é incluir as pessoas, com a mobilidade reduzida, com o fito de melhorar o dia a dia e auxiliar na locomoção, de modo que os inclua melhor na sociedade
 
 >
 >
 
 ## Justificativa
 
-**✳️✳️✳️ Pensamos na aplicação web, uma vez que é importante agregar as pessoas da sociedade, tendo em vista que os PCD’s necessitam de acessibilidade, já que os locais não são preparados para os receber de forma inclusiva, desse modo, existe uma exclusão social que deve ser mitigada✳️✳️✳️**
+**✳️✳️✳️ Pensamos na aplicação web, uma vez que é importante agregar as pessoas da sociedade, tendo em vista que os PCD’s necessitam de acessibilidade, já que os locais não são preparados para os receber de forma inclusiva, desse modo, existe uma exclusão social que deve ser mitigada
 
 
 >
@@ -67,7 +67,7 @@ inclusivas e acessíveis para todos.
 
 ## Público-Alvo
 
-**✳️✳️✳️ PCD'S (pessoas com dificuldade de locomoção, exclusivamente pessoas com dificuldade de locomoção física) , profissionais de saúde (que trabalhem diretamente com o público PCD supracitado), familiares (familiares do público central), cuidadores (pessoas de cuidado dos PCD'S) e outros ✳️✳️✳️**
+**✳️✳️✳️ PCD'S (pessoas com dificuldade de locomoção, exclusivamente pessoas com dificuldade de locomoção física) , profissionais de saúde (que trabalhem diretamente com o público PCD supracitado), familiares (familiares do público central), cuidadores (pessoas de cuidado dos PCD'S) e outros
 
 >
 > 
@@ -86,7 +86,7 @@ inclusivas e acessíveis para todos.
 
 ### Personas
 
-**✳️✳️✳️ ![image](https://github.com/user-attachments/assets/9bbff06d-43bf-4ac1-b925-3eff5176ba25)
+![image](https://github.com/user-attachments/assets/9bbff06d-43bf-4ac1-b925-3eff5176ba25)
  
 
 >
@@ -103,7 +103,7 @@ inclusivas e acessíveis para todos.
 
 ## Proposta de Valor
 
-**✳️✳️✳️ ![image](https://github.com/user-attachments/assets/38db57f6-e907-47c2-a6b8-3b3aa99d62ff)
+![image](https://github.com/user-attachments/assets/38db57f6-e907-47c2-a6b8-3b3aa99d62ff)
  
 
 ##### Proposta para Persona XPTO 
@@ -165,7 +165,7 @@ Artefatos relacionados com a interface e a interacão do usuário na proposta de
 
 Estes são os protótipos de telas do sistema.
 
-**✳️✳️✳️ ![image](https://github.com/user-attachments/assets/f003124e-1ed5-4b99-9a32-bc9b284ae00e)
+![image](https://github.com/user-attachments/assets/f003124e-1ed5-4b99-9a32-bc9b284ae00e)
 ![image](https://github.com/user-attachments/assets/d57eddf9-3b3e-400b-b167-56caee6eefe0)
 ![image](https://github.com/user-attachments/assets/bb908855-1401-494a-a8be-e9b8360f019b)
 
@@ -182,14 +182,14 @@ Estes são os protótipos de telas do sistema.
 
 ### User Flow
 
-**✳️✳️✳️ (https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&t=AX3O9xNKzMv6hDCS-1) 
+(https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&t=AX3O9xNKzMv6hDCS-1) 
 
 
 
 
 ### Protótipo Interativo
 
-**✳️✳️✳️ ![image](https://github.com/user-attachments/assets/e413aef5-0875-413e-805c-e49e7220dd66)
+![image](https://github.com/user-attachments/assets/e413aef5-0875-413e-805c-e49e7220dd66)
 ![image](https://github.com/user-attachments/assets/1dd7a414-310a-40c6-a1d4-d56259a7d4e7)
 ![image](https://github.com/user-attachments/assets/5cadf711-efde-40ab-9f0a-ea6c5729bb88)
 ![image](https://github.com/user-attachments/assets/0ee83f8c-9ac2-4f78-8778-81d144e5ef08)
@@ -242,25 +242,18 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 
 Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
 
-![Exemplo de Kanban](images/exemplo-kanban.png)
+![image](https://github.com/user-attachments/assets/560986d8-33c4-476a-9454-089bd8ef5a7a) 
+![image](https://github.com/user-attachments/assets/5e3caed4-0afd-4dc2-a34e-9f26b3a7af00)
+![image](https://github.com/user-attachments/assets/bb2b70b4-bbc1-46ae-ab6d-315e20efa9f3)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesta parte do documento, você deve apresentar  o processo de trabalho baseado nas metodologias ágeis, a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada a gestão de configuração do projeto via GitHub.
->
-> Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
->
-> **Orientações**:
->
-> - [Sobre Projects - GitHub Docs](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-> - [Gestão de projetos com GitHub | balta.io](https://balta.io/blog/gestao-de-projetos-com-github)
-> - [(460) GitHub Projects - YouTube](https://www.youtube.com/playlist?list=PLiO7XHcmTsldZR93nkTFmmWbCEVF_8F5H)
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+
 
 # Solução Implementada
 
-Esta seção apresenta todos os detalhes da solução criada no projeto.
+Para propor uma solução moderna e eficaz, buscamos referências em plataformas que promovem a inclusão de pessoas com deficiência (PCDs), especialmente cadeirantes. Com base nessas inspirações, desenvolvemos a ideia de um sistema web que ofereça uma experiência acessível e intuitiva, facilitando a navegação e o acesso às informações. Nosso objetivo é criar uma plataforma interativa e acessível, voltada para a identificação, mapeamento e divulgação de locais públicos e privados adaptados para cadeirantes, como shoppings, praças, pontos turísticos, centros de saúde e instituições de ensino.
+
+
+
 
 ## Vídeo do Projeto
 
