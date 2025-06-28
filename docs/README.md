@@ -76,7 +76,7 @@ inclusivas e acessíveis para todos.
 
 ## Etapa de Entendimento
 
-**✳️✳️✳️ ![image](https://github.com/user-attachments/assets/e8afe3d3-18ec-44bd-b9d4-85d1f630b847)
+![image](https://github.com/user-attachments/assets/e8afe3d3-18ec-44bd-b9d4-85d1f630b847)
 ![image](https://github.com/user-attachments/assets/e0fc9135-248e-4b2d-8fe6-00f9a0d9f11a)
 ![image](https://github.com/user-attachments/assets/76c16fc3-5dd5-44c9-9f96-609d4309d6fe)
 ![image](https://github.com/user-attachments/assets/cc9a9be6-a1e1-49dc-b626-025d33c4d053)
