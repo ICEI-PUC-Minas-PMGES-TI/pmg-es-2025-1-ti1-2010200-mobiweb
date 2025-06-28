@@ -271,71 +271,160 @@ O vídeo a seguir traz uma apresentação do problema que a equipe está tratand
 
 Esta seção apresenta as funcionalidades da solução.Info
 
-##### Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️
+##### Funcionalidade 1 - Mapa Interativo
 
-Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
+Permite a inclusão, visualização, edição e exclusão de locais cadastrados no mapa interativo do sistema.
+
 
 * **Estrutura de dados:** [Contatos](#ti_ed_contatos)
 * **Instruções de acesso:**
-  * Abra o site e efetue o login
-  * Acesse o menu principal e escolha a opção Cadastros
-  * Em seguida, escolha a opção Contatos
+  * abra o site
+    entre na aba do mapa
+    procure no mapa os locais acessíveis
+    cadastre-os
 * **Tela da funcionalidade**:
 
-![Tela de Funcionalidade](images/exemplo-funcionalidade.png)
+![Tela de Funcionalidade](![Imagem do WhatsApp de 2025-06-28 à(s) 17 10 34_9d617855](https://github.com/user-attachments/assets/63046ad3-829d-450f-b242-a288f76c243e)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.
->
-> Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
+##### Funcionalidade 2 - Mapa de locais 
+
+Permite buscar locais no mapa, localizar informações específicas e conferir avaliações diretamente no site.
+
+* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Instruções de acesso:**
+  abra o site
+entre na aba do mapa
+Digite alguma informação sobre o local
+Encontre o local pela pesquisa
+Confira as avaliações
+* **Tela da funcionalidade**: ![Imagem do WhatsApp de 2025-06-28 à(s) 17 11 07_6bdb5b83](https://github.com/user-attachments/assets/97f00bc4-6c0b-4ffd-88cf-325b6d2fb0ce)
+
+##### Funcionalidade 3 - Cadastro de locais 
+
+Permite que os usuários cadastrem novos locais acessiveis no mapa 
+
+* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Instruções de acesso:**
+  abra o site
+entre na aba do mapa
+Clique em "cadastrar novo local"
+Preencha as informações 
+Visualizei o seu cadastro no mapa
+* **Tela da funcionalidade**: ![Imagem do WhatsApp de 2025-06-28 à(s) 17 12 30_8cfd3d0a](https://github.com/user-attachments/assets/5a3f5900-4af4-4cf2-b05c-a7e820e7a791)
+  
+* ##### Funcionalidade 4 - favoritar local
+
+Permita que os usuários encontrem locais no mapa e adicionem seus favoritos de forma rápida e prática.
+* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Instruções de acesso:**
+  abra o site
+  entre na aba do mapa
+  Procure um local e clique em favoritar
+* **Tela da funcionalidade**: ![Imagem do WhatsApp de 2025-06-28 à(s) 17 26 10_f8fdeaa8](https://github.com/user-attachments/assets/886df911-e965-4958-a7d6-b0280302dd38)
+
+ ##### Funcionalidade 5 - Locais favoritos na home
+
+Permita que os usuários encontrem os locais favoritos salvos 
+* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Instruções de acesso:**
+
+Role a home page
+desça até "Locais favoritados" 
+encontre seus locais salvo
+* **Tela da funcionalidade**:![Imagem do WhatsApp de 2025-06-28 à(s) 17 30 13_cf08d2aa](https://github.com/user-attachments/assets/e9b33a61-932e-4a13-9c7e-d00894f91cf4)
+
+##### Funcionalidade 6 - Profissionais cadastrados 
+
+Veja mais informações dos profisssionais cadastrados 
+ 
+* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Instruções de acesso:**
+Role a home page até a aba de profissionais cadastrado
+Visualizei todos os profissionais que se cadastrarem na aplicação 
+Para mais informações do profissional, passe o mouse em cima
+* **Tela da funcionalidade**: ![Imagem do WhatsApp de 2025-06-28 à(s) 17 32 35_ebe7fee9](https://github.com/user-attachments/assets/9c549fd5-d1f3-4841-8531-5f5f23623e0d)
+
+##### Funcionalidade 7 - Vídeos de pcd`s
+
+Vídeos de cadeirantes 
+
+* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Instruções de acesso:**
+ Abra a home page
+Clique no botão vermelho 
+Assista ao vídeo
+* **Tela da funcionalidade**: ![Imagem do WhatsApp de 2025-06-28 à(s) 17 31 38_7d3fd25e](https://github.com/user-attachments/assets/55ed00bf-9a23-4a27-acf5-a915bb50d45e)
+
+
 
 ## Estruturas de Dados
 
 Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
 
-##### Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Profissionais  
 
-Contatos da aplicação
-
+Registro dos usuários dos profissionais do sistema utilizados para login e para o perfil do sistema
 ```json
-  {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
-  }
+ {
+  "profissionais": [
+    {
+      "id": 1,
+      "username": "dra.juliana",
+      "email": "juliana@gmail.com",
+      "password": "senha123",
+      "especialidade": "Fisioterapia",
+      "localizacao": "Centro, Belo Horizonte",
+      "horario": "08h às 17h",
+      "telefone": "(31) 98765-4321",
+      "imagem": "https://via.placeholder.com/150"
+    }
+  ]
+}
+
   
 ```
 
-##### Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Usuários  
 
 Registro dos usuários do sistema utilizados para login e para o perfil do sistema
 
-```json
+{
+  "comum": [
   {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
-  }
+      "id": 1,
+      "username": "maria123",
+      "email": "maria@gmail.com",
+      "password": "123456"
+    }
+  ]
+}
+
+
+
+##### Estrutura de Dados - Locais cadastrados 
+
+ Cadastro de locais acessíveis 
+```json
+  "locais": [
+    {
+      "id": 1,
+      "nomeLocal": "Clínica Acessível",
+      "bairro": "Funcionários",
+      "rua": "Rua dos Andradas",
+      "numero": "125",
+      "referencia": "Próximo ao hospital",
+      "latitude": -19.9321,
+      "longitude": -43.9372,
+      "nota": "5",
+      "recomendacao": "1",
+      "comentario": "Excelente acessibilidade!",
+      "imagem": "https://via.placeholder.com/250",
+      "favorito": true
+    }
+  ]
+}
 ```
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
->
-> **Orientações:**
->
-> * [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> * [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
 
 ## Módulos e APIs
 
@@ -343,7 +432,8 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 
 **Images**:
 
-* Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
+* Unsplash - [https://unsplash.com/](https://unsplash.com/) 
+* ChatGpt - [https://chatgpt.com.br/](https://chatgpt.com.br/)
 
 **Fonts:**
 
@@ -351,12 +441,11 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 
 **Scripts:**
 
-* jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
+* Templano - [https://templatemo.com/](https://templatemo.com/)
+* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) 
+* API Google Maps - [https://developers.google.com/maps/documentation?hl=pt-br](https://developers.google.com/maps/documentation?hl=pt-br)
+* API Youtube - [https://developers.google.com/youtube/v3/docs?hl=pt-br](https://developers.google.com/youtube/v3/docs?hl=pt-br)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) Frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.
 
 # Referências
 
