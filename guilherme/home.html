@@ -73,7 +73,7 @@
                         </ul>
 
                         <div class="d-none d-lg-block ms-lg-3">
-                            <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="../cadastrouser/cadastropadrao.html" role="button" aria-controls="offcanvasExample">login</a>
+                            <a id="btn-login"  class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="../cadastrouser/cadastropadrao.html" role="button" aria-controls="offcanvasExample">login</a>
                         </div>
                     </div>
                 </div>
@@ -374,6 +374,75 @@
 
 
             </div>
+            
+            
+<!-- Modal Editar Perfil -->
+<div class="modal fade" id="modalEditarPerfil" tabindex="-1" aria-labelledby="modalEditarPerfilLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="formEditarPerfil">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarPerfilLabel">Editar Perfil</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+
+          <!-- Foto de perfil clicável (vai sumir para usuário comum via JS) -->
+          <div id="fotoPerfilContainer" class="mb-3 text-center">
+            <label class="form-label">Foto de Perfil</label>
+            <div id="previewFotoPerfil" style="width:120px; height:120px; margin: 0 auto; border-radius:50%; overflow:hidden; border:1px solid #ccc; cursor:pointer;">
+              <img id="imgPreview" src="default-avatar.png" alt="Foto de Perfil" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+            </div>
+            <input type="file" id="inputFotoPerfil" accept="image/*" style="display:none;" />
+          </div>
+
+          <!-- Campos comuns -->
+          <div class="mb-3">
+            <label for="editUsername" class="form-label">Nome de Usuário</label>
+            <input type="text" class="form-control" id="editUsername" name="username" required>
+          </div>
+          <div class="mb-3">
+            <label for="editEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="editEmail" name="email" required>
+          </div>
+
+          <!-- Campos para profissional -->
+          <div id="profissionalCampos" style="display:none;">
+            <div class="mb-3">
+              <label for="editEspecialidade" class="form-label">Especialidade</label>
+              <input type="text" class="form-control" id="editEspecialidade" name="especialidade">
+            </div>
+            <div class="mb-3">
+              <label for="editLocalizacao" class="form-label">Localização de Atendimento</label>
+              <input type="text" class="form-control" id="editLocalizacao" name="localizacao">
+            </div>
+            <div class="mb-3">
+              <label for="editHorario" class="form-label">Horário de Atendimento</label>
+              <input type="text" class="form-control" id="editHorario" name="horario">
+            </div>
+            <div class="mb-3">
+              <label for="editTelefone" class="form-label">Telefone para Contato</label>
+              <input type="tel" class="form-control" id="editTelefone" name="telefone">
+            </div>
+          </div>
+
+          <!-- Botão excluir conta -->
+          <div class="mb-3 text-center mt-4">
+            <button type="button" id="btnExcluirConta" class="btn btn-danger">Excluir Minha Conta</button>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 
@@ -407,6 +476,7 @@
         <script src="listarProfissionais.js"></script>
         <script src="listarlocais.js"></script>
         <script src="listarProfissionaisFavoritos.js"></script>
+        <script src="home.js"></script>
 
 
     </body>
