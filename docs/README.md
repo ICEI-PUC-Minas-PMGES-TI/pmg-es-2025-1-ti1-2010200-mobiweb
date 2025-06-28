@@ -170,7 +170,6 @@ Estes são os protótipos de telas do sistema.
 ![image](https://github.com/user-attachments/assets/bb908855-1401-494a-a8be-e9b8360f019b)
 
 
- ✳️✳️✳️**
 
 ##### TELA XPTO ⚠️ EXEMPLO ⚠️
 
@@ -199,7 +198,7 @@ Descrição para a tela XPTO
 
 
 
-✳️✳️✳️**
+
 
 ✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
 
@@ -207,7 +206,21 @@ Descrição para a tela XPTO
 
 # Metodologia
 
-Detalhes sobre a organização do grupo e o ferramental empregado.
+Miro - Design Thinking
+Inicialmente utilizamos o Miro durante o processo de Design Thinking - Matriz CSD, Mapa de Stakeholders, Entrevistas, Criação de personas, Historias de usuários, Brainstorming, Mapa de Valor, Mapa de Priorização e Mapa conceitual. 
+
+Figma - Product Design
+Utilizamos o figma para a criação de wireframes e protótipos da interface das páginas e da
+experiência do usuário.
+
+Scrum -
+Para o gerenciamento do projeto utilizamos a metodologia scrum, onde divididimos as tarefas em sprints com duração de duas semanas e encontros semanais online para revisão do processo.
+
+![image](https://github.com/user-attachments/assets/4ee9c263-d9f1-40dd-a8f1-38ad5a54d360)
+
+
+
+
 
 ## Ferramentas
 
