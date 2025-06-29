@@ -284,7 +284,7 @@ Permite a inclusão, visualização, edição e exclusão de locais cadastrados 
     cadastre-os
 * **Tela da funcionalidade**:
 
-![Tela de Funcionalidade](![Imagem do WhatsApp de 2025-06-28 à(s) 17 10 34_9d617855](https://github.com/user-attachments/assets/63046ad3-829d-450f-b242-a288f76c243e)
+* **Tela da funcionalidade**:(![Imagem do WhatsApp de 2025-06-28 à(s) 17 10 34_9d617855](https://github.com/user-attachments/assets/63046ad3-829d-450f-b242-a288f76c243e)
 
 ##### Funcionalidade 2 - Mapa de locais 
 
