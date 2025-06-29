@@ -128,7 +128,7 @@ document.querySelector('.login form')?.addEventListener('submit', async (e) => {
         if (users.length > 0) {
             localStorage.setItem('usuarioLogado', JSON.stringify(users[0]));
             alert(`Login bem-sucedido. Bem-vindo, ${users[0].username}!`);
-            window.location.href = '../guilherme/home.html';
+            window.location.href = '../home.html';
         } else {
             alert('Usuário ou senha incorretos.');
         }

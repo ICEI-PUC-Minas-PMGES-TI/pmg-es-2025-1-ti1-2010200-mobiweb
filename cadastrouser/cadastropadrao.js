@@ -89,7 +89,7 @@ document.querySelector('.login form')?.addEventListener('submit', async (e) => {
             localStorage.setItem('usuarioLogado', JSON.stringify(users[0])); // Salva o usuário logado
             alert(`Login de usuário comum bem-sucedido. Bem-vindo, ${users[0].username}!`);
             // Possivelmente um redirecionamento diferente para home de usuários comuns
-            window.location.href = '../guilherme/home.html'; // Exemplo: uma home específica para comum
+            window.location.href = '../home.html'; // Exemplo: uma home específica para comum
         } else {
             alert('Nome de usuário ou senha incorretos.');
         }
