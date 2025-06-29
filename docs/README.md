@@ -320,7 +320,7 @@ Permita que os usuários encontrem locais no mapa e adicionem seus favoritos de 
   abra o site
   entre na aba do mapa
   Procure um local e clique em favoritar
-* **Tela da funcionalidade**: ![Imagem do WhatsApp de 2025-06-28 à(s) 17 26 10_f8fdeaa8](https://github.com/user-attachments/assets/886df911-e965-4958-a7d6-b0280302dd38)
+* **Tela da funcionalidade**:![Imagem do WhatsApp de 2025-06-28 à(s) 17 26 10_f8fdeaa8](https://github.com/user-attachments/assets/886df911-e965-4958-a7d6-b0280302dd38)
 
  ##### Funcionalidade 5 - Locais favoritos na home
 
