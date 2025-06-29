@@ -388,9 +388,9 @@ Registro dos usuários dos profissionais do sistema utilizados para login e para
 
 Registro dos usuários do sistema utilizados para login e para o perfil do sistema
 
-{
+```json
   "comum": [
-  {
+    {
       "id": 1,
       "username": "maria123",
       "email": "maria@gmail.com",
