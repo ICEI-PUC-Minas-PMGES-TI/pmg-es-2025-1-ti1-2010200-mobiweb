@@ -2,11 +2,11 @@
 
 Informações básicas do projeto.
 
-* **Projeto:** [Mobiflux]
+* **Projeto:** [Mobflux]
 * **Repositório GitHub:** [https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2010200-mobiweb/tree/master]
 * **Membros da equipe:**
 
-  * [Giovana lott] https://github.com/GiovanaLott
+  * [Giovana Lott] https://github.com/GiovanaLott
   * [Guilherme Nascimento] https://github.com/guilhermeoliveira-gno
   * [João Victor Calixto] https://github.com/joaocalixto09
   * [Rafael Henriques] https://github.com/Rafaelhenriques01
