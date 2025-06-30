@@ -261,6 +261,8 @@ O vídeo a seguir traz uma apresentação do problema que a equipe está tratand
 
 [Vídeos do projeto para assistir:](./vdeo.mp4)
 
+Vídeo pelo Youtube: https://youtu.be/xo452YFxL7k
+
 ## Funcionalidades
 
 Esta seção apresenta as funcionalidades da solução.Info
