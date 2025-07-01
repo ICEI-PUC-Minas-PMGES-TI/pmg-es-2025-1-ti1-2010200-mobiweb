@@ -230,7 +230,7 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 | --------------------------- | ---------- | -------------------------------------------------- |
 | Processo de Design Thinking | Miro       | (https://miro.com/app/board/uXjVIZ5HacY=/)        |
 | Repositório de código     | GitHub     | https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2010200-mobiweb    |
-| Hospedagem do site          | Render     | https://site.render.com/XXXXXXX ⚠️ EXEMPLO ⚠️ |
+| Hospedagem do site          | Netlify     | (https://mobflux.netlify.app/) |
 | Protótipo Interativo       | Figma | https://www.figma.com/design/lJaKjzm0UfBAhgQDdniUWK/HOME?node-id=0-1&p=f&t=oKfqDouFFRyXjaAT-0    |
 | Ferramenta de comunicação  | Discord |     https://discord.com/                                               |
 | Ferramenta de diagramação | Bootstrap |  https://getbootstrap.com/                                               |
@@ -257,15 +257,11 @@ Para propor uma solução moderna e eficaz, buscamos referências em plataformas
 
 ## Vídeo do Projeto
 
-O vídeo a seguir traz uma apresentação do problema que a equipe está tratando e a proposta de solução. ⚠️ EXEMPLO ⚠️
+O vídeo a seguir traz uma apresentação do problema que a equipe está tratando e a proposta de solução:
 
-[![Vídeo do projeto](images/video.png)](https://www.youtube.com/embed/70gGoFyGeqQ)
+[Vídeos do projeto para assistir:](./vdeo.mp4)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> O video de apresentação é voltado para que o público externo possa conhecer a solução. O formato é livre, sendo importante que seja apresentado o problema e a solução numa linguagem descomplicada e direta.
->
-> Inclua um link para o vídeo do projeto.
+Vídeo pelo Youtube: https://youtu.be/xo452YFxL7k
 
 ## Funcionalidades
 
@@ -276,7 +272,18 @@ Esta seção apresenta as funcionalidades da solução.Info
 Permite a inclusão, visualização, edição e exclusão de locais cadastrados no mapa interativo do sistema.
 
 
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Estrutura de dados:**
+  ```json
+  {
+      "id": 1,
+      "titulo": "Acesso ao Mapa - Local Cadastrado",
+      "passos": [
+        "Abra o site",
+        "Entre na aba do mapa",
+        "Procure no mapa os locais cadastrados"
+      ]
+    },
+
 * **Instruções de acesso:**
   * abra o site
     entre na aba do mapa
@@ -290,7 +297,20 @@ Permite a inclusão, visualização, edição e exclusão de locais cadastrados 
 
 Permite buscar locais no mapa, localizar informações específicas e conferir avaliações diretamente no site.
 
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Estrutura de dados:**
+  ```json
+  {
+      "id": 2,
+      "titulo": "Pesquisar Local no Mapa",
+      "passos": [
+        "Abra o site",
+        "Entre na aba do mapa",
+        "Digite alguma informação sobre o local",
+        "Encontre o local pela pesquisa",
+        "Confira as avaliações"
+      ]
+    },
+
 * **Instruções de acesso:**
   abra o site
 entre na aba do mapa
@@ -303,7 +323,20 @@ Confira as avaliações
 
 Permite que os usuários cadastrem novos locais acessiveis no mapa 
 
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Estrutura de dados:**
+   ```json
+    {
+      "id": 3,
+      "titulo": "Cadastrar Novo Local",
+      "passos": [
+        "Abra o site",
+        "Entre na aba do mapa",
+        "Clique em \"cadastrar novo local\"",
+        "Preencha as informações",
+        "Visualize o seu cadastro no mapa"
+      ]
+    },
+
 * **Instruções de acesso:**
   abra o site
 entre na aba do mapa
@@ -315,7 +348,18 @@ Visualizei o seu cadastro no mapa
 * ##### Funcionalidade 4 - favoritar local
 
 Permita que os usuários encontrem locais no mapa e adicionem seus favoritos de forma rápida e prática.
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Estrutura de dados:**
+  ```json
+   {
+      "id": 4,
+      "titulo": "Favoritar um Local",
+      "passos": [
+        "Abra o site",
+        "Entre na aba do mapa",
+        "Procure um local e clique em favoritar"
+      ]
+    },
+
 * **Instruções de acesso:**
   abra o site
   entre na aba do mapa
@@ -325,7 +369,18 @@ Permita que os usuários encontrem locais no mapa e adicionem seus favoritos de 
  ##### Funcionalidade 5 - Locais favoritos na home
 
 Permita que os usuários encontrem os locais favoritos salvos 
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Estrutura de dados:**
+   ```json
+   {
+      "id": 5,
+      "titulo": "Acessar Locais Favoritados",
+      "passos": [
+        "Role a home page",
+        "Desça até \"Locais favoritados\"",
+        "Encontre seus locais salvos"
+      ]
+    },
+
 * **Instruções de acesso:**
 
 Role a home page
@@ -337,7 +392,18 @@ encontre seus locais salvo
 
 Veja mais informações dos profisssionais cadastrados 
  
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+* **Estrutura de dados:**
+   ```json
+    {
+      "id": 6,
+      "titulo": "Assistir ao Vídeo de Uso",
+      "passos": [
+        "Abra a home page",
+        "Clique no botão vermelho",
+        "Assista aos vídeos"
+      ]
+    },
+
 * **Instruções de acesso:**
 Role a home page até a aba de profissionais cadastrado
 Visualizei todos os profissionais que se cadastrarem na aplicação 
@@ -346,9 +412,20 @@ Para mais informações do profissional, passe o mouse em cima
 
 ##### Funcionalidade 7 - Vídeos de pcd`s
 
-Vídeos de cadeirantes 
 
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+
+* **Estrutura de dados:**
+  ```json
+   {
+      "id": 7,
+      "titulo": "Visualizar Profissionais Cadastrados",
+      "passos": [
+        "Role a home page até a aba de profissionais cadastrados"
+      ],
+      "descricao": "Visualize todos os profissionais que se cadastrarem na aplicação. Para mais informações do profissional, passe o mouse em cima."
+    }
+  ]
+}
 * **Instruções de acesso:**
  Abra a home page
 Clique no botão vermelho 
