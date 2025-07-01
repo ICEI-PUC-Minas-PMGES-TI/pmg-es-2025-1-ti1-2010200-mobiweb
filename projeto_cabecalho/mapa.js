@@ -2,6 +2,9 @@ let map;
 let searchBox;
 let imagemBase64 = "";
 
+// URL da sua API hospedada
+const apiBaseUrl = 'https://0aecadb3-e8a7-43c2-ab62-e5bf81c2286c-00-1roml84r0ldxr.riker.replit.dev/locais';
+
 // Inicializa o mapa e autocomplete
 async function initMap() {
   const beloHorizonte = { lat: -19.9167, lng: -43.9345 };
@@ -92,8 +95,14 @@ function configurarAutocompleteCadastro() {
 // Carrega os locais cadastrados no mapa
 async function carregarLocaisNoMapa() {
   try {
-    const resposta = await fetch("http://localhost:3000/locais");
+    const resposta = await fetch(apiBaseUrl);
     const locais = await resposta.json();
+
+    // Limpa marcadores antigos
+    if(window.locaisMarkers){
+      window.locaisMarkers.forEach(marker => marker.setMap(null));
+    }
+    window.locaisMarkers = [];
 
     locais.forEach((local) => {
       const lat = parseFloat(local.latitude);
@@ -109,6 +118,8 @@ async function carregarLocaisNoMapa() {
           scaledSize: new google.maps.Size(20, 20)
         }
       });
+
+      window.locaisMarkers.push(marcador);
 
       const favoritoIcone = local.favorito ? '❤️' : '🤍';
 
@@ -129,19 +140,22 @@ async function carregarLocaisNoMapa() {
 
       marcador.addListener("click", () => {
         info.open(map, marcador);
+
         setTimeout(() => {
           const btn = document.querySelector(`.btn-favoritar[data-id='${local.id}']`);
           if (btn) {
             btn.addEventListener("click", async () => {
-              const novoFavorito = !(local.favorito);
+              const novoFavorito = !local.favorito;
               local.favorito = novoFavorito;
-              await fetch(`http://localhost:3000/locais/${local.id}`, {
+
+              await fetch(`${apiBaseUrl}/${local.id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ favorito: novoFavorito })
               });
-              carregarLocaisNoMapa(); // atualiza sem sumir
-            });
+
+              await carregarLocaisNoMapa();
+            }, { once: true });
           }
         }, 200);
       });
@@ -189,7 +203,7 @@ document.getElementById('btnSalvar').addEventListener('click', async () => {
     favorito: false
   };
 
-  await fetch('http://localhost:3000/locais', {
+  await fetch(apiBaseUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(local)
@@ -197,7 +211,7 @@ document.getElementById('btnSalvar').addEventListener('click', async () => {
 
   bootstrap.Modal.getInstance(document.getElementById('modalForm')).hide();
   limparFormulario();
-  carregarLocaisNoMapa();
+  await carregarLocaisNoMapa();
 });
 
 function limparFormulario() {

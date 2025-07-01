@@ -4,6 +4,9 @@ const container = document.querySelector('.container');
 const registerBtn = document.querySelector('.register-btn');
 const loginBtn = document.querySelector('.login-btn');
 
+// URL da API json-server hospedada no Replit
+const apiUrl = 'https://0aecadb3-e8a7-43c2-ab62-e5bf81c2286c-00-1roml84r0ldxr.riker.replit.dev/comum';
+
 registerBtn?.addEventListener('click', () => {
     container.classList.add('active');
 });
@@ -11,9 +14,6 @@ registerBtn?.addEventListener('click', () => {
 loginBtn?.addEventListener('click', () => {
     container.classList.remove('active');
 });
-
-// Defina a URL da API para a coleção 'comum'
-const apiUrl = 'http://localhost:3000/comum';
 
 document.querySelector('.register form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -42,8 +42,7 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
         return;
     }
 
-
-    const novoUsuarioComum = { // Renomeado para refletir que é um usuário comum
+    const novoUsuarioComum = { 
         username,
         email,
         password,
@@ -51,7 +50,7 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
 
     // --- ENVIAR DADOS PARA O DB.JSON (coleção 'comum') ---
     try {
-        await fetch(apiUrl, { // POST para a URL de usuários comuns
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -59,9 +58,13 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
             body: JSON.stringify(novoUsuarioComum)
         });
 
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+
         alert('Cadastro de usuário comum realizado com sucesso!');
-        // Possívelmente um redirecionamento diferente para usuários comuns
-        window.location.href = 'cadastropadrao_comum.html'; // Exemplo: uma página específica para comum
+        // Redirecionar para página específica para comum
+        window.location.href = 'cadastropadrao_comum.html'; 
     } catch (error) {
         console.error('Erro ao cadastrar usuário comum:', error);
         alert('Erro ao realizar o cadastro de usuário comum. Tente novamente.');
@@ -80,16 +83,13 @@ document.querySelector('.login form')?.addEventListener('submit', async (e) => {
     }
 
     try {
-        // --- BUSCAR USUÁRIO COMUM NO DB.JSON PARA LOGIN ---
-        // A busca é feita na URL de usuários comuns
         const res = await fetch(`${apiUrl}?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
         const users = await res.json();
 
         if (users.length > 0) {
-            localStorage.setItem('usuarioLogado', JSON.stringify(users[0])); // Salva o usuário logado
+            localStorage.setItem('usuarioLogado', JSON.stringify(users[0]));
             alert(`Login de usuário comum bem-sucedido. Bem-vindo, ${users[0].username}!`);
-            // Possivelmente um redirecionamento diferente para home de usuários comuns
-            window.location.href = '../home.html'; // Exemplo: uma home específica para comum
+            window.location.href = '../home.html'; // redirecionar para home comum
         } else {
             alert('Nome de usuário ou senha incorretos.');
         }

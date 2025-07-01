@@ -35,6 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const profissionalCampos = document.getElementById('profissionalCampos');
   const fotoPerfilContainer = document.getElementById('fotoPerfilContainer');
 
+  const apiProfissionais = 'https://0aecadb3-e8a7-43c2-ab62-e5bf81c2286c-00-1roml84r0ldxr.riker.replit.dev/profissionais';
+  const apiComum = 'https://0aecadb3-e8a7-43c2-ab62-e5bf81c2286c-00-1roml84r0ldxr.riker.replit.dev/comum';
+
   if (usuarioLogadoStr) {
     try {
       const usuario = JSON.parse(usuarioLogadoStr);
@@ -149,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
-      const apiUrlBase = dadosAtualizados.especialidade ? 'http://localhost:3000/profissionais' : 'http://localhost:3000/comum';
+      const apiUrlBase = dadosAtualizados.especialidade ? apiProfissionais : apiComum;
 
       const response = await fetch(`${apiUrlBase}/${dadosAtualizados.id}`, {
         method: 'PUT',
@@ -176,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!usuarioLogadoStr) throw new Error('Nenhum usuário logado.');
 
       const usuario = JSON.parse(usuarioLogadoStr);
-      const apiUrlBase = usuario.especialidade ? 'http://localhost:3000/profissionais' : 'http://localhost:3000/comum';
+      const apiUrlBase = usuario.especialidade ? apiProfissionais : apiComum;
 
       if (!usuario.id) throw new Error('Usuário sem ID.');
 
