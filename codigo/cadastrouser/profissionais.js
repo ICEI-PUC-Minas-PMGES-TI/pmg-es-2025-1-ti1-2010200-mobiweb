@@ -3,7 +3,7 @@ const registerBtn = document.querySelector('.register-btn');
 const loginBtn = document.querySelector('.login-btn');
 
 // URL da API json-server hospedada no Replit
-const apiUrl = 'https://0aecadb3-e8a7-43c2-ab62-e5bf81c2286c-00-1roml84r0ldxr.riker.replit.dev/profissionais';
+const apiUrl = 'http://localhost:3000/profissionais';
 
 registerBtn?.addEventListener('click', () => {
     container.classList.add('active');
@@ -128,7 +128,7 @@ document.querySelector('.login form')?.addEventListener('submit', async (e) => {
         if (users.length > 0) {
             localStorage.setItem('usuarioLogado', JSON.stringify(users[0]));
             alert(`Login bem-sucedido. Bem-vindo, ${users[0].username}!`);
-            window.location.href = '../home.html';
+            window.location.href = '../public/index.html';
         } else {
             alert('Usuário ou senha incorretos.');
         }

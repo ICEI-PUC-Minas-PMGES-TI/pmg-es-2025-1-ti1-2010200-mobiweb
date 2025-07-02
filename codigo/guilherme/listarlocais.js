@@ -4,7 +4,7 @@ async function carregarFavoritos() {
 
   try {
     // URL da sua API no Replit (substitua se mudar)
-    const apiUrl = 'https://0aecadb3-e8a7-43c2-ab62-e5bf81c2286c-00-1roml84r0ldxr.riker.replit.dev/locais';
+    const apiUrl = 'http://localhost:3000/locais';
 
     const res = await fetch(apiUrl);
     const dados = await res.json();

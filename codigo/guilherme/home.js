@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       alert('Conta excluída com sucesso.');
       localStorage.removeItem('usuarioLogado');
-      window.location.href = '../home.html';
+      window.location.href = '../public/index.html';
 
     } catch (error) {
       console.error(error);

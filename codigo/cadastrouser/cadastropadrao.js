@@ -5,7 +5,7 @@ const registerBtn = document.querySelector('.register-btn');
 const loginBtn = document.querySelector('.login-btn');
 
 // URL da API json-server hospedada no Replit
-const apiUrl = 'https://0aecadb3-e8a7-43c2-ab62-e5bf81c2286c-00-1roml84r0ldxr.riker.replit.dev/comum';
+const apiUrl = 'http://localhost:3000/comum';
 
 registerBtn?.addEventListener('click', () => {
     container.classList.add('active');
@@ -64,7 +64,7 @@ document.querySelector('.register form')?.addEventListener('submit', async (e) =
 
         alert('Cadastro de usuário comum realizado com sucesso!');
         // Redirecionar para página específica para comum
-        window.location.href = 'cadastropadrao_comum.html'; 
+        window.location.href = 'cadastropadrao.html'; 
     } catch (error) {
         console.error('Erro ao cadastrar usuário comum:', error);
         alert('Erro ao realizar o cadastro de usuário comum. Tente novamente.');
@@ -89,7 +89,7 @@ document.querySelector('.login form')?.addEventListener('submit', async (e) => {
         if (users.length > 0) {
             localStorage.setItem('usuarioLogado', JSON.stringify(users[0]));
             alert(`Login de usuário comum bem-sucedido. Bem-vindo, ${users[0].username}!`);
-            window.location.href = '../home.html'; // redirecionar para home comum
+            window.location.href = '../public/index.html'; // redirecionar para home comum
         } else {
             alert('Nome de usuário ou senha incorretos.');
         }
