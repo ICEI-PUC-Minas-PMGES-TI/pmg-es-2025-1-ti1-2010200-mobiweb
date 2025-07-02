@@ -10,17 +10,6 @@
       "horario": "08h às 17h",
       "telefone": "(31) 98765-4321",
       "imagem": "../guilherme/images/mock.png"
-    },
-    {
-      "id": "79e2",
-      "username": "teste",
-      "email": "wat@gmail.com",
-      "password": "123",
-      "especialidade": "teste",
-      "localizacao": "teste",
-      "horario": "33",
-      "telefone": "(32) 32342-4234",
-      "imagem": ""
     }
   ],
   "comum": [
@@ -44,21 +33,6 @@
     }
   ],
   "locais": [
-    {
-      "id": "1",
-      "nomeLocal": "Clínica Acessível",
-      "bairro": "Funcionários",
-      "rua": "Rua dos Andradas",
-      "numero": "125",
-      "referencia": "Próximo ao hospital",
-      "latitude": -19.9321,
-      "longitude": -43.9372,
-      "nota": "5",
-      "recomendacao": "1",
-      "comentario": "Excelente acessibilidade!",
-      "imagem": "https://via.placeholder.com/250",
-      "favorito": false
-    },
     {
       "id": "89e6",
       "nomeLocal": "puc",
